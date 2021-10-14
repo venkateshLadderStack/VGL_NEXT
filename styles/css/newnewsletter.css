@@ -1,0 +1,120 @@
+.newsletter_container {
+  width: 100%;
+  margin: 10px 0px;
+  position: relative;
+}
+
+.sign_up_form {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.sign_up_form input {
+  padding: 7px 15px;
+  width: 70%;
+  color: #888585;
+  font-family: "Arial";
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: 4px solid yellow;
+  box-shadow: 4px 4px 0px black;
+  outline: none;
+  background: transparent;
+}
+
+.sign_up_form input :focus {
+  outline: none;
+  border: 0px;
+  background: transparent;
+}
+
+.sign_up_form button {
+  width: 30%;
+  color: black;
+  background-color: yellow;
+  font-family: "SportingGrotesque-Bold";
+  font-size: 14px;
+  border: 0px;
+  margin-top: 4px;
+  box-shadow: 4px 4px 0px black;
+  outline: none;
+}
+
+.news_title {
+  padding: 5px 5px 0px 5px;
+  font-size: 16px;
+  line-height: 30px;
+  color: #010101;
+  font-weight: 700;
+  font-family: "SportingGrotesque-Bold";
+  text-align: center;
+  background-color: yellow;
+  margin: 15px 0px;
+  display: flex;
+  justify-content: center;
+}
+
+.news_subtitle {
+  width: 80%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #010101;
+  font-weight: 400;
+  font-family: "SportingGrotesque";
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.envelope {
+  width: 45px;
+  position: absolute;
+  top: 20px;
+  right: 55px;
+  z-index: -999;
+  transform: rotate(-30deg);
+}
+
+.spark {
+  width: 25px;
+  position: absolute;
+  top: -10px;
+  right: 110px;
+  z-index: -99;
+}
+
+@media screen and (max-width: 767px) {
+  .newsletter_container {
+    width: 100%;
+    margin: 20px 0px 10px 0px;
+    position: relative;
+  }
+
+  .news_title {
+    padding: 10px 15px 5px 15px;
+    font-size: 20px;
+    line-height: 30px;
+    margin: 0px 0px 20px 0px;
+    white-space: nowrap;
+  }
+
+  .news_subtitle {
+    width: 100%;
+    font-size: 13px;
+    line-height: 20px;
+  }
+
+  .envelope {
+    display: none;
+  }
+
+  .envelope-home {
+    display: none;
+  }
+
+  .spark {
+    display: none;
+  }
+}

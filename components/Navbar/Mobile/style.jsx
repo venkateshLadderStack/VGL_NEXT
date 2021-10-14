@@ -1,0 +1,170 @@
+import { makeStyles } from "@material-ui/core/styles";
+
+export const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundImage: "linear-gradient(#fff 0%, #ffe6b7 100%)",
+    height: "100vh",
+    zIndex: 100000,
+    overflow: "auto",
+  },
+  header: {
+    position: "fixed",
+    top: 0,
+    width: "100%",
+    transition: "all ease-in-out .5s",
+  },
+  mainHeader: {
+    paddingTop: 10,
+    paddingBottom: 10,
+    position: "relative",
+    borderBottom: "4px solid transparent",
+    borderColor: "transparent",
+  },
+  mobileAction: {
+    display: "block",
+    fontSize: 55,
+    zIndex: 1,
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+  },
+  headerLogoAnchor: {
+    paddingTop: ".3125rem",
+    paddingBottom: ".3125rem",
+  },
+  headerLogo: {
+    maxHeight: 63,
+    // marginLeft: auto,
+    display: "block",
+    // marginRight: auto;
+    transition: "all 0.5s ease",
+  },
+  mobileMenu: {
+    marginTop: 10,
+    borderTop: "1px solid rgba(248, 177, 149, .47)",
+  },
+  input: {
+    border: "none !important",
+    backgroundColor: "transparent !important",
+    outline: "none !important",
+    outlineColor: "#fff !important",
+    borderTopRightRadius: 11,
+    borderBottomRightRadius: 11,
+    maxWidth: 260,
+    width: "100%",
+    height: 41,
+    padding: "10px 20px",
+    "&:focus": {
+      outline: "none !important",
+      outlineWidth: 0,
+      background: "transparent !important",
+    },
+    "&:active": {
+      outline: "none !important",
+      outlineWidth: 0,
+      background: "transparent !important",
+    },
+  },
+  searchIcon: {
+    backgroundColor: "transparent !important",
+    border: "none !important",
+    borderRadius: "11px !important",
+  },
+  navSearchContainer: {
+    background: "transparent !important",
+    border: "solid 1px rgba(0, 0, 0, 0.14) !important",
+    borderRadius: "11px !important",
+    transition: "all ease-in-out .5s",
+  },
+  primaryMenuLink: {
+    fontSize: 18,
+    fontFamily: "Lato, sans-serif",
+    fontStretch: "normal",
+    fontStyle: "normal",
+    lineHeight: 2.28,
+    letterSpacing: 0.75,
+    textAlign: "center",
+    // textDecoration: "none",
+    color: "#000",
+    paddingLeft: 15,
+    paddingRight: 15,
+    textDecoration: "none",
+    "&:hover": {
+      color: "#000",
+    },
+  },
+  subMenu: {
+    display: "block",
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
+    "& a": {
+      fontWeight: 400,
+      fontSize: 18,
+      fontFamily: "Lato, sans-serif",
+      fontStretch: "normal",
+      fontStyle: "normal",
+      lineHeight: 2.22,
+      letterSpacing: 0.79,
+      textAlign: "center",
+      color: "#000",
+      textDecoration: "none",
+      "&:hover": {
+        color: "#000",
+      },
+    },
+  },
+  darkModeContainer: {
+    paddingTop: 2.5,
+    paddingBottom: 2.5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderBottom: "1px solid rgba(248, 177, 149, .47)",
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  darkModeStatus: {
+    "& img": {
+      maxWidth: 25,
+      marginRight: 10,
+    },
+    "& span": {
+      fontWeight: 400,
+      fontSize: 18,
+      fontFamily: "Lato, sans-serif",
+      fontStretch: "normal",
+      fontStyle: "normal",
+      lineHeight: 2.22,
+      letterSpacing: 0.79,
+      textAlign: "center",
+      color: "#000",
+    },
+  },
+  socialPageContainer: {
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderBottom: "1px solid rgba(248, 177, 149, .47)",
+    "& div": {
+      display: "flex",
+      justifyContent: "space-between",
+      "& a": {
+        color: "#000",
+        "&:hover": {
+          color: "#000",
+        },
+      },
+      "& svg": {
+        fontSize: 30,
+      },
+    },
+  },
+  darkModeText: {
+    color: "#000",
+  },
+  lightModeText: {
+    color: "#fff",
+  },
+}));
