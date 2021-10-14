@@ -6,7 +6,7 @@ import SliderWrapper from "./_SlickSliderStyle";
 function HeroSlider({ data }) {
   const settings = {
     dots: true,
-    // autoplay: true,
+    autoplay: true,
     autoplaySpeed: 3000,
     infinite: true,
     slidesToShow: 1,

@@ -2,7 +2,6 @@ import React from "react";
 import { useStyles } from "./style";
 import { Container, Grid } from "@material-ui/core";
 import Link from "next/link";
-import Image from "next/image";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -10,6 +9,7 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import SearchInput from "../../searchInput";
+import ImageComponent from "../../ImageComponent";
 
 export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
   const classes = useStyles();
@@ -38,13 +38,14 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
             <Grid item xs={4} sm={4} md={4} lg={4}>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <Link className={classes.headerLogoAnchor} href="/">
-                  <Image
+                  <ImageComponent
                     src={"/assets/logo.png"}
                     className={classes.headerLogo}
                     alt=""
                     width={54}
                     height={63}
                     layout="fixed"
+                    loading="lazy"
                   />
                 </Link>
               </div>

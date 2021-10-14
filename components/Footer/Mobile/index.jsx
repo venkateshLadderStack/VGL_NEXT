@@ -3,9 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import { useStyles } from "./style";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
-// import Logo from "../../../images/footer-logo.png";
 import Link from "next/link";
-import Image from "next/image";
+import ImageComponent from "../../ImageComponent";
 
 export default memo(({ bg }) => {
   const classes = useStyles();
@@ -33,13 +32,14 @@ export default memo(({ bg }) => {
         <Grid container>
           <Grid item xs={12} md={8} lg={8} style={{ marginBottom: 50 }}>
             <div className={classes.topright}>
-              <Image
+              <ImageComponent
                 src={"/assets/footer-logo.png"}
                 className={classes.logo}
                 alt=""
                 width={80}
                 height={88}
                 layout="fixed"
+                loading="lazy"
               />
               <p className={classes.text}>
                 Add a handsome wink{" "}

@@ -10,11 +10,11 @@ import { GET_MORE_POSTS } from "../../queries/justinPosts";
 import NewNewsLetter from "../../components/Newsletter/NewNewsLetter";
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
-// const override = css`
-//   display: block;
-//   margin: 0 auto;
-//   border-color: red;
-// `;
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
 
 export default function JustIn({ data, pageInfo }) {
   const classes = useStyles();
@@ -81,15 +81,11 @@ export default function JustIn({ data, pageInfo }) {
         </div>
         <div className="vgl_pageable-load-more-btn">
           <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">
-            {/* {loading ? (
+            {loading ? (
               <PropagateLoader
                 color={"#59D8B7"}
                 loading={loading}
-                css={css`
-                  display: block;
-                  margin: 0 auto;
-                  border-color: red;
-                `}
+                css={override}
                 size={15}
               />
             ) : (
@@ -100,7 +96,7 @@ export default function JustIn({ data, pageInfo }) {
               >
                 Gimme More!
               </a>
-            )} */}
+            )}
           </div>
         </div>
       </Container>

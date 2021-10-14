@@ -216,37 +216,38 @@ export default function Navbar() {
                               paddingLeft: 15,
                             }}
                           >
-                            {menuItems.map((menuItem, index) => (
-                              <Grid
-                                item
-                                xs={6}
-                                sm={6}
-                                md={6}
-                                lg={6}
-                                style={{
-                                  padding: 0,
-                                  margin: 0,
-                                }}
-                                key={index}
-                              >
-                                <ul className="multi-column-dropdown">
-                                  <li
-                                    className="nav-item"
-                                    style={{
-                                      padding: 0,
-                                      margin: "16px 0",
-                                    }}
-                                  >
-                                    <Link
-                                      className={`nav-link ${classes.secondaryMenuLink}`}
-                                      href={`/blog/${menuItem.slug}`}
+                            {menuItems &&
+                              menuItems.map((menuItem, index) => (
+                                <Grid
+                                  item
+                                  xs={6}
+                                  sm={6}
+                                  md={6}
+                                  lg={6}
+                                  style={{
+                                    padding: 0,
+                                    margin: 0,
+                                  }}
+                                  key={index}
+                                >
+                                  <ul className="multi-column-dropdown">
+                                    <li
+                                      className="nav-item"
+                                      style={{
+                                        padding: 0,
+                                        margin: "16px 0",
+                                      }}
                                     >
-                                      {menuItem.name}
-                                    </Link>
-                                  </li>
-                                </ul>
-                              </Grid>
-                            ))}
+                                      <Link
+                                        className={`nav-link ${classes.secondaryMenuLink}`}
+                                        href={`/blog/${menuItem.slug}`}
+                                      >
+                                        {menuItem.name}
+                                      </Link>
+                                    </li>
+                                  </ul>
+                                </Grid>
+                              ))}
                           </Grid>
                         </ul>
                       </div>

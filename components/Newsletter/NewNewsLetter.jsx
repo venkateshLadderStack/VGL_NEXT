@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import ImageComponent from "next/image";
+import ImageComponent from "../ImageComponent";
 
 const NewNewsLetter = ({ right, top }) => {
   const [email, setEmail] = React.useState("");
@@ -69,6 +69,7 @@ const NewNewsLetter = ({ right, top }) => {
             width="45"
             height="35"
             layout="fixed"
+            loading="lazy"
           />
         </div>
         <div className="spark">
@@ -78,6 +79,7 @@ const NewNewsLetter = ({ right, top }) => {
             width="25"
             height="35"
             layout="fixed"
+            loading="lazy"
           />
         </div>
       </div>
