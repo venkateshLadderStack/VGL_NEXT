@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useStyles } from "./style";
+import ImageComponent from "../../ImageComponent";
 
 const regex = /(<([^>]+)>)/gi;
 
@@ -17,10 +18,16 @@ export default function Post({ post }) {
         <div
           data-bg={post?.featuredImage?.node?.mediaItemUrl}
           className={classes.postHeight}
-          style={{
-            backgroundImage: `url(${post?.featuredImage?.node?.mediaItemUrl})`,
-          }}
-        ></div>
+        >
+          <ImageComponent
+            alt=""
+            src={post?.featuredImage?.node?.mediaItemUrl}
+            layout="fill"
+            loading="lazy"
+            objectFit="contain"
+            objectPosition="center"
+          />
+        </div>
       </div>
       <div className={classes.vglPostInfo}>
         <Link href={post?.uri}>

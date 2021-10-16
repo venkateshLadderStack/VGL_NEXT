@@ -24,6 +24,7 @@ const SliderItemOptionTwo = ({ data }) => {
             READ MORE
           </Link>
         </div>
+
         <div className="hero-img">
           <ImageComponent
             className="hero-img-img"

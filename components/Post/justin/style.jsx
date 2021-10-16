@@ -117,6 +117,12 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   postHeight: {
-    height: "290px",
+    width: "300px",
+    height: "325px",
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      height: "280px",
+    },
   },
 }));
