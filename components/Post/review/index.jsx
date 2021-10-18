@@ -11,14 +11,18 @@ export default function Post({ data }) {
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
         <Link href={data?.uri} title={data?.title}>
-          <ImageComponent
-            alt=""
-            src={data?.featuredImage?.node?.mediaItemUrl}
-            loading={"lazy"}
-            width={300}
-            height={300}
-            layout="responsive"
-          />
+          <div className={classes.smallImg}>
+            <ImageComponent
+              alt=""
+              src={data?.featuredImage?.node?.mediaItemUrl}
+              loading={"lazy"}
+              width={300}
+              height={300}
+              layout="responsive"
+              objectFit="contain"
+              objectPosition="center"
+            />
+          </div>
         </Link>
       </div>
       <div>

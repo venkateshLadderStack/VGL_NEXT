@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import client from "../apollo/client";
 import { getPosts } from "../queries/get-posts";

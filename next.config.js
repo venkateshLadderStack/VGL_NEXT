@@ -20,7 +20,7 @@ module.exports = {
 module.exports = withImages();
 module.exports = {
   images: {
-    domains: ["media.verygoodlight.com"],
+    domains: ["media.verygoodlight.com", "cms.verygoodlight.com"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
 };

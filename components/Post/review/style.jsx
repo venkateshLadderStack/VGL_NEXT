@@ -21,6 +21,9 @@ export const useStyles = makeStyles({
     // visibility: "hidden",
     height: "auto",
   },
+  smallImage: {
+    height: 300,
+  },
   title: {
     fontSize: "1.5rem",
     lineHeight: "2rem",
