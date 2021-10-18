@@ -12,6 +12,9 @@ import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
 import ReviewsSection from "../sections/reviews";
 import JustIn from "../sections/justin";
 import Footer from "../components/Footer/Desktop";
+import dynamic from "next/dynamic";
+
+const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();
@@ -46,8 +49,8 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
 
   return (
     <>
-      <Seo />
-      <Navbar />
+      <Seo data={seoData?.page?.seo} link={seoData?.page?.link} />
+      <NavbarLarge />
       <main
         style={{
           backgroundColor: "rgb(255,228,183)",

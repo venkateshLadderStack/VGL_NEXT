@@ -1,4 +1,17 @@
-@import "../css/typography.css";
+.imageContainer {
+  width: 100%;
+}
+
+.imageContainer > div {
+  position: unset !important;
+}
+
+.image {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
 
 .MuiSvgIcon-root {
   fill: currentColor;
@@ -66,19 +79,50 @@
   font-size: 26px;
 }
 
-.hero_area .hero_right {
+.hero_right {
   width: 50%;
-  height: 50%;
+  height: unset;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
+
+.custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.unset-img {
+  width: 100%;
+}
+.unset-img > div {
+  position: unset !important;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+// imageContainer: {
+//   height: 360,
+//   position: "relative",
+//   image: {
+//     width: "100%",
+//     height: "auto",
+//     position: "relative !important",
+//     objectFit: "contain",
+//   },
+// },
 
 .featured_img {
   max-width: 100%;
   max-height: 100%;
-  max-height: 480px;
-  object-fit: cover;
+  position: relative !important;
 }
 div.post-info {
   margin-top: 25px;

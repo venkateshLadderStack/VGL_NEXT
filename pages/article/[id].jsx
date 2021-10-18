@@ -5,7 +5,7 @@ import Footer from "../../components/Footer/Desktop";
 import Seo from "../../components/SeoHead";
 import { RELATED_POSTS } from "../../queries/relatedPosts";
 import useWindowSize from "../../hooks/useWindowSize";
-import { Container, Grid } from "@material-ui/core";
+import { Container, Grid, Hidden } from "@material-ui/core";
 import ImageComponent from "../../components/ImageComponent";
 import Author from "../../components/Avatar";
 import NewSidebar from "../../components/Sidebar";
@@ -15,6 +15,7 @@ import PinterestIcon from "@material-ui/icons/Pinterest";
 import Masonry from "react-masonry-css";
 import Post from "../../components/Post/review";
 import Link from "next/link";
+import Image from "next/image";
 
 const Article = ({ post, realtedCat }, ...props) => {
   const breakpointColumnsObj = {
@@ -100,29 +101,20 @@ const Article = ({ post, realtedCat }, ...props) => {
                   )}
                 </div>
                 <div className="hero_right">
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
-                  >
-                    <ImageComponent
-                      src={
-                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
-                        post?.featuredImage?.node?.mediaItemUrl
-                      }
-                      blurDataURL={
-                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
-                        post?.featuredImage?.node?.mediaItemUrl
-                      }
-                      alt=""
-                      layout="responsive"
-                      width="600"
-                      height="350"
-                      loading={"lazy"}
-                      objectFit="contain"
-                    />
-                  </div>
+                  <Image
+                    src={
+                      post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                      post?.featuredImage?.node?.mediaItemUrl
+                    }
+                    blurDataURL={
+                      post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                      post?.featuredImage?.node?.mediaItemUrl
+                    }
+                    alt=""
+                    layout="fill"
+                    objectFit="contain"
+                    objectPosition="right"
+                  />
                 </div>
               </div>
               {width > 768 && (
@@ -408,7 +400,7 @@ export async function getStaticPaths() {
   const { data } = await client.query({
     query: gql`
       query {
-        posts(first: 50) {
+        posts(first: 100) {
           nodes {
             id
             uri
