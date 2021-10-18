@@ -11,39 +11,27 @@ export default function Post({ data }) {
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
         <Link href={data?.uri} title={data?.title}>
-          <div
-            className={classes.imageContainer}
-            style={{
-              minHeight: "200px",
-              maxHeight: "auto",
-            }}
-          >
-            <div
-              style={{
-                height: "100%",
-              }}
-            >
-              <Image
-                className={classes.image}
-                alt=""
-                src={data?.featuredImage?.node?.mediaItemUrl}
-                loading="lazy"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
+          <div className="imageContainer">
+            <Image
+              className="image"
+              alt=""
+              src={data?.featuredImage?.node?.mediaItemUrl}
+              loading="lazy"
+              layout="fill"
+              objectFit="contain"
+            />
           </div>
         </Link>
       </div>
       <div>
         <h2 className={`${classes.title} ${classes.fontSporting}`}>
-          <Link
+          <a
             className={`${classes.fontSporting}`}
             href={data?.uri}
             title={data?.title}
           >
             {data?.title}
-          </Link>
+          </a>
         </h2>
         <p id="by">
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>

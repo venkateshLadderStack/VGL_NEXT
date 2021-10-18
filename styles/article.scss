@@ -81,7 +81,8 @@
 
 .hero_right {
   width: 50%;
-  height: unset;
+  min-height: 360px;
+  max-height: 480px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
