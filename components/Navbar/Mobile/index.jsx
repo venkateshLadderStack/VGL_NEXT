@@ -37,7 +37,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4}>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <Link className={classes.headerLogoAnchor} href="/">
+                <a className={classes.headerLogoAnchor} href="/">
                   <ImageComponent
                     src={"/assets/logo.png"}
                     className={classes.headerLogo}
@@ -47,7 +47,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     layout="fixed"
                     loading="lazy"
                   />
-                </Link>
+                </a>
               </div>
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4}>
@@ -83,7 +83,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                 }}
               >
                 <div>
-                  <Link
+                  <a
                     href="#"
                     className={classes.primaryMenuLink}
                     style={{
@@ -92,21 +92,21 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     }}
                   >
                     Read
-                  </Link>
+                  </a>
                 </div>
                 <div className={classes.subMenu}>
                   <Grid container>
                     {menuItems &&
                       menuItems.map((menuItem, index) => (
                         <Grid item xs={6} sm={6} md={6} lg={6} key={index}>
-                          <Link
+                          <a
                             href={`/blog/${menuItem.slug}`}
                             style={{
                               color: isDarkMode ? "#fff" : "#000",
                             }}
                           >
                             {menuItem.name}
-                          </Link>
+                          </a>
                         </Grid>
                       ))}
                   </Grid>
@@ -120,18 +120,18 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                   borderBottom: "1px solid rgba(248, 177, 149, .47)",
                 }}
               >
-                <Link
+                <a
                   href="/reviews"
                   style={{
                     color: isDarkMode ? "#fff" : "#000",
                   }}
                 >
                   Reviews
-                </Link>
+                </a>
               </div>
 
               <div>
-                <Link
+                <a
                   href="#"
                   className={classes.primaryMenuLink}
                   style={{
@@ -140,7 +140,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                   }}
                 >
                   Shop
-                </Link>
+                </a>
                 <div className={classes.subMenu}>
                   <Grid container>
                     <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -198,38 +198,38 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
               </div>
               <div className={classes.socialPageContainer}>
                 <div>
-                  <Link
+                  <a
                     href="/"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
                   >
                     <FacebookIcon />
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="/"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
                   >
                     <InstagramIcon />
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="/"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
                   >
                     <YouTubeIcon />
-                  </Link>
-                  <Link
+                  </a>
+                  <a
                     href="/"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
                   >
                     <TwitterIcon />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

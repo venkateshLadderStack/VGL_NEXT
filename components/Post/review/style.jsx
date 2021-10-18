@@ -59,4 +59,14 @@ export const useStyles = makeStyles({
       color: "#424242",
     },
   },
+  imageContainer: {
+    height: 360,
+    position: "relative",
+    image: {
+      width: "100%",
+      height: "auto",
+      position: "relative !important",
+      objectFit: "contain",
+    },
+  },
 });

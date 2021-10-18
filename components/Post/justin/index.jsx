@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { useStyles } from "./style";
 import ImageComponent from "../../ImageComponent";
+import Image from "next/image";
 
 const regex = /(<([^>]+)>)/gi;
 
@@ -19,7 +20,7 @@ export default function Post({ post }) {
           data-bg={post?.featuredImage?.node?.mediaItemUrl}
           className={classes.postHeight}
         >
-          <ImageComponent
+          <Image
             alt=""
             src={post?.featuredImage?.node?.mediaItemUrl}
             layout="fill"

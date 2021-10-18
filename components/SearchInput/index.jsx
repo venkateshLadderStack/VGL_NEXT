@@ -1,9 +1,10 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
-// import { navigate } from "gatsby";
+import { useRouter } from "next/router";
 
 export default function SearchInput({ classes }) {
   const [value, setValue] = React.useState("");
+  const router = useRouter();
   const handleChange = (e) => {
     setValue(e.target.value);
   };
@@ -11,13 +12,11 @@ export default function SearchInput({ classes }) {
     <>
       <form
         role="search"
-        // onSubmit={(event) => {
-        //   event.preventDefault();
-        //   // TODO: do something with form values
-        //   navigate(`/search?s=${value}`, {
-        //     replace: true,
-        //   });
-        // }}
+        onSubmit={(event) => {
+          event.preventDefault();
+          // TODO: do something with form values
+          router.push(`/search?s=${value}`);
+        }}
       >
         <div className={classes.navSearchContainer}>
           <label className="sr-only" htmlFor="inlineFormInputGroup">

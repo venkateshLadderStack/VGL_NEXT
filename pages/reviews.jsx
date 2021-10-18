@@ -141,7 +141,7 @@ const Reviews = ({ data }) => {
     <div>
       <Seo />
       <Navbar />
-      <main className="review-main-container" style={{ overflowX: "hidden" }}>
+      <main className="review-main-container">
         <Container className="wrapper-main">
           <div>
             <Grid container>
@@ -194,7 +194,7 @@ const Reviews = ({ data }) => {
           </div>
         </Container>
       </main>
-      <Footer />
+      <Footer bg={"transparent"} />
     </div>
   );
 };

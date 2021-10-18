@@ -16,9 +16,9 @@ export default function Post({ post }) {
         </Link>
       </div>
       <div className={classes.vglPostInfo}>
-        <Link href={post?.uri} title={post.title}>
+        <a href={post?.uri} title={post.title}>
           <p>{post?.title}</p>
-        </Link>
+        </a>
         <span className={classes.vglPostNameCategory}>
           <b>by</b>
           <span className={classes.vglPostAuthor}>

@@ -252,7 +252,7 @@ const Article = ({ post, realtedCat }, ...props) => {
           )}
         </main>
       </div>
-      <Footer />
+      <Footer bg={"transparent"} />
     </>
   );
 };

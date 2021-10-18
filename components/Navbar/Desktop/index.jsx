@@ -186,7 +186,7 @@ export default function Navbar() {
                     setLinkActive({ ...linkActive, read: false });
                   }}
                 >
-                  <Link
+                  <a
                     className={`nav-link vgl__dropdown-option ${classes.primaryMenuLink}`}
                     href="/blog/features"
                     data-toggle="dropdown"
@@ -238,12 +238,12 @@ export default function Navbar() {
                                         margin: "16px 0",
                                       }}
                                     >
-                                      <Link
+                                      <a
                                         className={`nav-link ${classes.secondaryMenuLink}`}
                                         href={`/blog/${menuItem.slug}`}
                                       >
                                         {menuItem.name}
-                                      </Link>
+                                      </a>
                                     </li>
                                   </ul>
                                 </Grid>
@@ -252,15 +252,15 @@ export default function Navbar() {
                         </ul>
                       </div>
                     </>
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-item">
-                  <Link
+                  <a
                     className={`nav-link ${classes.primaryMenuLink}`}
                     href="/reviews"
                   >
                     Reviews
-                  </Link>
+                  </a>
                 </li>
                 <li
                   className="nav-item dropdown"
@@ -271,7 +271,7 @@ export default function Navbar() {
                     setLinkActive({ ...linkActive, shop: false });
                   }}
                 >
-                  <Link
+                  <a
                     href="https://goodlight.world"
                     className={`nav-link vgl__dropdown-option ${classes.primaryMenuLink}`}
                     target="_blank"
@@ -337,17 +337,17 @@ export default function Navbar() {
                         </ul>
                       </div>
                     </>
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
             {/* <!--   Show this only lg screens and up   --> */}
-            <Link
+            <a
               className="navbar-brand d-none d-lg-block header-logo"
               href="/"
               style={{ marginRight: 0 }}
             >
-              <>
+              <a>
                 <img
                   src={"/assets/test.png"}
                   className={`${
@@ -366,8 +366,8 @@ export default function Navbar() {
                   layout="fixed"
                   loading="lazy"
                 /> */}
-              </>
-            </Link>
+              </a>
+            </a>
 
             <ul className="navbar-nav">
               <li className="nav-item">

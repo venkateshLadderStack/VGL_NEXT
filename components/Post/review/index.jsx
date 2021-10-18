@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { useStyles } from "./style";
 import Link from "next/link";
-import ImageComponent from "../../ImageComponent";
+import Image from "next/image";
 
 export default function Post({ data }) {
   const classes = useStyles();
@@ -11,17 +11,27 @@ export default function Post({ data }) {
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
         <Link href={data?.uri} title={data?.title}>
-          <div className={classes.smallImg}>
-            <ImageComponent
-              alt=""
-              src={data?.featuredImage?.node?.mediaItemUrl}
-              loading={"lazy"}
-              width={300}
-              height={300}
-              layout="responsive"
-              objectFit="contain"
-              objectPosition="center"
-            />
+          <div
+            className={classes.imageContainer}
+            style={{
+              minHeight: "200px",
+              maxHeight: "auto",
+            }}
+          >
+            <div
+              style={{
+                height: "100%",
+              }}
+            >
+              <Image
+                className={classes.image}
+                alt=""
+                src={data?.featuredImage?.node?.mediaItemUrl}
+                loading="lazy"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
           </div>
         </Link>
       </div>
