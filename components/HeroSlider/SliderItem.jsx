@@ -2,8 +2,11 @@ import React from "react";
 import Link from "next/link";
 import ImageComponent from "../ImageComponent";
 import Image from "next/image";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const SliderItemOptionTwo = ({ data }) => {
+  const { width } = useWindowSize();
+
   return (
     <Link href="/" title={data?.title}>
       <div className="hero-area">
@@ -19,7 +22,7 @@ const SliderItemOptionTwo = ({ data }) => {
             objectFit="contain"
             objectPosition="center"
             loading="lazy"
-            quality={80}
+            quality={60}
           />
         </div>
         <div className="hero-containt">
@@ -29,21 +32,23 @@ const SliderItemOptionTwo = ({ data }) => {
           </Link>
         </div>
 
-        <div className="hero-img">
-          <Image
-            className="hero-img-img"
-            src={data?.featuredImage?.node?.mediaItemUrl}
-            placeholder="blur"
-            blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
-            alt=""
-            height={400}
-            width={400}
-            layout="responsive"
-            objectFit="cover"
-            objectPosition="center"
-            loading="lazy"
-          />
-        </div>
+        {width > 787 && (
+          <div style={{ width: "50%", height: "unset" }}>
+            <Image
+              src={data?.featuredImage?.node?.mediaItemUrl}
+              placeholder="blur"
+              blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
+              alt=""
+              height={400}
+              width={400}
+              layout="responsive"
+              objectFit="cover"
+              objectPosition="center"
+              loading="lazy"
+              quality={60}
+            />
+          </div>
+        )}
       </div>
     </Link>
   );

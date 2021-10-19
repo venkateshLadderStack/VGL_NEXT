@@ -12,11 +12,15 @@ import { useQuery } from "@apollo/client";
 import { getCategories } from "../../../queries/get-categories";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styled from "styled-components";
 import ImageComponent from "../../ImageComponent";
+import { LinkedCamera } from "@material-ui/icons";
 
 export default function Navbar() {
   const { loading, error, data } = useQuery(getCategories);
+
+  const router = useRouter();
 
   const classes = useStyles();
   const size = useWindowSize();
@@ -106,9 +110,11 @@ export default function Navbar() {
             </div>
 
             <Link
-              className="navbar-brand d-lg-none header-logo"
+              className="navbar-brand d-lg-none header-logo pointer"
               href="/"
               style={{ marginRight: 0 }}
+              aria-label="logo"
+              aria-label="read-section"
             >
               <Image
                 src={
@@ -170,81 +176,84 @@ export default function Navbar() {
                     setLinkActive({ ...linkActive, read: false });
                   }}
                 >
-                  <a
-                    className={`nav-link vgl__dropdown-option ${classes.primaryMenuLink}`}
-                    href="/blog/features"
+                  <div
+                    className={`nav-link vgl__dropdown-option pointer ${classes.primaryMenuLink}`}
                     data-toggle="dropdown"
                     style={{ padding: 0 }}
+                    aria-label="read-section"
+                    onClick={() => router.push("/read/features")}
                   >
-                    <>
-                      <div
-                        className={`nav-link vgl__dropdown-option ${
-                          linkActive.read && classes.activeUnderline
-                        }`}
+                    <div
+                      className={`nav-link vgl__dropdown-option ${
+                        linkActive.read && classes.activeUnderline
+                      }`}
+                    >
+                      read
+                    </div>
+                    <div className="nav-bg">
+                      <ul
+                        className="dropdown-menu-columns-2 multi-column "
+                        style={{
+                          paddingTop: 90,
+                          background: "#fffcf2",
+                        }}
                       >
-                        read
-                      </div>
-                      <div className="nav-bg">
-                        <ul
-                          className="dropdown-menu-columns-2 multi-column "
+                        <Grid
+                          container
                           style={{
-                            paddingTop: 90,
-                            background: "#fffcf2",
+                            borderTop: "1px solid #fbc6bb",
+                            borderBottom: "3px solid #fbc6bb",
+                            paddingLeft: 15,
                           }}
                         >
-                          <Grid
-                            container
-                            style={{
-                              borderTop: "1px solid #fbc6bb",
-                              borderBottom: "3px solid #fbc6bb",
-                              paddingLeft: 15,
-                            }}
-                          >
-                            {menuItems &&
-                              menuItems.map((menuItem, index) => (
-                                <Grid
-                                  item
-                                  xs={6}
-                                  sm={6}
-                                  md={6}
-                                  lg={6}
-                                  style={{
-                                    padding: 0,
-                                    margin: 0,
-                                  }}
-                                  key={index}
-                                >
-                                  <ul className="multi-column-dropdown">
-                                    <li
-                                      className="nav-item"
-                                      style={{
-                                        padding: 0,
-                                        margin: "16px 0",
-                                      }}
+                          {menuItems &&
+                            menuItems.map((menuItem, index) => (
+                              <Grid
+                                item
+                                xs={6}
+                                sm={6}
+                                md={6}
+                                lg={6}
+                                style={{
+                                  padding: 0,
+                                  margin: 0,
+                                }}
+                                key={index}
+                              >
+                                <ul className="multi-column-dropdown">
+                                  <li
+                                    className="nav-item"
+                                    style={{
+                                      padding: 0,
+                                      margin: "16px 0",
+                                    }}
+                                  >
+                                    <div
+                                      aria-label="menu-items"
+                                      className={`nav-link pointer ${classes.secondaryMenuLink}`}
+                                      onClick={() =>
+                                        router.push(`/read/${menuItem.slug}`)
+                                      }
                                     >
-                                      <a
-                                        className={`nav-link ${classes.secondaryMenuLink}`}
-                                        href={`/blog/${menuItem.slug}`}
-                                      >
-                                        {menuItem.name}
-                                      </a>
-                                    </li>
-                                  </ul>
-                                </Grid>
-                              ))}
-                          </Grid>
-                        </ul>
-                      </div>
-                    </>
-                  </a>
+                                      {menuItem.name}
+                                    </div>
+                                  </li>
+                                </ul>
+                              </Grid>
+                            ))}
+                        </Grid>
+                      </ul>
+                    </div>
+                  </div>
                 </li>
                 <li className="nav-item">
-                  <a
-                    className={`nav-link ${classes.primaryMenuLink}`}
-                    href="/reviews"
+                  <div
+                    className={`nav-link pointer ${classes.primaryMenuLink}`}
+                    onClick={() => router.push("/reviews")}
+                    aria-label="reviews"
                   >
                     Reviews
-                  </a>
+                  </div>
                 </li>
                 <li
                   className="nav-item dropdown"
@@ -260,6 +269,7 @@ export default function Navbar() {
                     className={`nav-link vgl__dropdown-option ${classes.primaryMenuLink}`}
                     target="_blank"
                     data-toggle="dropdown"
+                    aria-label="good-light"
                     style={{
                       padding: 0,
                     }}
@@ -298,6 +308,7 @@ export default function Navbar() {
                                   className={`nav-link ${classes.secondaryMenuLink}`}
                                   href="https://goodlight.world/"
                                   target="_blank"
+                                  aria-label="good-light"
                                 >
                                   <li
                                     className="nav-item"
@@ -311,6 +322,7 @@ export default function Navbar() {
                                     className={`nav-link ${classes.secondaryMenuLink}`}
                                     href="https://shop.verygoodlight.com/"
                                     target="_blank"
+                                    aria-label="good-light"
                                   >
                                     VGL merch
                                   </a>
@@ -326,15 +338,17 @@ export default function Navbar() {
               </ul>
             </div>
             {/* <!--   Show this only lg screens and up   --> */}
-            <a
-              className="navbar-brand d-none d-lg-block header-logo"
+            <Link
+              className="navbar-brand d-none d-lg-block header-logo pointer"
               href="/"
               style={{ marginRight: 0 }}
+              aria-label="logo"
+              rel="noreferrer"
             >
-              <a>
+              <div>
                 <Image
                   src={"/assets/test.png"}
-                  className={`${
+                  className={`pointer ${
                     navActive ? classes.navLogoActive : classes.headerLogo
                   }`}
                   alt=""
@@ -343,10 +357,10 @@ export default function Navbar() {
                   layout="fixed"
                   loading="lazy"
                   objectFit="contain"
-                  objectPosition="bottom"
+                  objectPosition="center"
                 />
-              </a>
-            </a>
+              </div>
+            </Link>
 
             <ul className="navbar-nav">
               <li className="nav-item">

@@ -47,8 +47,6 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
   let pageInfo = postsData?.pageInfo;
   let reviewsPosts = reviews?.edges;
 
-  console.log(seoData, "SEO");
-
   return (
     <>
       <Seo data={seoData?.seo} link={seoData?.link} />

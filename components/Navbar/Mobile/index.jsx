@@ -11,9 +11,11 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import SearchInput from "../../SearchInput";
 import ImageComponent from "../../ImageComponent";
+import { useRouter } from "next/router";
 
 export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
   const classes = useStyles();
+  const router = useRouter();
 
   const [isSearch, setIsSearch] = React.useState(false);
   const [isDarkMode, setDarkMode] = React.useState(false);
@@ -38,7 +40,11 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4}>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <a className={classes.headerLogoAnchor} href="/">
+                <Link
+                  className={classes.headerLogoAnchor}
+                  href="/"
+                  aria-label="logo"
+                >
                   <Image
                     src={"/assets/logo.png"}
                     className={classes.headerLogo}
@@ -48,7 +54,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     layout="fixed"
                     loading="lazy"
                   />
-                </a>
+                </Link>
               </div>
             </Grid>
             <Grid item xs={4} sm={4} md={4} lg={4}>
@@ -84,30 +90,38 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                 }}
               >
                 <div>
-                  <a
-                    href="#"
+                  <Link
+                    href="/read/features"
                     className={classes.primaryMenuLink}
                     style={{
                       fontWeight: 700,
                       color: isDarkMode ? "#fff" : "#000",
                     }}
                   >
-                    Read
-                  </a>
+                    <div
+                      className={classes.primaryMenuLink}
+                      style={{
+                        fontWeight: 700,
+                        color: isDarkMode ? "#fff" : "#000",
+                      }}
+                    >
+                      Read
+                    </div>
+                  </Link>
                 </div>
                 <div className={classes.subMenu}>
                   <Grid container>
                     {menuItems &&
                       menuItems.map((menuItem, index) => (
                         <Grid item xs={6} sm={6} md={6} lg={6} key={index}>
-                          <a
-                            href={`/blog/${menuItem.slug}`}
+                          <Link
+                            href={`/read/${menuItem.slug}`}
                             style={{
                               color: isDarkMode ? "#fff" : "#000",
                             }}
                           >
                             {menuItem.name}
-                          </a>
+                          </Link>
                         </Grid>
                       ))}
                   </Grid>
@@ -121,20 +135,21 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                   borderBottom: "1px solid rgba(248, 177, 149, .47)",
                 }}
               >
-                <a
+                <Link
                   href="/reviews"
                   style={{
                     color: isDarkMode ? "#fff" : "#000",
                   }}
                 >
                   Reviews
-                </a>
+                </Link>
               </div>
 
               <div>
                 <a
                   href="#"
                   className={classes.primaryMenuLink}
+                  aria-label="good-light"
                   style={{
                     fontWeight: 700,
                     color: isDarkMode ? "#fff" : "#000",
@@ -148,6 +163,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                       <a
                         href="https://goodlight.world/"
                         target="__blank"
+                        aria-label="good-light"
                         style={{
                           color: isDarkMode ? "#fff" : "#000",
                         }}
@@ -159,6 +175,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                       <a
                         href="https://shop.verygoodlight.com/"
                         target="__blank"
+                        aria-label="good-light"
                         style={{
                           color: isDarkMode ? "#fff" : "#000",
                         }}
@@ -204,6 +221,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
+                    aria-label="icon"
                   >
                     <FacebookIcon />
                   </a>
@@ -212,6 +230,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
+                    aria-label="icon"
                   >
                     <InstagramIcon />
                   </a>
@@ -220,6 +239,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
+                    aria-label="icon"
                   >
                     <YouTubeIcon />
                   </a>
@@ -228,6 +248,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
+                    aria-label="icon"
                   >
                     <TwitterIcon />
                   </a>

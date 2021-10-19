@@ -9,14 +9,19 @@ export default function Post({ post }) {
     <div className={classes.vglPost}>
       <div className={classes.vglFeaturedImage}>
         <Link href={post?.uri} title={post.title}>
-          <div>
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          >
             <Image
               src={post?.featuredImage?.node?.mediaItemUrl}
               placeholder="blur"
               blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
               alt=""
-              width="100%"
-              height="100%"
+              width="400"
+              height="400"
               layout="responsive"
               objectFit="cover"
               objectPosition="center"
