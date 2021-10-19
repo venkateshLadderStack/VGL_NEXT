@@ -54,6 +54,11 @@ class MyDocument extends Document {
             as="style"
             href={"../styles/css/Navbar/desktop.css"}
           />
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
+
+          {/* Attentive tag using GTM */}
+          <script src="https://cdn.attn.tv/verygl/dtag.js"></script>
         </Head>
         <body>
           <Main />

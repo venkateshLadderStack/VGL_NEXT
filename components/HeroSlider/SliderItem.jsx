@@ -1,14 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import ImageComponent from "../ImageComponent";
+import Image from "next/image";
 
 const SliderItemOptionTwo = ({ data }) => {
   return (
     <Link href="/" title={data?.title}>
       <div className="hero-area">
         <div className="hero-img hero-mobile">
-          <ImageComponent
+          <Image
             src={data?.featuredImage?.node?.mediaItemUrl}
+            placeholder="blur"
+            blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
             alt=""
             width={500}
             height={500}
@@ -16,6 +19,7 @@ const SliderItemOptionTwo = ({ data }) => {
             objectFit="contain"
             objectPosition="center"
             loading="lazy"
+            quality={80}
           />
         </div>
         <div className="hero-containt">
@@ -26,15 +30,18 @@ const SliderItemOptionTwo = ({ data }) => {
         </div>
 
         <div className="hero-img">
-          <ImageComponent
+          <Image
             className="hero-img-img"
             src={data?.featuredImage?.node?.mediaItemUrl}
+            placeholder="blur"
+            blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
             alt=""
             height={400}
             width={400}
             layout="responsive"
             objectFit="cover"
             objectPosition="center"
+            loading="lazy"
           />
         </div>
       </div>

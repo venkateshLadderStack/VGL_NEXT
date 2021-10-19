@@ -72,6 +72,7 @@ export default function ReviewsSection({ data, rev, title }) {
                 return (
                   <button
                     key={idx}
+                    aria-label="slider-btn"
                     onClick={() => {
                       slider.moveToSlideRelative(idx);
                     }}

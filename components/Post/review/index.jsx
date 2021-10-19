@@ -16,6 +16,9 @@ export default function Post({ data }) {
               className="image"
               alt=""
               src={data?.featuredImage?.node?.mediaItemUrl}
+              placeholder="blur"
+              blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
+              quality={80}
               loading="lazy"
               layout="fill"
               objectFit="contain"

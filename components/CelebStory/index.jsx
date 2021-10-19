@@ -4,6 +4,7 @@ import { Grid } from "@material-ui/core";
 import Link from "next/link";
 import styled from "styled-components";
 import ImageComponent from "../ImageComponent";
+import Image from "next/image";
 
 export default function CelebStory({ post }) {
   const classes = useStyles();
@@ -13,12 +14,15 @@ export default function CelebStory({ post }) {
         <Link href={post?.uri} title={post?.title}>
           <div className={classes.imgBox}>
             <div className={classes.img}>
-              <ImageComponent
+              <Image
                 src={post?.featuredImage?.node?.mediaItemUrl}
+                placeholder="blur"
+                blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
                 alt={post?.title}
                 width={250}
                 height={250}
                 loading="lazy"
+                quality={80}
               />
             </div>
           </div>

@@ -16,17 +16,17 @@ export default function Post({ post }) {
         className={`${classes.vglFeaturedImg} `}
         id="vgl-justin-post-featured-img "
       >
-        <div
-          data-bg={post?.featuredImage?.node?.mediaItemUrl}
-          className={classes.postHeight}
-        >
+        <div className={classes.postHeight}>
           <Image
             alt=""
             src={post?.featuredImage?.node?.mediaItemUrl}
+            placeholder="blur"
+            blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
             layout="fill"
             loading="lazy"
             objectFit="contain"
             objectPosition="center"
+            quality={80}
           />
         </div>
       </div>

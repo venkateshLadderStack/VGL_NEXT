@@ -100,23 +100,6 @@ export default function Seo(props) {
       )}
 
       {/* end seo tags */}
-
-      {/* import remote fonts */}
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
-        rel="stylesheet"
-      />
-      <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
-      <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
-      {/* bootstrap */}
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
-      />
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-      {/* Attentive tag using GTM */}
-      <script src="https://cdn.attn.tv/verygl/dtag.js"></script>
     </Helmet>
   );
 }
