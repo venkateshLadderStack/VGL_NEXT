@@ -9,7 +9,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import SearchInput from "../../searchInput";
+import SearchInput from "../../SearchInput";
 import ImageComponent from "../../ImageComponent";
 
 export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
