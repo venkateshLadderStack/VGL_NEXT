@@ -48,15 +48,15 @@ class MyDocument extends Document {
           />
           <link rel="preconnect" href={"../styles/globals.scss"} />
           <link rel="preload" as="style" href={"../styles/globals.scss"} />
-          <link rel="preconnect" href={"../styles/css/Navbar/desktop.css"} />
-          <link
-            rel="preload"
-            as="style"
-            href={"../styles/css/Navbar/desktop.css"}
-          />
-          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
-          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
 
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
+          {/* bootstrap */}
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+          />
+          <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
           {/* Attentive tag using GTM */}
           <script src="https://cdn.attn.tv/verygl/dtag.js"></script>
         </Head>

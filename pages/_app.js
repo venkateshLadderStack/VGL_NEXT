@@ -1,6 +1,6 @@
 import "../styles/globals.scss";
-import "../styles/css/Navbar/desktop.css";
-import "../styles/css/Navbar/mobile.css";
+// import "../styles/css/Navbar/desktop.css";
+// import "../styles/css/Navbar/mobile.css";
 import "../styles/css/newsletter.css";
 import "../styles/css/newnewsletter.css";
 import "../styles/article.scss";
