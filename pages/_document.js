@@ -28,11 +28,31 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link
+            rel="preload"
+            href="/fonts/sportinggrotesque-regular.otf"
+            as="font"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/sportinggrotesque-bold.otf"
+            as="font"
+            crossOrigin="anonymous"
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
             rel="stylesheet"
+          />
+          <link rel="preconnect" href={"../styles/globals.scss"} />
+          <link rel="preload" as="style" href={"../styles/globals.scss"} />
+          <link rel="preconnect" href={"../styles/css/Navbar/desktop.css"} />
+          <link
+            rel="preload"
+            as="style"
+            href={"../styles/css/Navbar/desktop.css"}
           />
         </Head>
         <body>

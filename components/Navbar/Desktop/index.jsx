@@ -11,6 +11,7 @@ import TopBar from "../TopBar";
 import { useQuery } from "@apollo/client";
 import { getCategories } from "../../../queries/get-categories";
 import Link from "next/link";
+import Image from "next/image";
 import styled from "styled-components";
 import ImageComponent from "../../ImageComponent";
 
@@ -84,10 +85,7 @@ export default function Navbar() {
       >
         {/* visibile only on small screen with text shop good light */}
 
-        <TopBar
-          navActive={navActive}
-          classesNavbarActive={classes.navbarActive}
-        />
+        <TopBar className={classes.navbarActive} />
 
         {/* added extra margin top for the sake of top bar */}
         <div className="d-lg-none" style={{ width: "100%", marginTop: "50px" }}>
@@ -100,33 +98,19 @@ export default function Navbar() {
               alignItems: "center",
             }}
           >
-            {/* <ul className="navbar-nav">
-              <li className="nav-item"> */}
             <div className={classes.mobileAction}>
               <SearchIcon
                 style={{ fontSize: 35, color: "rgba(0,0,0,.5)" }}
                 onClick={() => setIsSearch(!isSearch)}
               />
             </div>
-            {/* </li>
-            </ul> */}
 
             <Link
               className="navbar-brand d-lg-none header-logo"
               href="/"
               style={{ marginRight: 0 }}
             >
-              <img
-                src={
-                  size?.width < 768 ? "/assets/logo.png" : "/assets/test.png"
-                }
-                alt=""
-                className={`${
-                  navActive ? classes.navLogoActive : classes.headerLogo
-                }`}
-              />
-
-              {/* <ImageComponent
+              <Image
                 src={
                   size?.width < 768 ? "/assets/logo.png" : "/assets/test.png"
                 }
@@ -135,11 +119,11 @@ export default function Navbar() {
                 }`}
                 alt=""
                 width={size?.width < 768 ? 54 : 250}
-                height={navActive ? 63 : 43}
-                layout="responsive"
+                height={navActive ? 43 : 63}
+                layout="fixed"
                 loading="lazy"
-                objectFit="cover"
-              /> */}
+                objectFit="contain"
+              />
             </Link>
 
             <button
@@ -348,24 +332,19 @@ export default function Navbar() {
               style={{ marginRight: 0 }}
             >
               <a>
-                <img
-                  src={"/assets/test.png"}
-                  className={`${
-                    navActive ? classes.navLogoActive : classes.headerLogo
-                  }`}
-                  alt=""
-                />
-                {/* <ImageComponent
+                <Image
                   src={"/assets/test.png"}
                   className={`${
                     navActive ? classes.navLogoActive : classes.headerLogo
                   }`}
                   alt=""
                   width={250}
-                  height={63}
+                  height={navActive ? 43 : 63}
                   layout="fixed"
                   loading="lazy"
-                /> */}
+                  objectFit="contain"
+                  objectPosition="bottom"
+                />
               </a>
             </a>
 

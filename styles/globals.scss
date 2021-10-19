@@ -16,6 +16,8 @@
   font-display: swap;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+
 .MuiSvgIcon-root {
   fill: currentColor;
   width: 1em;
@@ -950,13 +952,13 @@ main.main-content {
 }
 
 span.rt-label-prefix {
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 9px;
   color: #000;
 }
 span.rt-time,
 span.rt-label-postfix {
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 9px;
   color: #a4a4a4;
 }
@@ -1041,7 +1043,7 @@ div.post-info {
 }
 
 .author-info .author-name {
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -1057,7 +1059,7 @@ div.post-info {
 }
 
 .author-info .post-date {
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 10px;
   font-weight: normal;
   font-stretch: normal;
@@ -1079,7 +1081,7 @@ div.post-info {
 }
 
 .social_share .social_share_heading {
-  font-family: Lato;
+  font-family: "Lato";
   font-size: 8px;
   font-weight: 800;
   font-stretch: normal;

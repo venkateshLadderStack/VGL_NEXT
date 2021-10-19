@@ -46,7 +46,6 @@ const search = (props) => {
   return (
     <>
       <Seo />
-      <Navbar />
       <main className="search-main-container">
         <Container>
           <div>
@@ -93,7 +92,7 @@ const search = (props) => {
           </div>
         </Container>
       </main>
-      <Footer bg={"transparent"} />
+      <Footer bg={"#ffe3af"} />
     </>
   );
 };

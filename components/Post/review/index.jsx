@@ -35,7 +35,7 @@ export default function Post({ data }) {
         </h2>
         <p id="by">
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>
-          <Link
+          <a
             className={classes.author}
             href="/"
             title={data?.author?.node?.name}
@@ -45,9 +45,9 @@ export default function Post({ data }) {
                 ? data?.bylines?.edges[0]?.node?.name
                 : data?.author?.node?.name}
             </span>
-          </Link>
+          </a>
           |
-          <Link
+          <a
             className={classes.category}
             href=""
             title={data?.categories?.edges[0]?.node?.name}
@@ -55,7 +55,7 @@ export default function Post({ data }) {
             <span className={classes.fontLato}>
               {data?.categories?.edges[0]?.node?.name}
             </span>
-          </Link>
+          </a>
         </p>
       </div>
     </div>

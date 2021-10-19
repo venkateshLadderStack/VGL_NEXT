@@ -194,7 +194,7 @@ const Reviews = ({ data }) => {
           </div>
         </Container>
       </main>
-      <Footer bg={"transparent"} />
+      <Footer bg={"#ffe4b2"} />
     </div>
   );
 };
