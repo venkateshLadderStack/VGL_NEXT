@@ -1,7 +1,7 @@
 import React from "react";
 import { useStyles } from "./style";
 import { Grid, Container } from "@material-ui/core";
-import CelebStory from "../../components/celebStory";
+import CelebStory from "../../components/CelebStory";
 
 export default function CelebStories({ data }) {
   const classes = useStyles();
