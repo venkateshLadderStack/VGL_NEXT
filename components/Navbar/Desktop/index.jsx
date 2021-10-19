@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useStyles } from "./styles";
 import MobileMenu from "../Mobile";
 import { Container } from "@material-ui/core";
-import SearchInput from "../../searchInput";
+import SearchInput from "../../SearchInput";
 import { Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ReactPixel from "../../../utils/snapchatpixel";
