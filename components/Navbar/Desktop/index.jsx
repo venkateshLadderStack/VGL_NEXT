@@ -7,7 +7,7 @@ import { Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ReactPixel from "../../../utils/snapchatpixel";
 import useWindowSize from "../../../hooks/useWindowSize";
-import TopBar from "../TopBar";
+import TopBar from "../Topbar";
 import { useQuery } from "@apollo/client";
 import { getCategories } from "../../../queries/get-categories";
 import Link from "next/link";
