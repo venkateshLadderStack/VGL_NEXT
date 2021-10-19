@@ -400,7 +400,7 @@ export async function getStaticPaths() {
   const { data } = await client.query({
     query: gql`
       query {
-        posts(first: 100) {
+        posts(first: 10) {
           nodes {
             id
             uri
