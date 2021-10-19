@@ -6,7 +6,7 @@ import Seo from "../components/SeoHead";
 import Navbar from "../components/Navbar/Desktop";
 import Footer from "../components/Footer/Desktop";
 import { Grid, Container } from "@material-ui/core";
-import CelebStory from "../components/celebStory";
+import CelebStory from "../components/CelebStory";
 import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
 
