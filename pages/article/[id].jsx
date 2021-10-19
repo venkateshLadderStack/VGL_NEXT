@@ -8,7 +8,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid, Hidden } from "@material-ui/core";
 import ImageComponent from "../../components/ImageComponent";
 import Author from "../../components/Avatar";
-import NewSidebar from "../../components/Sidebar";
+import NewSidebar from "../../components/SideBar";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
