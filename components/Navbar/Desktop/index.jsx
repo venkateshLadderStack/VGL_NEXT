@@ -275,13 +275,17 @@ export default function Navbar() {
                     }}
                   >
                     <>
-                      <div
+                      <a
                         className={`nav-link vgl__dropdown-option ${
                           linkActive.shop && classes.activeUnderline
                         }`}
+                        href="https://goodlight.world/"
+                        target="_blank"
+                        aria-label="good-light"
+                        rel="noreferrer"
                       >
                         shop
-                      </div>
+                      </a>
                       <div className="nav-bg custom-width move-left">
                         <ul
                           className="dropdown-menu-columns-2 multi-column custom-width"

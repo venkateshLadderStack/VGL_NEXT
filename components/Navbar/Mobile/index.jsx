@@ -150,6 +150,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                   href="#"
                   className={classes.primaryMenuLink}
                   aria-label="good-light"
+                  rel="noreferrer"
                   style={{
                     fontWeight: 700,
                     color: isDarkMode ? "#fff" : "#000",
@@ -164,6 +165,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                         href="https://goodlight.world/"
                         target="__blank"
                         aria-label="good-light"
+                        rel="noreferrer"
                         style={{
                           color: isDarkMode ? "#fff" : "#000",
                         }}
@@ -176,6 +178,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                         href="https://shop.verygoodlight.com/"
                         target="__blank"
                         aria-label="good-light"
+                        rel="noreferrer"
                         style={{
                           color: isDarkMode ? "#fff" : "#000",
                         }}

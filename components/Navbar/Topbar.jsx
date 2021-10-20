@@ -22,6 +22,8 @@ const TopBar = () => {
             href="https://goodlight.world/"
             target="_blank"
             style={{ textDecoration: "none", color: "white" }}
+            aria-label="good-light"
+            rel="noreferrer"
           >
             <h4 style={{ padding: "0px", margin: "0px" }}>SHOP GOOD LIGHT</h4>
           </a>
