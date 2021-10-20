@@ -62,7 +62,7 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
   let reviewsPosts = reviews?.edges;
 
   return (
-    <>
+    <div ref={observe}>
       <Seo data={seoData?.seo} link={seoData?.link} />
       <NavbarLarge />
       <main
@@ -72,7 +72,6 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
         }}
       >
         <div
-          ref={observe}
           className={`vgl-hero-slider vgl-slider-container ${
             scrollActive && "scrolled"
           }`}
@@ -84,37 +83,28 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
           {inView && <HeroSlider data={sliderData} />}
         </div>
 
-        <div ref={observe}>
-          {inView && <CelebStories data={masonryGridData} />}
-        </div>
+        {inView && <CelebStories data={masonryGridData} />}
 
-        <div ref={observe}>{inView && <MainNewsLetter />}</div>
+        {inView && <MainNewsLetter />}
 
-        <div ref={observe}>
-          {inView && (
-            <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
-          )}
-        </div>
+        {inView && (
+          <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
+        )}
 
-        <div ref={observe}>
-          {inView && (
-            <ReviewsSection
-              data={celebs?.edges}
-              rev={false}
-              title="Celeb stories"
-            />
-          )}
-        </div>
+        {inView && (
+          <ReviewsSection
+            data={celebs?.edges}
+            rev={false}
+            title="Celeb stories"
+          />
+        )}
 
-        <div ref={observe}>
-          {inView && <JustIn data={justInSectionData} pageInfo={pageInfo} />}
-        </div>
+        {inView && <JustIn data={justInSectionData} pageInfo={pageInfo} />}
 
-        <div ref={observe}>{inView && <SecondaryNewsLetter />}</div>
-
-        <div ref={observe}>{inView && <Footer bg={"#f8b195"} />}</div>
+        {inView && <SecondaryNewsLetter />}
       </main>
-    </>
+      {inView && <Footer bg={"#f8b195"} />}
+    </div>
   );
 }
 
