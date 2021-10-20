@@ -4,17 +4,37 @@ import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
-import Navbar from "../components/Navbar/Desktop";
-import HeroSlider from "../components/HeroSlider";
-import CelebStories from "../sections/celebrityStories";
-import MainNewsLetter from "../components/Newsletter/Main";
-import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
-import ReviewsSection from "../sections/reviews";
-import JustIn from "../sections/justin";
-import Footer from "../components/Footer/Desktop";
+// import Navbar from "../components/Navbar/Desktop";
+// import HeroSlider from "../components/HeroSlider";
+// import CelebStories from "../sections/celebrityStories";
+// import MainNewsLetter from "../components/Newsletter/Main";
+// import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
+// import ReviewsSection from "../sections/reviews";
+// import JustIn from "../sections/justin";
+// import Footer from "../components/Footer/Desktop";
 import dynamic from "next/dynamic";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
+const CelebStories = dynamic(() => import("../sections/celebrityStories"));
+const HeroSlider = dynamic(() => import("../components/HeroSlider"));
+const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
+  ssr: false,
+});
+const SecondaryNewsLetter = dynamic(
+  () => import("../components/Newsletter/Main/Secondary"),
+  {
+    ssr: false,
+  }
+);
+const ReviewsSection = dynamic(() => import("../sections/reviews"), {
+  ssr: false,
+});
+const JustIn = dynamic(() => import("../sections/justin"), {
+  ssr: false,
+});
+const Footer = dynamic(() => import("../components/Footer/Desktop"), {
+  ssr: false,
+});
 
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();

@@ -29,37 +29,17 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/sportinggrotesque-regular.otf"
-            as="font"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
-            href="/fonts/sportinggrotesque-bold.otf"
-            as="font"
-            crossOrigin="anonymous"
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
             href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
             rel="stylesheet"
           />
-          <link rel="preconnect" href={"../styles/globals.scss"} />
-          <link rel="preload" as="style" href={"../styles/globals.scss"} />
 
-          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
-          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
-          {/* bootstrap */}
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
           />
-
-          {/* Attentive tag using GTM */}
-          <Script src="https://cdn.attn.tv/verygl/dtag.js"></Script>
         </Head>
         <body>
           <Main />
