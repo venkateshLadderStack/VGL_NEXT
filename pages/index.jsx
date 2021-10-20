@@ -4,35 +4,21 @@ import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
-// import Navbar from "../components/Navbar/Desktop";
-// import HeroSlider from "../components/HeroSlider";
-// import CelebStories from "../sections/celebrityStories";
-// import MainNewsLetter from "../components/Newsletter/Main";
-// import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
-// import ReviewsSection from "../sections/reviews";
-// import JustIn from "../sections/justin";
-// import Footer from "../components/Footer/Desktop";
+import Navbar from "../components/Navbar/Desktop";
+import HeroSlider from "../components/HeroSlider";
+import CelebStories from "../sections/celebrityStories";
+import MainNewsLetter from "../components/Newsletter/Main";
+import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
+import ReviewsSection from "../sections/reviews";
+import JustIn from "../sections/justin";
+import Footer from "../components/Footer/Desktop";
 import dynamic from "next/dynamic";
-import useInView from "react-cool-inview";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
-const CelebStories = dynamic(() => import("../sections/celebrityStories"));
-const HeroSlider = dynamic(() => import("../components/HeroSlider"));
-const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"));
-const SecondaryNewsLetter = dynamic(() =>
-  import("../components/Newsletter/Main/Secondary")
-);
-const ReviewsSection = dynamic(() => import("../sections/reviews"));
-const JustIn = dynamic(() => import("../sections/justin"));
-const Footer = dynamic(() => import("../components/Footer/Desktop"));
 
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();
   const [scrollActive, setScrollActive] = useState(false);
-
-  const { observe, inView } = useInView({
-    onEnter: ({ unobserve }) => unobserve(), // only run once
-  });
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -62,7 +48,7 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
   let reviewsPosts = reviews?.edges;
 
   return (
-    <div ref={observe}>
+    <>
       <Seo data={seoData?.seo} link={seoData?.link} />
       <NavbarLarge />
       <main
@@ -80,31 +66,21 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
             className="vgl-slider-item-border-bottom"
             style={{ background: "rgb(95, 100, 97)" }}
           ></div>
-          {inView && <HeroSlider data={sliderData} />}
+          <HeroSlider data={sliderData} />
         </div>
-
-        {inView && <CelebStories data={masonryGridData} />}
-
-        {inView && <MainNewsLetter />}
-
-        {inView && (
-          <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
-        )}
-
-        {inView && (
-          <ReviewsSection
-            data={celebs?.edges}
-            rev={false}
-            title="Celeb stories"
-          />
-        )}
-
-        {inView && <JustIn data={justInSectionData} pageInfo={pageInfo} />}
-
-        {inView && <SecondaryNewsLetter />}
+        <CelebStories data={masonryGridData} />
+        <MainNewsLetter />
+        <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
+        <ReviewsSection
+          data={celebs?.edges}
+          rev={false}
+          title="Celeb stories"
+        />
+        <JustIn data={justInSectionData} pageInfo={pageInfo} />
+        <SecondaryNewsLetter />
+        <Footer bg={"#f8b195"} />
       </main>
-      {inView && <Footer bg={"#f8b195"} />}
-    </div>
+    </>
   );
 }
 

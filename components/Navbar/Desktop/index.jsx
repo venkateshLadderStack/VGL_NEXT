@@ -13,9 +13,6 @@ import { getCategories } from "../../../queries/get-categories";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import styled from "styled-components";
-import ImageComponent from "../../ImageComponent";
-import { LinkedCamera } from "@material-ui/icons";
 
 export default function Navbar() {
   const { loading, error, data } = useQuery(getCategories);
