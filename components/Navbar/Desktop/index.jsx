@@ -111,7 +111,6 @@ export default function Navbar() {
               href="/"
               style={{ marginRight: 0 }}
               aria-label="logo"
-              aria-label="read-section"
             >
               <Image
                 src={
@@ -265,6 +264,7 @@ export default function Navbar() {
                     href="https://goodlight.world"
                     className={`nav-link vgl__dropdown-option ${classes.primaryMenuLink}`}
                     target="_blank"
+                    rel="noreferrer"
                     data-toggle="dropdown"
                     aria-label="good-light"
                     style={{
@@ -310,6 +310,7 @@ export default function Navbar() {
                                   href="https://goodlight.world/"
                                   target="_blank"
                                   aria-label="good-light"
+                                  rel="noreferrer"
                                 >
                                   <li
                                     className="nav-item"
@@ -324,6 +325,7 @@ export default function Navbar() {
                                     href="https://shop.verygoodlight.com/"
                                     target="_blank"
                                     aria-label="good-light"
+                                    rel="noreferrer"
                                   >
                                     VGL merch
                                   </a>

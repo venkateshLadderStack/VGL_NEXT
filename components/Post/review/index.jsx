@@ -40,7 +40,7 @@ export default function Post({ data }) {
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>
           <a
             className={classes.author}
-            href="/"
+            href="#"
             title={data?.author?.node?.name}
           >
             <span className={classes.fontLato}>
@@ -52,7 +52,7 @@ export default function Post({ data }) {
           |
           <a
             className={classes.category}
-            href=""
+            href="#"
             title={data?.categories?.edges[0]?.node?.name}
           >
             <span className={classes.fontLato}>

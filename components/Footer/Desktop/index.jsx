@@ -17,7 +17,7 @@ const defaultState = {
 
 export const FloatingBannerContext = React.createContext(defaultState);
 
-export default memo(({ bg, showBannerModal }) => {
+const Footer = ({ bg, showBannerModal }) => {
   const classes = useStyles();
   const [scrollEnd, setScrollEnd] = React.useState(false);
   const [open, setOpen] = React.useState(false);
@@ -202,6 +202,7 @@ export default memo(({ bg, showBannerModal }) => {
                   <a
                     href="https://www.facebook.com/verygoodlight/"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     {" "}
                     <FacebookIcon className={classes.icon} />
@@ -209,6 +210,7 @@ export default memo(({ bg, showBannerModal }) => {
                   <a
                     href="https://www.instagram.com/verygoodlight"
                     target="_blank"
+                    rel="noreferrer"
                   >
                     {" "}
                     <InstagramIcon className={classes.icon} />
@@ -219,19 +221,8 @@ export default memo(({ bg, showBannerModal }) => {
           </Grid>
         </div>
       </div>
-      {/* hiding floating book popup for now */}
-      {/* {showBannerModal !== false && (
-        <FloatingBannerContext.Provider
-          value={{
-            isOpen: open,
-            isClose: isCLose,
-            setOpen: (data) => setOpen(data),
-            setIsClose: (data) => setIsClose(data),
-          }}
-        >
-          <FloatingBanner />
-        </FloatingBannerContext.Provider>
-      )} */}
     </>
   );
-});
+};
+
+export default Footer;

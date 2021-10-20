@@ -10,7 +10,7 @@ import CelebStory from "../components/CelebStory";
 import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
 
-const search = (props) => {
+const Search = (props) => {
   const { query } = useRouter();
   console.log(query.s, "QUERY");
 
@@ -58,7 +58,9 @@ const search = (props) => {
           <div className="sr-post-wrapper">
             <Grid container spacing={4}>
               {posts.map(({ node }, i) => (
-                <CelebStory post={node} key={i} />
+                <div key={i}>
+                  <CelebStory post={node} />
+                </div>
               ))}
             </Grid>
 
@@ -97,4 +99,4 @@ const search = (props) => {
   );
 };
 
-export default search;
+export default Search;

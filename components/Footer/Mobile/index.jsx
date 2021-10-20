@@ -6,7 +6,7 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import Link from "next/link";
 import ImageComponent from "../../ImageComponent";
 
-export default memo(({ bg }) => {
+const Footer = ({ bg }) => {
   const classes = useStyles();
   const [scrollEnd, setScrollEnd] = React.useState(false);
 
@@ -72,6 +72,7 @@ export default memo(({ bg }) => {
                   href="/blog/face"
                   title="Face"
                   state={{ category: "Face" }}
+                  passHref
                 >
                   Face
                 </Link>
@@ -81,6 +82,7 @@ export default memo(({ bg }) => {
                   href="/blog/body"
                   title="Body"
                   state={{ category: "Body" }}
+                  passHref
                 >
                   Body{" "}
                 </Link>
@@ -90,6 +92,7 @@ export default memo(({ bg }) => {
                   href="/blog/hair"
                   title="Hair"
                   state={{ category: "Hair" }}
+                  passHref
                 >
                   Hair
                 </Link>
@@ -99,6 +102,7 @@ export default memo(({ bg }) => {
                   href="/blog/real-life"
                   title="Real Life"
                   state={{ category: "Real Life" }}
+                  passHref
                 >
                   True Life
                 </Link>
@@ -109,17 +113,17 @@ export default memo(({ bg }) => {
             <p className={classes.heading}>Company</p>
             <ul>
               <li>
-                <Link href="/press-old" title="Press">
+                <Link href="/press-old" title="Press" passHref>
                   Press
                 </Link>
               </li>
               <li>
-                <Link href="/about-redesign/" title="About">
+                <Link href="/about-redesign/" title="About" passHref>
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/terms-of-use-old/" title="Terms Of Use">
+                <Link href="/terms-of-use-old/" title="Terms Of Use" passHref>
                   Term of use
                 </Link>
               </li>
@@ -133,6 +137,8 @@ export default memo(({ bg }) => {
                   href="https://www.facebook.com/verygoodlight/"
                   title="Very Good Light"
                   target="_blank"
+                  rel="noreferrer"
+                  passHref
                 >
                   {" "}
                   <FacebookIcon className={classes.icon} />
@@ -141,6 +147,8 @@ export default memo(({ bg }) => {
                   href="https://www.instagram.com/verygoodlight"
                   title="Very Good Light"
                   target="_blank"
+                  rel="noreferrer"
+                  passHref
                 >
                   {" "}
                   <InstagramIcon className={classes.icon} />
@@ -152,4 +160,6 @@ export default memo(({ bg }) => {
       </div>
     </>
   );
-});
+};
+
+export default Footer;

@@ -167,8 +167,10 @@ const Reviews = ({ data }) => {
               className="vgl__secondary-masonry-grid"
               columnClassName="vgl__secondary-masonry-grid_column"
             >
-              {posts.map(({ node }) => (
-                <Post data={node} />
+              {posts.map(({ node }, i) => (
+                <div key={i}>
+                  <Post data={node} />
+                </div>
               ))}
             </Masonry>
             {/* </Grid> */}

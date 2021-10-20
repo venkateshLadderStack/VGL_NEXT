@@ -2,7 +2,7 @@ import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import { useRouter } from "next/router";
 
-export default function SearchInput({ classes }) {
+const SearchInput = ({ classes }) => {
   const [value, setValue] = React.useState("");
   const router = useRouter();
   const handleChange = (e) => {
@@ -47,4 +47,6 @@ export default function SearchInput({ classes }) {
       </form>
     </>
   );
-}
+};
+
+export default SearchInput;

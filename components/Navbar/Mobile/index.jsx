@@ -192,13 +192,16 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
 
               <div className={classes.darkModeContainer}>
                 <div className={classes.darkModeStatus}>
-                  <img
+                  <Image
                     src={
                       !isDarkMode
                         ? "https://cms.verygoodlight.com/wp-content/uploads/2020/06/night-mode.svg"
                         : "https://cms.verygoodlight.com/wp-content/uploads/2020/06/night-mode-activated.svg"
                     }
                     alt="Dark Mode"
+                    width={24}
+                    height={27}
+                    layout="fixed"
                   />
                   <span
                     style={{
@@ -220,7 +223,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
               <div className={classes.socialPageContainer}>
                 <div>
                   <a
-                    href="/"
+                    href="#"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
@@ -229,7 +232,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     <FacebookIcon />
                   </a>
                   <a
-                    href="/"
+                    href="#"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
@@ -238,7 +241,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     <InstagramIcon />
                   </a>
                   <a
-                    href="/"
+                    href="#"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
@@ -247,7 +250,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     <YouTubeIcon />
                   </a>
                   <a
-                    href="/"
+                    href="#"
                     style={{
                       color: isDarkMode ? "#fff" : "#000",
                     }}
