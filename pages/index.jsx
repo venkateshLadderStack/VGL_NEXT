@@ -4,19 +4,18 @@ import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
-// import Navbar from "../components/Navbar/Desktop";
-// import HeroSlider from "../components/HeroSlider";
-// import CelebStories from "../sections/celebrityStories";
-// import MainNewsLetter from "../components/Newsletter/Main";
-// import SecondaryNewsLetter from "../components/Newsletter/Main/Secondary";
-// import ReviewsSection from "../sections/reviews";
-// import JustIn from "../sections/justin";
-// import Footer from "../components/Footer/Desktop";
 import dynamic from "next/dynamic";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
-const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
-const CelebStories = dynamic(() => import("../sections/celebrityStories"));
-const HeroSlider = dynamic(() => import("../components/HeroSlider"));
+const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"), {
+  ssr: false,
+});
+const CelebStories = dynamic(() => import("../sections/celebrityStories"), {
+  ssr: false,
+});
+const HeroSlider = dynamic(() => import("../components/HeroSlider"), {
+  ssr: false,
+});
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
   ssr: false,
 });
@@ -88,17 +87,31 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
           ></div>
           <HeroSlider data={sliderData} />
         </div>
-        <CelebStories data={masonryGridData} />
-        <MainNewsLetter />
-        <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
-        <ReviewsSection
-          data={celebs?.edges}
-          rev={false}
-          title="Celeb stories"
-        />
-        <JustIn data={justInSectionData} pageInfo={pageInfo} />
-        <SecondaryNewsLetter />
-        <Footer bg={"#f8b195"} />
+        <LazyLoadComponent delayTime={2000}>
+          <CelebStories data={masonryGridData} />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <MainNewsLetter />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <ReviewsSection
+            data={celebs?.edges}
+            rev={false}
+            title="Celeb stories"
+          />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <JustIn data={justInSectionData} pageInfo={pageInfo} />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <SecondaryNewsLetter />
+        </LazyLoadComponent>
+        <LazyLoadComponent delayTime={2000}>
+          <Footer bg={"#f8b195"} />
+        </LazyLoadComponent>
       </main>
     </>
   );

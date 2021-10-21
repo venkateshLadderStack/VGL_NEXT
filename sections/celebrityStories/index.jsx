@@ -6,7 +6,7 @@ import CelebStory from "../../components/CelebStory";
 export default function CelebStories({ data }) {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ minHeight: "600px" }}>
       <Container>
         <h2 className={classes.vglCelebHeading}>What's New</h2>
         <Container>
