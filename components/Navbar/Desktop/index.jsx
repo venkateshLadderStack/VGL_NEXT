@@ -273,7 +273,7 @@ export default function Navbar() {
                   >
                     <>
                       <a
-                        className={`nav-link vgl__dropdown-option ${
+                        className={`nav-link vgl__dropdown-option black ${
                           linkActive.shop && classes.activeUnderline
                         }`}
                         href="https://goodlight.world/"
