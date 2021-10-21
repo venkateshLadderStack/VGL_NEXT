@@ -5,7 +5,6 @@ import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
 import dynamic from "next/dynamic";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"), {
   ssr: false,
@@ -87,31 +86,24 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
           ></div>
           <HeroSlider data={sliderData} />
         </div>
-        <LazyLoadComponent delayTime={2000}>
-          <CelebStories data={masonryGridData} />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <MainNewsLetter />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <ReviewsSection
-            data={celebs?.edges}
-            rev={false}
-            title="Celeb stories"
-          />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <JustIn data={justInSectionData} pageInfo={pageInfo} />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <SecondaryNewsLetter />
-        </LazyLoadComponent>
-        <LazyLoadComponent delayTime={2000}>
-          <Footer bg={"#f8b195"} />
-        </LazyLoadComponent>
+
+        <CelebStories data={masonryGridData} />
+
+        <MainNewsLetter />
+
+        <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
+
+        <ReviewsSection
+          data={celebs?.edges}
+          rev={false}
+          title="Celeb stories"
+        />
+
+        <JustIn data={justInSectionData} pageInfo={pageInfo} />
+
+        <SecondaryNewsLetter />
+
+        <Footer bg={"#f8b195"} />
       </main>
     </>
   );

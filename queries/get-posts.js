@@ -15,6 +15,7 @@ export const getPosts = gql`
     ) {
       edges {
         node {
+          id
           subHeading {
             dontShowOnHomePage
           }
@@ -75,6 +76,7 @@ export const getPosts = gql`
     ) {
       edges {
         node {
+          id
           categories {
             nodes {
               slug
@@ -123,6 +125,7 @@ export const getPosts = gql`
     ) {
       edges {
         node {
+          id
           featuredImage {
             node {
               mediaItemUrl

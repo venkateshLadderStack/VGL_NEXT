@@ -111,6 +111,7 @@ export default function Navbar() {
               href="/"
               style={{ marginRight: 0 }}
               aria-label="logo"
+              passHref
             >
               <Image
                 src={
@@ -273,7 +274,7 @@ export default function Navbar() {
                   >
                     <>
                       <a
-                        className={`nav-link vgl__dropdown-option ${
+                        className={`nav-link vgl__dropdown-option black ${
                           linkActive.shop && classes.activeUnderline
                         }`}
                         href="https://goodlight.world/"
@@ -347,6 +348,7 @@ export default function Navbar() {
               style={{ marginRight: 0 }}
               aria-label="logo"
               rel="noreferrer"
+              passHref
             >
               <div>
                 <Image
