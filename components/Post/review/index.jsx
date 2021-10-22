@@ -10,14 +10,20 @@ export default function Post({ data }) {
     // <Grid item xs={12} md={4} lg={4} xl={4}>
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
-        <Link href={data?.uri} title={data?.title}>
+        <Link href={data?.uri} title={data?.title} passHref>
           <div className="imageContainer">
             <Image
               className="image"
               alt=""
-              src={data?.featuredImage?.node?.mediaItemUrl}
+              src={
+                data?.featuredImage?.node?.mediaItemUrl ||
+                data?.featured_image_2?.featuredImage2?.mediaItemUrl
+              }
               placeholder="blur"
-              blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
+              blurDataURL={
+                data?.featuredImage?.node?.mediaItemUrl ||
+                data?.featured_image_2?.featuredImage2?.mediaItemUrl
+              }
               quality={80}
               loading="lazy"
               layout="fill"

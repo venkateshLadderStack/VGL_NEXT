@@ -6,15 +6,9 @@ import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
 import dynamic from "next/dynamic";
 
-const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"), {
-  ssr: false,
-});
-const CelebStories = dynamic(() => import("../sections/celebrityStories"), {
-  ssr: false,
-});
-const HeroSlider = dynamic(() => import("../components/HeroSlider"), {
-  ssr: false,
-});
+const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
+const CelebStories = dynamic(() => import("../sections/celebrityStories"));
+const HeroSlider = dynamic(() => import("../components/HeroSlider"));
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
   ssr: false,
 });

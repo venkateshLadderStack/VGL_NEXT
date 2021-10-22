@@ -217,6 +217,11 @@ export async function getStaticProps(content) {
                   mediaItemUrl
                 }
               }
+              featured_image_2 {
+                featuredImage2 {
+                  mediaItemUrl
+                }
+              }
               categories {
                 edges {
                   node {

@@ -112,7 +112,7 @@ const Article = ({ post, realtedCat }, ...props) => {
                     }
                     alt=""
                     layout="fill"
-                    objectFit="contain"
+                    objectFit="cover"
                     objectPosition="right"
                   />
                 </div>
