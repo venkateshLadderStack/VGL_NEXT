@@ -33,15 +33,16 @@ const Read = ({ categoryDBId, data, getCatId }) => {
   const [endCursor, setEndCursor] = React.useState("");
   const [hasNextPage, setHasNextPage] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
-  const [selectedCategory, setSelectedCategory] = React.useState(categoryDBId);
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   React.useEffect(() => {
+    setSelectedCategory(categoryDBId);
     if (data?.posts?.edges.length > 0) {
       setPosts([...data?.posts?.edges]);
       setHasNextPage(data?.posts?.pageInfo?.hasNextPage);
       setEndCursor(data?.posts?.pageInfo?.endCursor);
     }
-  }, []);
+  }, [categoryDBId]);
 
   const queryParams = {
     cursorId: endCursor,
@@ -66,8 +67,6 @@ const Read = ({ categoryDBId, data, getCatId }) => {
     setLoading(true);
     getMorePosts();
   };
-
-  console.log(newData);
 
   return (
     <>
@@ -214,11 +213,6 @@ export async function getStaticProps(content) {
               }
               featuredImage {
                 node {
-                  mediaItemUrl
-                }
-              }
-              featured_image_2 {
-                featuredImage2 {
                   mediaItemUrl
                 }
               }

@@ -106,6 +106,7 @@ const Article = ({ post, realtedCat }, ...props) => {
                       post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
                       post?.featuredImage?.node?.mediaItemUrl
                     }
+                    placeholder="blur"
                     blurDataURL={
                       post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
                       post?.featuredImage?.node?.mediaItemUrl
@@ -114,6 +115,7 @@ const Article = ({ post, realtedCat }, ...props) => {
                     layout="fill"
                     objectFit="cover"
                     objectPosition="right"
+                    loading="lazy"
                   />
                 </div>
               </div>
