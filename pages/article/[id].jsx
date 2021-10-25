@@ -63,7 +63,11 @@ const Article = ({ post, realtedCat }, ...props) => {
   }, [catId]);
   return (
     <>
-      <Seo />
+      <Seo
+        data={post?.seo}
+        link={post?.link}
+        featuredImage={post?.featuredImage?.node?.mediaItemUrl}
+      />
       <Navbar />
       <div className="single-blog-container single-blog">
         <main className="main-content">

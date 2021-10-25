@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import client from "../apollo/client";
 import { getReviews } from "../queries/get-reviews";
@@ -15,6 +15,10 @@ import {
   GET_REVIEW_POSTS_BY_CATEGORY,
 } from "../queries/review";
 import dynamic from "next/dynamic";
+import Slideout from "../components/SlideOut";
+import BottomRightPopUp from "../components/BottomPopup/BottomRightPopup";
+import BottomLeftPopUp from "../components/BottomPopup/BottomLeftPopup";
+import { Context } from "../context";
 
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
@@ -44,7 +48,7 @@ const override = css`
 `;
 
 const Reviews = ({ data }) => {
-  console.log(data, "REVIEWS");
+  const { open, closePopup, signup, closeSignup } = useContext(Context);
 
   const [posts, setPosts] = React.useState([]);
   const [endCursor, setEndCursor] = React.useState("");
@@ -147,7 +151,7 @@ const Reviews = ({ data }) => {
 
   return (
     <div>
-      <Seo />
+      <Seo data={data?.page?.seo} link={data?.page?.link} />
       <Navbar />
       <main className="review-main-container">
         <Container className="wrapper-main">
@@ -204,6 +208,9 @@ const Reviews = ({ data }) => {
           </div>
         </Container>
       </main>
+      {signup && <BottomLeftPopUp onCancel={closeSignup} />}
+      <BottomRightPopUp />
+      <Slideout open={open} onCancel={closePopup} />
       <Footer bg={"#ffe4b2"} />
     </div>
   );

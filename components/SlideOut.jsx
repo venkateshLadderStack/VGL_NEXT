@@ -25,10 +25,9 @@ const Slideout = ({ onCancel, open }) => {
             <Image
               src={"/assets/goodLightLogo.png"}
               alt=""
-              layout="fixed"
+              layout="responsive"
               width={265}
               height={88}
-              objectFit="contain"
             />
           </div>
           <div>

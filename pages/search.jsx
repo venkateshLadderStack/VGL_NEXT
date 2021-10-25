@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { SEARCH_POSTS } from "../queries/search";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
@@ -7,6 +7,11 @@ import { Grid, Container } from "@material-ui/core";
 import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
 import dynamic from "next/dynamic";
+import { Context } from "../context";
+import BottomLeftPopUp from "../components/BottomPopup/BottomLeftPopup";
+import BottomRightPopUp from "../components/BottomPopup/BottomRightPopup";
+import Slideout from "../components/SlideOut";
+import { Helmet } from "react-helmet";
 
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
@@ -18,7 +23,8 @@ const CelebStory = dynamic(() => import("../components/CelebStory"), {
 
 const Search = (props) => {
   const { query } = useRouter();
-  console.log(query.s, "QUERY");
+
+  const { open, closePopup, signup, closeSignup } = useContext(Context);
 
   const [searchQuery, setSearchQuery] = React.useState("");
   const [posts, setPosts] = React.useState([]);
@@ -51,10 +57,41 @@ const Search = (props) => {
 
   return (
     <>
+      <Helmet>
+        {/* start seo tags */}
+        <meta charset="UTF-8" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,user-scalable=yes"
+        />
+        <link rel="profile" href="https://gmpg.org/xfn/11" />
+        <meta name="ir-site-verification-token" value="-1088507391" />
+        <title>{`You searched for ${searchQuery} - Very Good Light `}</title>
+        <meta name="robots" content="noindex, follow" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:type" content="article" />
+        <meta
+          property="og:title"
+          content={`You searched for ${searchQuery} - Very Good Light`}
+        />
+        <meta property="og:url" content={data?.opengraphUrl} />
+        <meta property="og:site_name" content="Very Good Light" />
+        <meta
+          property="article:publisher"
+          content="http://www.facebook.com/verygoodlight"
+        />
+        <meta name="twitter:card" content="summary" />
+        <meta
+          name="twitter:title"
+          content={`You searched for ${searchQuery} - Very Good Light`}
+        />
+        <meta name="twitter:creator" content="@vgoodlight" />
+        <meta name="twitter:site" content="@vgoodlight" />
+      </Helmet>
       <Seo />
       <Navbar />
       <main className="search-main-container">
-        <Container className="wrapper-main">
+        <Container>
           <div>
             <div className="search-vgl-results-container">
               <h1 className="search-vgl-results-title">
@@ -65,9 +102,7 @@ const Search = (props) => {
           <div className="sr-post-wrapper">
             <Grid container spacing={4}>
               {posts.map(({ node }, i) => (
-                <div key={i}>
-                  <CelebStory post={node} />
-                </div>
+                <CelebStory post={node} key={i} />
               ))}
             </Grid>
 
@@ -100,8 +135,11 @@ const Search = (props) => {
             </div>
           </div>
         </Container>
-        <Footer bg={"#ffe3af"} />
+        <Footer bg={"transparent"} />
+        {signup && <BottomLeftPopUp onCancel={() => closeSignup()} />}
+        <BottomRightPopUp />
       </main>
+      <Slideout open={open} onCancel={() => closePopup()} />
     </>
   );
 };

@@ -97,6 +97,7 @@ export default function Navbar() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
+              padding: "15px 10px",
             }}
           >
             <div className={classes.mobileAction}>

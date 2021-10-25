@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Seo from "../../components/SeoHead";
 import Masonry from "react-masonry-css";
 import useWindowSize from "../../hooks/useWindowSize";
@@ -8,6 +8,10 @@ import { GET_MORE_POSTS } from "../../queries/categories";
 import { css } from "@emotion/react";
 import { PropagateLoader } from "react-spinners";
 import dynamic from "next/dynamic";
+import BottomLeftPopUp from "../../components/BottomPopup/BottomLeftPopup";
+import BottomRightPopUp from "../../components/BottomPopup/BottomRightPopup";
+import Slideout from "../../components/SlideOut";
+import { Context } from "../../context";
 
 const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
 const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
@@ -35,6 +39,8 @@ const override = css`
 `;
 
 const Read = ({ categoryDBId, data, getCatId }) => {
+  const { open, closePopup, signup, closeSignup } = useContext(Context);
+
   const [posts, setPosts] = React.useState([]);
   const [endCursor, setEndCursor] = React.useState("");
   const [hasNextPage, setHasNextPage] = React.useState(false);
@@ -76,7 +82,10 @@ const Read = ({ categoryDBId, data, getCatId }) => {
 
   return (
     <>
-      <Seo />
+      <Seo
+        data={data?.category?.seo}
+        link={`https://verygoodlight.com/read/${data?.category?.slug}`}
+      />
       <Navbar />
       <main className="review-main-container">
         <Container className="wrapper-main">
@@ -126,6 +135,9 @@ const Read = ({ categoryDBId, data, getCatId }) => {
             </div>
           )}
         </Container>
+        {signup && <BottomLeftPopUp onCancel={closeSignup} />}
+        <BottomRightPopUp />
+        <Slideout open={open} onCancel={closePopup} />
         <DesktopFooter bg={"transparent"} />
       </main>
     </>

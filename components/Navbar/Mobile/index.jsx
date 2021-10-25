@@ -44,6 +44,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                   className={classes.headerLogoAnchor}
                   href="/"
                   aria-label="logo"
+                  passHref
                 >
                   <Image
                     src={"/assets/logo.png"}
@@ -97,6 +98,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                       fontWeight: 700,
                       color: isDarkMode ? "#fff" : "#000",
                     }}
+                    passHref
                   >
                     <div
                       className={classes.primaryMenuLink}
