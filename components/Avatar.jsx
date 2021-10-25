@@ -20,6 +20,8 @@ const Author = ({ post, className }) => {
                     : "https://secure.gravatar.com/avatar/5c2747a85444b8b7d2af69029ef17bf8?s=112&amp;d=mm&amp;r=g"
                 }
                 layout="fill"
+                objectFit="cover"
+                objectPosition="center"
                 placeholder="blur"
                 blurDataURL={
                   post?.bylines?.edges[0]?.node?.bylineImage.image

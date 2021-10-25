@@ -40,6 +40,8 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
           />
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
+          <link rel="stylesheet" href="https://use.typekit.net/bei6zpq.css" />
         </Head>
         <body>
           <Main />

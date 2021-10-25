@@ -1,0 +1,146 @@
+.Overlay {
+  background-color: rgba(0, 0, 0, 0.55);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: none;
+  z-index: 5;
+  overflow-y: hidden;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.Overlay.Show {
+  display: block;
+  overflow: hidden;
+  overflow: -moz-hidden-unscrollable;
+}
+
+.Modal {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  width: 300px;
+  height: 260px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  right: -150vw;
+  padding: 0 12px 12px;
+  transition: all 0.5s ease-in-out;
+  z-index: 10;
+  padding: 20px;
+  background-image: url("/assets/gradient_crop_bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 99999;
+}
+
+.Modal.Show {
+  bottom: 30px;
+  right: 30px;
+}
+
+.Close {
+  cursor: pointer;
+  position: absolute;
+  top: 16px;
+  right: 10px;
+  background-color: transparent;
+  border: 0;
+  font-size: 18px;
+  color: black;
+  width: 20px;
+}
+
+.Alert {
+  position: fixed;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-image: linear-gradient(
+    90deg,
+    #ff9a8b 0%,
+    #ff6a88 55%,
+    #ff99ac 100%
+  );
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+.Alert:empty {
+  padding: 0;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .Modal {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    width: 90vw;
+    height: 260px;
+    box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+    right: -150vw;
+    padding: 0 12px 12px;
+    transition: all 0.5s ease-in-out;
+    z-index: 10;
+    padding: 20px;
+  }
+
+  .Modal.Show {
+    bottom: 5vw;
+    right: 5vw;
+  }
+}
+
+.right_popup_button {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  z-index: 7;
+  height: 100px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.left_popup_button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 30px;
+  z-index: 209;
+  height: 100px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  cursor: pointer;
+}
+
+.sign_up_button {
+  border: 2px solid black;
+  padding: 15px 15px 10px 15px;
+  white-space: nowrap;
+  background-color: #ffe5bc;
+  box-shadow: 2px 5px 0 black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: "SportingGrotesque-Bold";
+  font-weight: 800;
+}

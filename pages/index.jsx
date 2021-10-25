@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import client from "../apollo/client";
 import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
 import dynamic from "next/dynamic";
+import Slideout from "../components/SlideOut";
+import { Context } from "../context";
+import BottomLeftPopUp from "../components/BottomPopup/BottomLeftPopup";
+import BottomRightPopUp from "../components/BottomPopup/BottomRightPopup";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 const CelebStories = dynamic(() => import("../sections/celebrityStories"));
@@ -31,6 +35,8 @@ const Footer = dynamic(() => import("../components/Footer/Desktop"), {
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();
   const [scrollActive, setScrollActive] = useState(false);
+
+  const { open, closePopup, signup, closeSignup } = useContext(Context);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -98,6 +104,9 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
         <SecondaryNewsLetter />
 
         <Footer bg={"#f8b195"} />
+        {signup && <BottomLeftPopUp onCancel={closeSignup} />}
+        <BottomRightPopUp />
+        <Slideout open={open} onCancel={closePopup} />
       </main>
     </>
   );

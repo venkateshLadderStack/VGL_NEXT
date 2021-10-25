@@ -3,8 +3,6 @@ import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import client from "../apollo/client";
 import { getReviews } from "../queries/get-reviews";
 import Seo from "../components/SeoHead";
-import Navbar from "../components/Navbar/Desktop";
-import Footer from "../components/Footer/Desktop";
 import { getPosts } from "../queries/get-posts";
 import Masonry from "react-masonry-css";
 import PropagateLoader from "react-spinners/PropagateLoader";
@@ -16,8 +14,18 @@ import {
   GET_REVIEW_POSTS,
   GET_REVIEW_POSTS_BY_CATEGORY,
 } from "../queries/review";
-import Post from "../components/Post/review";
-import PostFilter from "../components/PostFilter/main";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
+const Footer = dynamic(() => import("../components/Footer/Desktop"), {
+  ssr: false,
+});
+const Post = dynamic(() => import("../components/Post/review"), {
+  ssr: false,
+});
+const PostFilter = dynamic(() => import("../components/PostFilter/main"), {
+  ssr: false,
+});
 
 const breakpointColumnsObj = {
   default: 3,

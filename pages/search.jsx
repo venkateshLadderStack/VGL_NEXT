@@ -3,12 +3,18 @@ import { useRouter } from "next/router";
 import { SEARCH_POSTS } from "../queries/search";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import Seo from "../components/SeoHead";
-import Navbar from "../components/Navbar/Desktop";
-import Footer from "../components/Footer/Desktop";
 import { Grid, Container } from "@material-ui/core";
-import CelebStory from "../components/CelebStory";
 import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
+const Footer = dynamic(() => import("../components/Footer/Desktop"), {
+  ssr: false,
+});
+const CelebStory = dynamic(() => import("../components/CelebStory"), {
+  ssr: false,
+});
 
 const Search = (props) => {
   const { query } = useRouter();
@@ -46,8 +52,9 @@ const Search = (props) => {
   return (
     <>
       <Seo />
+      <Navbar />
       <main className="search-main-container">
-        <Container>
+        <Container className="wrapper-main">
           <div>
             <div className="search-vgl-results-container">
               <h1 className="search-vgl-results-title">
@@ -93,8 +100,8 @@ const Search = (props) => {
             </div>
           </div>
         </Container>
+        <Footer bg={"#ffe3af"} />
       </main>
-      <Footer bg={"#ffe3af"} />
     </>
   );
 };

@@ -1,21 +1,30 @@
 import React from "react";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import Navbar from "../../components/Navbar/Desktop";
-import Footer from "../../components/Footer/Desktop";
 import Seo from "../../components/SeoHead";
 import { RELATED_POSTS } from "../../queries/relatedPosts";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid, Hidden } from "@material-ui/core";
-import ImageComponent from "../../components/ImageComponent";
-import Author from "../../components/Avatar";
-import NewSidebar from "../../components/SideBar";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import Masonry from "react-masonry-css";
-import Post from "../../components/Post/review";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
+const Footer = dynamic(() => import("../../components/Footer/Desktop"), {
+  ssr: false,
+});
+const Author = dynamic(() => import("../../components/Avatar"), {
+  ssr: false,
+});
+const Post = dynamic(() => import("../../components/Post/review"), {
+  ssr: false,
+});
+const NewSidebar = dynamic(() => import("../../components/SideBar"), {
+  ssr: false,
+});
 
 const Article = ({ post, realtedCat }, ...props) => {
   const breakpointColumnsObj = {
@@ -232,7 +241,7 @@ const Article = ({ post, realtedCat }, ...props) => {
           {width >= 768 ? (
             <div className="vgl_pageable-load-more-btn">
               <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">
-                <Link href="/blog/features" className="vgl_general vgl_btn3">
+                <Link href="/read/features" className="vgl_general vgl_btn3">
                   More articles
                 </Link>
               </div>

@@ -2,8 +2,10 @@ import "../styles/globals.scss";
 // import "../styles/css/Navbar/desktop.css";
 // import "../styles/css/Navbar/mobile.css";
 import "../styles/css/newsletter.css";
+import "../styles/css/slideout.css";
 import "../styles/css/newnewsletter.css";
 import "../styles/article.scss";
+import "../styles/popup.scss";
 
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo/client";
@@ -17,6 +19,7 @@ import { CacheProvider } from "@emotion/react";
 import theme from "../theme";
 import createEmotionCache from "../createEmotionCache";
 import Navbar from "../components/Navbar/Desktop";
+import { ContextProvider } from "../context";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
@@ -29,7 +32,9 @@ export default function MyApp(props) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <ApolloProvider client={client}>
-          <Component {...pageProps} />
+          <ContextProvider>
+            <Component {...pageProps} />
+          </ContextProvider>
         </ApolloProvider>
       </ThemeProvider>
     </CacheProvider>

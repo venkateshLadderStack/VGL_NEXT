@@ -3,14 +3,22 @@ import Seo from "../../components/SeoHead";
 import Masonry from "react-masonry-css";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid } from "@material-ui/core";
-import DesktopFooter from "../../components/Footer/Desktop";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import Navbar from "../../components/Navbar/Desktop";
 import { GET_MORE_POSTS } from "../../queries/categories";
-import PostFilter from "../../components/PostFilter";
 import { css } from "@emotion/react";
-import Post from "../../components/Post/review";
 import { PropagateLoader } from "react-spinners";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
+const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
+  ssr: false,
+});
+const Post = dynamic(() => import("../../components/Post/review"), {
+  ssr: false,
+});
+const PostFilter = dynamic(() => import("../../components/PostFilter"), {
+  ssr: false,
+});
 
 const breakpointColumnsObj = {
   default: 3,
@@ -27,8 +35,6 @@ const override = css`
 `;
 
 const Read = ({ categoryDBId, data, getCatId }) => {
-  console.log(data, "DATA");
-
   const [posts, setPosts] = React.useState([]);
   const [endCursor, setEndCursor] = React.useState("");
   const [hasNextPage, setHasNextPage] = React.useState(false);
