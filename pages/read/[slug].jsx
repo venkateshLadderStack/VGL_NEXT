@@ -8,9 +8,6 @@ import { GET_MORE_POSTS } from "../../queries/categories";
 import { css } from "@emotion/react";
 import { PropagateLoader } from "react-spinners";
 import dynamic from "next/dynamic";
-import BottomLeftPopUp from "../../components/BottomPopup/BottomLeftPopup";
-import BottomRightPopUp from "../../components/BottomPopup/BottomRightPopup";
-import Slideout from "../../components/SlideOut";
 import { Context } from "../../context";
 
 const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
@@ -23,6 +20,21 @@ const Post = dynamic(() => import("../../components/Post/review"), {
 const PostFilter = dynamic(() => import("../../components/PostFilter"), {
   ssr: false,
 });
+const Slideout = dynamic(() => import("../../components/SlideOut"), {
+  ssr: false,
+});
+const BottomLeftPopUp = dynamic(
+  () => import("../../components/BottomPopup/BottomLeftPopup"),
+  {
+    ssr: false,
+  }
+);
+const BottomRightPopUp = dynamic(
+  () => import("../../components/BottomPopup/BottomRightPopup"),
+  {
+    ssr: false,
+  }
+);
 
 const breakpointColumnsObj = {
   default: 3,

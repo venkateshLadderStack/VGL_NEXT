@@ -138,6 +138,7 @@ const Footer = ({ bg }) => {
                   title="Very Good Light"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="fb-link"
                   passHref
                 >
                   {" "}
@@ -148,6 +149,7 @@ const Footer = ({ bg }) => {
                   title="Very Good Light"
                   target="_blank"
                   rel="noreferrer"
+                  aria-label="insta-link"
                   passHref
                 >
                   {" "}

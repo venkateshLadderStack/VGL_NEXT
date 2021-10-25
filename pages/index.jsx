@@ -5,10 +5,7 @@ import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
 import dynamic from "next/dynamic";
-import Slideout from "../components/SlideOut";
 import { Context } from "../context";
-import BottomLeftPopUp from "../components/BottomPopup/BottomLeftPopup";
-import BottomRightPopUp from "../components/BottomPopup/BottomRightPopup";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 const CelebStories = dynamic(() => import("../sections/celebrityStories"));
@@ -31,6 +28,21 @@ const JustIn = dynamic(() => import("../sections/justin"), {
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
   ssr: false,
 });
+const Slideout = dynamic(() => import("../components/SlideOut"), {
+  ssr: false,
+});
+const BottomLeftPopUp = dynamic(
+  () => import("../components/BottomPopup/BottomLeftPopup"),
+  {
+    ssr: false,
+  }
+);
+const BottomRightPopUp = dynamic(
+  () => import("../components/BottomPopup/BottomRightPopup"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();

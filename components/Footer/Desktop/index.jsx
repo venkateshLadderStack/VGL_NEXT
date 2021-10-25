@@ -203,6 +203,7 @@ const Footer = ({ bg, showBannerModal }) => {
                     href="https://www.facebook.com/verygoodlight/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="facebook-link"
                   >
                     {" "}
                     <FacebookIcon className={classes.icon} />
@@ -211,6 +212,7 @@ const Footer = ({ bg, showBannerModal }) => {
                     href="https://www.instagram.com/verygoodlight"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="insta-link"
                   >
                     {" "}
                     <InstagramIcon className={classes.icon} />

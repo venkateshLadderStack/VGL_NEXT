@@ -8,9 +8,6 @@ import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
 import dynamic from "next/dynamic";
 import { Context } from "../context";
-import BottomLeftPopUp from "../components/BottomPopup/BottomLeftPopup";
-import BottomRightPopUp from "../components/BottomPopup/BottomRightPopup";
-import Slideout from "../components/SlideOut";
 import { Helmet } from "react-helmet";
 
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
@@ -20,6 +17,21 @@ const Footer = dynamic(() => import("../components/Footer/Desktop"), {
 const CelebStory = dynamic(() => import("../components/CelebStory"), {
   ssr: false,
 });
+const Slideout = dynamic(() => import("../components/SlideOut"), {
+  ssr: false,
+});
+const BottomLeftPopUp = dynamic(
+  () => import("../components/BottomPopup/BottomLeftPopup"),
+  {
+    ssr: false,
+  }
+);
+const BottomRightPopUp = dynamic(
+  () => import("../components/BottomPopup/BottomRightPopup"),
+  {
+    ssr: false,
+  }
+);
 
 const Search = (props) => {
   const { query } = useRouter();
