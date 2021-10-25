@@ -7,7 +7,7 @@ const BottomLeftPopUp = ({ onCancel }) => {
 
   return (
     <>
-      <div className="left_popup_button" style={{ zIndex: 34 }}>
+      <div className="left_popup_button" style={{ zIndex: 898 }}>
         <div className="sign_up_button">
           <a
             href="https://goodlight.world/"
