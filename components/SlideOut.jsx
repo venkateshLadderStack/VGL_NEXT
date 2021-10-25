@@ -16,27 +16,22 @@ const Slideout = ({ onCancel, open }) => {
           <CloseIcon />
         </div>
         <div>
-          <div
-            style={{
-              width: "100%",
-              height: "90px",
-            }}
-          >
-            <Image
-              src={"/assets/goodLightLogo.png"}
-              alt=""
-              layout="responsive"
-              width={265}
-              height={88}
-            />
-          </div>
+          <Image
+            src={"/assets/goodLightLogo.png"}
+            alt=""
+            layout="responsive"
+            width={265}
+            height={88}
+            loading="lazy"
+          />
+
           <div>
             <p
               style={{
                 fontWeight: "600",
                 textAlign: "center",
                 whiteSpace: "nowrap",
-                fontSize: "25px",
+                fontSize: "24px",
                 fontFamily: "adobe-garamond-pro, serif",
               }}
             >

@@ -8,7 +8,7 @@ const SliderItemOptionTwo = ({ data }) => {
   const { width } = useWindowSize();
 
   return (
-    <Link href="/" title={data?.title}>
+    <Link href="/" title={data?.title} passHref>
       <div className="hero-area">
         <div className="hero-img hero-mobile">
           <Image
@@ -21,8 +21,8 @@ const SliderItemOptionTwo = ({ data }) => {
             layout="responsive"
             objectFit="contain"
             objectPosition="center"
-            loading="lazy"
-            quality={60}
+            priority={true}
+            quality={40}
           />
         </div>
         <div className="hero-containt">
@@ -44,8 +44,8 @@ const SliderItemOptionTwo = ({ data }) => {
               layout="responsive"
               objectFit="cover"
               objectPosition="center"
-              loading="lazy"
-              quality={60}
+              priority={true}
+              quality={40}
             />
           </div>
         )}

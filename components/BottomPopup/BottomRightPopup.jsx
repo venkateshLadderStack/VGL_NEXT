@@ -17,6 +17,9 @@ const BottomRightPopUp = () => {
               height={250}
               objectFit="contain"
               objectPosition="center"
+              loading="lazy"
+              placeholder="blur"
+              blurDataURL={"/assets/VGL-Sticky-V2.png"}
             />
           </a>
         </div>
