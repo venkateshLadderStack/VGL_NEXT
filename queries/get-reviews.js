@@ -33,6 +33,7 @@ export const getReviews = gql`
     categories {
       edges {
         node {
+          id
           slug
           name
           databaseId
@@ -49,6 +50,7 @@ export const getReviews = gql`
     ) {
       edges {
         node {
+          id
           author {
             node {
               name
@@ -69,14 +71,7 @@ export const getReviews = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug

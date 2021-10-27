@@ -5,6 +5,7 @@ export const RELATED_POSTS = gql`
     posts(where: { categoryId: $categoryId }, first: 5) {
       edges {
         node {
+          id
           title
           uri
           categories {
@@ -19,14 +20,6 @@ export const RELATED_POSTS = gql`
             node {
               mediaItemUrl
               date
-            }
-          }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
             }
           }
         }

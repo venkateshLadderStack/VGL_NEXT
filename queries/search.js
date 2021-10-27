@@ -8,6 +8,7 @@ export const SEARCH_POSTS = gql`
     ) {
       edges {
         node {
+          id
           title
           uri
           featuredImage {
@@ -21,14 +22,6 @@ export const SEARCH_POSTS = gql`
           author {
             node {
               name
-            }
-          }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
             }
           }
         }

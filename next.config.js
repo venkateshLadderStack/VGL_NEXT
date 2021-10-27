@@ -13,8 +13,13 @@ const nextConfig = {
   images: {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: ["media.verygoodlight.com", "cms.verygoodlight.com", "s.w.org"],
-    minimumCacheTTL: 1000000000000,
+    domains: [
+      "cms.verygoodlight.com",
+      "s.w.org",
+      "media.verygoodlight.com",
+      "secure.gravatar.com",
+    ],
+    minimumCacheTTL: 604800,
   },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
@@ -27,7 +32,8 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=9999999999, must-revalidate",
+            value:
+              "public, max-age=604800, s-maxage=604800, stale-while-revalidate",
           },
         ],
       },

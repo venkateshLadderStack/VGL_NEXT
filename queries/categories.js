@@ -33,14 +33,7 @@ export const GET_MORE_POSTS = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug

@@ -8,7 +8,7 @@ export default function Post({ post }) {
   return (
     <div className={classes.vglPost}>
       <div className={classes.vglFeaturedImage}>
-        <Link href={post?.uri} title={post.title}>
+        <Link href={`/article/${post?.id}`} title={post.title} passHref>
           <div
             style={{
               width: "100%",
@@ -32,9 +32,9 @@ export default function Post({ post }) {
         </Link>
       </div>
       <div className={classes.vglPostInfo}>
-        <a href={post?.uri} title={post.title}>
+        <Link href={`/article/${post?.id}`} title={post.title} passHref>
           <p>{post?.title}</p>
-        </a>
+        </Link>
         <span className={classes.vglPostNameCategory}>
           <b>by</b>
           <span className={classes.vglPostAuthor}>
@@ -50,7 +50,7 @@ export default function Post({ post }) {
         <Link
           className={classes.vglPostReadMore}
           title={post.title}
-          href={post?.uri}
+          href={`/article/${post?.id}`}
         >
           Read More
         </Link>

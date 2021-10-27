@@ -5,12 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Post({ data }) {
+  console.log(data.id);
   const classes = useStyles();
   return (
     // <Grid item xs={12} md={4} lg={4} xl={4}>
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
-        <Link href={data?.uri} title={data?.title} passHref>
+        <Link href={`/article/${data?.id}`} title={data?.title} passHref>
           <div className="imageContainer">
             <Image
               className="image"
@@ -24,7 +25,7 @@ export default function Post({ data }) {
                 data?.featuredImage?.node?.mediaItemUrl ||
                 data?.featured_image_2?.featuredImage2?.mediaItemUrl
               }
-              quality={80}
+              quality={75}
               loading="lazy"
               layout="fill"
               objectFit="contain"
@@ -34,13 +35,13 @@ export default function Post({ data }) {
       </div>
       <div>
         <h2 className={`${classes.title} ${classes.fontSporting}`}>
-          <a
+          <Link
             className={`${classes.fontSporting}`}
-            href={data?.uri}
+            href={`/article/${data?.id}`}
             title={data?.title}
           >
             {data?.title}
-          </a>
+          </Link>
         </h2>
         <p id="by">
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>

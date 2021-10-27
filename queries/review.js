@@ -32,14 +32,7 @@ export const GET_REVIEW_POSTS = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug
@@ -86,14 +79,7 @@ export const GET_MORE_REVIEW_POSTS = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug
@@ -140,14 +126,7 @@ export const GET_REVIEW_POSTS_BY_CATEGORY = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug
@@ -175,6 +154,7 @@ export const GET_MORE_REVIEW_POSTS_BY_CATEGORY = gql`
     ) {
       edges {
         node {
+          id
           author {
             node {
               name
@@ -195,14 +175,7 @@ export const GET_MORE_REVIEW_POSTS_BY_CATEGORY = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug

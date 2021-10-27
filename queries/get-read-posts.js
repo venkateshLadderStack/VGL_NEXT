@@ -47,6 +47,7 @@ export const getReadPosts = gql`
     ) {
       edges {
         node {
+          id
           author {
             node {
               name
@@ -72,14 +73,7 @@ export const getReadPosts = gql`
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+
           uri
           title
           slug

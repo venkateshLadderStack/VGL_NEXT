@@ -51,14 +51,7 @@ export const getPosts = gql`
               name
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+          
         }
       }
       pageInfo {
@@ -104,14 +97,7 @@ export const getPosts = gql`
               name
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
-            }
-          }
+        
         }
       }
     }

@@ -311,19 +311,7 @@ export async function getStaticProps(content) {
               }
             }
           }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-                bylineImage {
-                  image {
-                    sourceUrl
-                  }
-                }
-              }
-            }
-          }
+
           seo {
             metaDesc
             metaKeywords
@@ -361,7 +349,7 @@ export async function getStaticProps(content) {
 
   const category = data.post.categories.edges.filter(
     (item) => item.isPrimary === true
-  )[0].node.name;
+  )[0]?.node?.name;
 
   const catData = await client.query({
     query: gql`
@@ -394,7 +382,8 @@ export async function getStaticProps(content) {
       }
     `,
     variables: {
-      categoryName: category,
+      categoryName:
+        category === "Homepage" ? "main slider" : category || "Features",
     },
   });
 
@@ -415,7 +404,7 @@ export async function getStaticPaths() {
   const { data } = await client.query({
     query: gql`
       query {
-        posts(first: 10) {
+        posts(first: 100) {
           nodes {
             id
             uri

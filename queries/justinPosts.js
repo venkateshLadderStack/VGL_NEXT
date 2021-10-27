@@ -9,6 +9,7 @@ export const GET_MORE_POSTS = gql`
     ) {
       edges {
         node {
+          id
           categories {
             nodes {
               slug
@@ -34,14 +35,6 @@ export const GET_MORE_POSTS = gql`
           author {
             node {
               name
-            }
-          }
-          bylines {
-            edges {
-              node {
-                name
-                databaseId
-              }
             }
           }
         }

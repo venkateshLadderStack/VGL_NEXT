@@ -29,6 +29,7 @@ const NewSidebar = ({ posts }) => {
                     width={width > 767 ? "70" : "100"}
                     height={width > 767 ? "70" : "100"}
                     layout="fixed"
+                    placeholder="blur"
                     src={node?.featuredImage?.node?.mediaItemUrl}
                     blurDataURL={node?.featuredImage?.node?.mediaItemUrl}
                     loading={"lazy"}

@@ -13,6 +13,7 @@ export const getPost = gql`
       subHeading {
         h2Heading
       }
+      id
       content
       date
       uri
@@ -45,19 +46,7 @@ export const getPost = gql`
           }
         }
       }
-      bylines {
-        edges {
-          node {
-            name
-            databaseId
-            bylineImage {
-              image {
-                sourceUrl
-              }
-            }
-          }
-        }
-      }
+
       seo {
         metaDesc
         metaKeywords

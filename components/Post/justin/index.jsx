@@ -31,7 +31,7 @@ export default function Post({ post }) {
         </div>
       </div>
       <div className={classes.vglPostInfo}>
-        <Link href={post?.uri}>
+        <Link href={`/article/${post?.id}`} passHref>
           <p className={classes.vglPostTitle}>{post?.title}</p>
         </Link>
         <div className={classes.vglPostInfo__excerpt}>
@@ -53,7 +53,7 @@ export default function Post({ post }) {
             {post?.categories?.nodes[0]?.name}
           </span>
         </span>
-        <Link className={classes.vglPostReadMore} href={post?.uri}>
+        <Link className={classes.vglPostReadMore} href={`/article/${post?.id}`}>
           Read More
         </Link>
       </div>

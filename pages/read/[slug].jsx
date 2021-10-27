@@ -256,14 +256,7 @@ export async function getStaticProps(content) {
                   }
                 }
               }
-              bylines {
-                edges {
-                  node {
-                    name
-                    databaseId
-                  }
-                }
-              }
+
               uri
               title
               slug
