@@ -3,9 +3,10 @@ import { Grid } from "@material-ui/core";
 import { useStyles } from "./style";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Post({ data }) {
-  console.log(data.id);
+  const router = useRouter();
   const classes = useStyles();
   return (
     // <Grid item xs={12} md={4} lg={4} xl={4}>
@@ -35,13 +36,13 @@ export default function Post({ data }) {
       </div>
       <div>
         <h2 className={`${classes.title} ${classes.fontSporting}`}>
-          <Link
+          <a
             className={`${classes.fontSporting}`}
-            href={`/article/${data?.id}`}
+            onClick={() => router.push(`/article/${data?.id}`)}
             title={data?.title}
           >
             {data?.title}
-          </Link>
+          </a>
         </h2>
         <p id="by">
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>
