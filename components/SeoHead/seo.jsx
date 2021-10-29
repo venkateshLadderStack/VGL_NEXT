@@ -1,6 +1,7 @@
 import React from "react";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
+import Logo from "../public/assets/logo.webp";
 
 const Seo = ({ seo, link, featuredImage }) => {
   const APP_DESCRIPTION =
@@ -12,12 +13,10 @@ const Seo = ({ seo, link, featuredImage }) => {
   const site = "https://verygoodlight.com";
   const canonicalURL = site + useRouter().asPath;
 
-  console.log(seo);
-
   return (
     <>
       <NextSeo
-        title={seo?.metaTitle || seo?.opengraphTitle || APP_TITLE}
+        title={seo?.opengraphTitle || APP_TITLE}
         description={
           seo?.metaDesc || seo?.opengraphDescription || APP_DESCRIPTION
         }
@@ -30,7 +29,7 @@ const Seo = ({ seo, link, featuredImage }) => {
           locale: "en_US",
           images: [
             {
-              url: featuredImage || "/assets/logo.webp",
+              url: featuredImage || Logo,
               width: 850,
               height: 650,
               alt: "featuredImage",
@@ -40,7 +39,7 @@ const Seo = ({ seo, link, featuredImage }) => {
             handle: "@vgoodlight",
             site: "@vgoodlight",
             cardType: "summary",
-            image: featuredImage || "/assets/logo.webp",
+            image: featuredImage || Logo,
           },
         }}
       />
