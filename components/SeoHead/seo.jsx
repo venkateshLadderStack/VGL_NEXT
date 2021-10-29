@@ -1,7 +1,6 @@
 import React from "react";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
-import Logo from "../public/assets/logo.webp";
 
 const Seo = ({ seo, link, featuredImage }) => {
   const APP_DESCRIPTION =
@@ -29,7 +28,9 @@ const Seo = ({ seo, link, featuredImage }) => {
           locale: "en_US",
           images: [
             {
-              url: featuredImage || Logo,
+              url:
+                featuredImage ||
+                "https://cms.verygoodlight.com/wp-content/uploads/2019/05/vgl_logo.jpg",
               width: 850,
               height: 650,
               alt: "featuredImage",
@@ -39,7 +40,9 @@ const Seo = ({ seo, link, featuredImage }) => {
             handle: "@vgoodlight",
             site: "@vgoodlight",
             cardType: "summary",
-            image: featuredImage || Logo,
+            image:
+              featuredImage ||
+              "https://cms.verygoodlight.com/wp-content/uploads/2019/05/vgl_logo.jpg",
           },
         }}
       />
