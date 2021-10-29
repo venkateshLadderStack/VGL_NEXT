@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Seo from "../../components/SeoHead";
+import NextSeo from "../../components/SeoHead/seo";
 import Masonry from "react-masonry-css";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid } from "@material-ui/core";
@@ -94,8 +94,8 @@ const Read = ({ categoryDBId, data, getCatId }) => {
 
   return (
     <>
-      <Seo
-        data={data?.category?.seo}
+      <NextSeo
+        seo={data?.category?.seo}
         link={`https://verygoodlight.com/read/${data?.category?.slug}`}
       />
       <Navbar />

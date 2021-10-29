@@ -4,6 +4,7 @@ import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
 import Seo from "../components/SeoHead";
+import NextSeo from "../components/SeoHead/seo";
 import dynamic from "next/dynamic";
 import { Context } from "../context";
 
@@ -79,7 +80,7 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
 
   return (
     <>
-      <Seo data={seoData?.seo} link={seoData?.link} />
+      <NextSeo seo={seoData?.seo} link={seoData?.link} />
       <NavbarLarge />
       <main
         style={{

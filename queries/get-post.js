@@ -13,6 +13,7 @@ export const getPost = gql`
       subHeading {
         h2Heading
       }
+
       id
       content
       date

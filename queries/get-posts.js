@@ -7,6 +7,21 @@ import {
   createHttpLink,
 } from "@apollo/client";
 
+export const getBylines = gql`
+  query {
+    bylines(first: 100) {
+      edges {
+        node {
+          id
+          name
+          slug
+          uri
+        }
+      }
+    }
+  }
+`;
+
 export const getPosts = gql`
   query {
     posts(
@@ -51,7 +66,6 @@ export const getPosts = gql`
               name
             }
           }
-          
         }
       }
       pageInfo {
@@ -59,6 +73,7 @@ export const getPosts = gql`
         hasNextPage
       }
     }
+
     reviews: posts(
       where: {
         tag: "reviews"
@@ -97,7 +112,6 @@ export const getPosts = gql`
               name
             }
           }
-        
         }
       }
     }

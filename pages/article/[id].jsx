@@ -1,6 +1,7 @@
 import React from "react";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import Seo from "../../components/SeoHead";
+import NextSeo from "../../components/SeoHead/seo";
 import { RELATED_POSTS } from "../../queries/relatedPosts";
 import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid, Hidden } from "@material-ui/core";
@@ -63,8 +64,8 @@ const Article = ({ post, realtedCat }, ...props) => {
   }, [catId]);
   return (
     <>
-      <Seo
-        data={post?.seo}
+      <NextSeo
+        seo={post?.seo}
         link={post?.link}
         featuredImage={post?.featuredImage?.node?.mediaItemUrl}
       />

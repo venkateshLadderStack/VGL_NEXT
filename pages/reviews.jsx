@@ -3,6 +3,7 @@ import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import client from "../apollo/client";
 import { getReviews } from "../queries/get-reviews";
 import Seo from "../components/SeoHead";
+import NextSeo from "../components/SeoHead/seo";
 import { getPosts } from "../queries/get-posts";
 import Masonry from "react-masonry-css";
 import PropagateLoader from "react-spinners/PropagateLoader";
@@ -163,7 +164,7 @@ const Reviews = ({ data }) => {
 
   return (
     <div>
-      <Seo data={data?.page?.seo} link={data?.page?.link} />
+      <NextSeo seo={data?.page?.seo} link={data?.page?.link} />
       <Navbar />
       <main className="review-main-container">
         <Container className="wrapper-main">

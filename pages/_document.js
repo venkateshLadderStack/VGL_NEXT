@@ -29,6 +29,38 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="profile" href="https://gmpg.org/xfn/11" />
+          <meta name="ir-site-verification-token" value="-1088507391" />
+          <meta name="robots" content="index, follow" />
+          <meta
+            name="googlebot"
+            content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+          />
+          <meta
+            name="bingbot"
+            content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+          />
+          <meta
+            name="google-site-verification"
+            content="4iAPj_lH2EgCBAtDrTgWQL_R2kboAEpMXqzjG-lnCRQ"
+          />
+          <meta
+            name="facebook-domain-verification"
+            content="se678sbqe8v1edtyo7wzggrwl9xsr9"
+          />
+          <meta
+            property="article:publisher"
+            content="http://www.facebook.com/verygoodlight"
+          />
+          <link rel="icon" href="/assets/logo.webp" />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/assets/logo.webp"
+          />
+          <link rel="apple-touch-icon" href="/assets/logo.webp"></link>
+
+          {/* fonts and styles */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
