@@ -5,7 +5,6 @@ export const RELATED_POSTS = gql`
     posts(where: { categoryId: $categoryId }, first: 5) {
       edges {
         node {
-          id
           title
           uri
           categories {

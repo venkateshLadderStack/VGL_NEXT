@@ -2,6 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import ImageComponent from "./ImageComponent";
 import useWindowSize from "../hooks/useWindowSize";
+import Image from "next/image";
 
 const Author = ({ post, className }) => {
   const { width } = useWindowSize();
@@ -12,7 +13,7 @@ const Author = ({ post, className }) => {
         <div className="author_details_1">
           <div className="author_img">
             <div>
-              <ImageComponent
+              <Image
                 alt=""
                 src={
                   post?.bylines?.edges[0]?.node?.bylineImage.image

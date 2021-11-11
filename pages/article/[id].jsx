@@ -62,6 +62,8 @@ const Article = ({ post, realtedCat }, ...props) => {
   React.useEffect(() => {
     getRelatedPosts();
   }, [catId]);
+
+  console.log(relatedPosts, "RELATED");
   return (
     <>
       <NextSeo
@@ -312,7 +314,20 @@ export async function getStaticProps(content) {
               }
             }
           }
-
+          bylines {
+            edges {
+              node {
+                name
+                uri
+                databaseId
+                bylineImage {
+                  image {
+                    sourceUrl
+                  }
+                }
+              }
+            }
+          }
           seo {
             metaDesc
             metaKeywords
