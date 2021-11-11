@@ -10,7 +10,7 @@ export default function CelebStory({ post }) {
   const classes = useStyles();
   return (
     <Grid item xs={12} sm={6} md={6} lg={3} xl={3} style={{ marginBottom: 80 }}>
-      <div className={classes.container}>
+      <div className={`${classes.container} pointer`}>
         <Link
           href={`/article/${post?.id}`}
           title={post?.title}

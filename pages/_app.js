@@ -1,6 +1,4 @@
 import "../styles/globals.scss";
-// import "../styles/css/Navbar/desktop.css";
-// import "../styles/css/Navbar/mobile.css";
 import "../styles/css/newsletter.css";
 import "../styles/css/slideout.css";
 import "../styles/css/newnewsletter.css";
@@ -18,7 +16,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import theme from "../theme";
 import createEmotionCache from "../createEmotionCache";
-import Navbar from "../components/Navbar/Desktop";
 import { ContextProvider } from "../context";
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

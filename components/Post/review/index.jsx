@@ -13,7 +13,7 @@ export default function Post({ data }) {
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
         <Link href={`/article/${data?.id}`} title={data?.title} passHref>
-          <div className="imageContainer">
+          <div className="imageContainer pointer">
             <Image
               className="image"
               alt=""
@@ -36,13 +36,9 @@ export default function Post({ data }) {
       </div>
       <div>
         <h2 className={`${classes.title} ${classes.fontSporting}`}>
-          <a
-            className={`${classes.fontSporting}`}
-            onClick={() => router.push(`/article/${data?.id}`)}
-            title={data?.title}
-          >
-            {data?.title}
-          </a>
+          <Link href={`/article/${data?.id}`} title={data?.title} passHref>
+            <div className={`${classes.fontSporting}`}>{data?.title}</div>
+          </Link>
         </h2>
         <p id="by">
           <span className={`${classes.by} ${classes.fontLato}`}>by</span>

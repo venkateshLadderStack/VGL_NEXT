@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function Post({ post }) {
   const classes = useStyles();
   return (
-    <div className={classes.vglPost}>
+    <div className={`${classes.vglPost} pointer`}>
       <div className={classes.vglFeaturedImage}>
         <Link href={`/article/${post?.id}`} title={post.title} passHref>
           <div
@@ -33,7 +33,7 @@ export default function Post({ post }) {
       </div>
       <div className={classes.vglPostInfo}>
         <Link href={`/article/${post?.id}`} title={post.title} passHref>
-          <p>{post?.title}</p>
+          <p className={classes.vglPostDesc}>{post?.title}</p>
         </Link>
         <span className={classes.vglPostNameCategory}>
           <b>by</b>
@@ -47,12 +47,8 @@ export default function Post({ post }) {
             {post?.categories?.nodes[0]?.name}
           </span>
         </span>
-        <Link
-          className={classes.vglPostReadMore}
-          title={post.title}
-          href={`/article/${post?.id}`}
-        >
-          Read More
+        <Link title={post.title} href={`/article/${post?.id}`} passHref>
+          <div className={`${classes.vglPostReadMore}`}>Read More</div>
         </Link>
       </div>
     </div>

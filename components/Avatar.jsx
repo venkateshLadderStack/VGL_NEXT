@@ -51,7 +51,10 @@ const Author = ({ post, className }) => {
             {dayjs(post?.date).format("MMMM DD, YYYY")}
           </div>
           <div style={{ width: "20px", textAlign: "center" }}>{" | "}</div>
-          <div className="read_time">6 Min Read</div>
+          <div className="read_time">
+            {" "}
+            {post?.post_read_time?.readTime} Min Read
+          </div>
         </div>
       </div>
     </div>

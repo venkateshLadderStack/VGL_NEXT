@@ -135,6 +135,7 @@ const Article = ({ post, realtedCat }, ...props) => {
                       objectFit="contain"
                       objectPosition="right"
                       loading="lazy"
+                      quality="75"
                     />
                   ) : (
                     <Image
@@ -151,6 +152,7 @@ const Article = ({ post, realtedCat }, ...props) => {
                       layout="fill"
                       objectFit="cover"
                       loading="lazy"
+                      quality="60"
                     />
                   )}
                 </div>
@@ -376,6 +378,9 @@ export async function getServerSideProps(content) {
             }
           }
           link
+          post_read_time {
+            readTime
+          }
         }
       }
     `,

@@ -11,52 +11,53 @@ export default function Post({ post }) {
   const postExcerpt = post.excerpt.replace(regex, "");
 
   return (
-    <div className={classes.vglPost}>
-      <div
-        className={`${classes.vglFeaturedImg} `}
-        id="vgl-justin-post-featured-img "
-      >
-        <div className={classes.postHeight}>
-          <Image
-            alt=""
-            src={post?.featuredImage?.node?.mediaItemUrl}
-            placeholder="blur"
-            blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
-            layout="fill"
-            loading="lazy"
-            objectFit="contain"
-            objectPosition="center"
-            quality={80}
-          />
+    <Link href={`/article/${post?.id}`} passHref>
+      <div className={`${classes.vglPost} pointer`}>
+        <div
+          className={`${classes.vglFeaturedImg} `}
+          id="vgl-justin-post-featured-img "
+        >
+          <div className={classes.postHeight}>
+            <Image
+              alt=""
+              src={post?.featuredImage?.node?.mediaItemUrl}
+              placeholder="blur"
+              blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
+              layout="fill"
+              loading="lazy"
+              objectFit="contain"
+              objectPosition="center"
+              quality={80}
+            />
+          </div>
         </div>
-      </div>
-      <div className={classes.vglPostInfo}>
-        <Link href={`/article/${post?.id}`} passHref>
+        <div className={classes.vglPostInfo}>
           <p className={classes.vglPostTitle}>{post?.title}</p>
-        </Link>
-        <div className={classes.vglPostInfo__excerpt}>
-          <span
-            dangerouslySetInnerHTML={{
-              __html: `${postExcerpt.substring(0, 150)}`,
-            }}
-          ></span>
+
+          <div className={classes.vglPostInfo__excerpt}>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: `${postExcerpt.substring(0, 150)}`,
+              }}
+            ></span>
+          </div>
+          <span className={classes.vglPostNameCategory}>
+            <b>by</b>
+            <span className={classes.vglPostAuthor}>
+              {post?.bylines?.edges.length > 0
+                ? post?.bylines?.edges[0]?.node?.name
+                : post?.author?.node?.name}
+            </span>
+            |
+            <span className={classes.vglPostCategory}>
+              {post?.categories?.nodes[0]?.name}
+            </span>
+          </span>
+          <Link href={`/article/${post?.id}`} passHref>
+            <div className={classes.vglPostReadMore}>Read More</div>
+          </Link>
         </div>
-        <span className={classes.vglPostNameCategory}>
-          <b>by</b>
-          <span className={classes.vglPostAuthor}>
-            {post?.bylines?.edges.length > 0
-              ? post?.bylines?.edges[0]?.node?.name
-              : post?.author?.node?.name}
-          </span>
-          |
-          <span className={classes.vglPostCategory}>
-            {post?.categories?.nodes[0]?.name}
-          </span>
-        </span>
-        <Link className={classes.vglPostReadMore} href={`/article/${post?.id}`}>
-          Read More
-        </Link>
       </div>
-    </div>
+    </Link>
   );
 }

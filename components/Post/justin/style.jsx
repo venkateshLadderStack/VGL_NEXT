@@ -72,6 +72,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   vglPostInfo__excerpt: {
     margin: "10px 0",
+    fontFamily: "Muli",
     "& span": {
       lineHeight: 1.15,
       fontFamily: "Muli",

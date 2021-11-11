@@ -18,7 +18,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   vglPostInfo: {
     marginTop: 15,
-    "& a": {
+    "& div": {
       textDecoration: "none",
       color: "#000",
       "&:hover": {
@@ -35,6 +35,15 @@ export const useStyles = makeStyles((theme) => ({
         fontSize: "29px !important",
       },
     },
+  },
+  vglPostDesc: {
+    fontWeight: 800,
+    fontStretch: "normal",
+    fontStyle: "normal",
+    lineHeight: "normal",
+    letterSpacing: "normal",
+    color: "#000",
+    fontSize: "29px !important",
   },
   vglPostNameCategory: {
     fontSize: 14,
