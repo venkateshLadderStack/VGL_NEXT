@@ -59,11 +59,9 @@ const Article = ({ post, realtedCat }, ...props) => {
     getRelatedPosts();
   }, [catId]);
 
-  React.useEffect(() => {
-    getRelatedPosts();
-  }, [catId]);
+  const feat1 = post?.featured_image_2?.featuredImage2?.mediaItemUrl;
+  const feat2 = post?.featuredImage?.node?.mediaItemUrl;
 
-  console.log(relatedPosts, "RELATED");
   return (
     <>
       <NextSeo
@@ -116,23 +114,45 @@ const Article = ({ post, realtedCat }, ...props) => {
                     </div>
                   )}
                 </div>
-                <div className="hero_right">
-                  <Image
-                    src={
-                      post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
-                      post?.featuredImage?.node?.mediaItemUrl
-                    }
-                    placeholder="blur"
-                    blurDataURL={
-                      post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
-                      post?.featuredImage?.node?.mediaItemUrl
-                    }
-                    alt=""
-                    layout="fill"
-                    objectFit="cover"
-                    objectPosition="right"
-                    loading="lazy"
-                  />
+                <div
+                  className={`hero_right ${
+                    feat1 ? "feat_img_rc" : "feat_img_sq"
+                  }`}
+                >
+                  {width > 786 ? (
+                    <Image
+                      src={
+                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                        post?.featuredImage?.node?.mediaItemUrl
+                      }
+                      placeholder="blur"
+                      blurDataURL={
+                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                        post?.featuredImage?.node?.mediaItemUrl
+                      }
+                      alt=""
+                      layout="fill"
+                      objectFit="contain"
+                      objectPosition="right"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Image
+                      src={
+                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                        post?.featuredImage?.node?.mediaItemUrl
+                      }
+                      placeholder="blur"
+                      blurDataURL={
+                        post?.featured_image_2?.featuredImage2?.mediaItemUrl ||
+                        post?.featuredImage?.node?.mediaItemUrl
+                      }
+                      alt=""
+                      layout="fill"
+                      objectFit="cover"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
               </div>
               {width > 768 && (
@@ -269,7 +289,7 @@ const Article = ({ post, realtedCat }, ...props) => {
 
 export default Article;
 
-export async function getStaticProps(content) {
+export async function getServerSideProps(content) {
   const client = new ApolloClient({
     uri: "https://cms.verygoodlight.com/graphql",
     cache: new InMemoryCache(),
@@ -285,6 +305,7 @@ export async function getStaticProps(content) {
           content
           date
           uri
+          id
           title
           featuredImage {
             node {
@@ -411,34 +432,34 @@ export async function getStaticProps(content) {
   };
 }
 
-export async function getStaticPaths() {
-  const client = new ApolloClient({
-    uri: "https://cms.verygoodlight.com/graphql",
-    cache: new InMemoryCache(),
-  });
+// export async function getStaticPaths() {
+//   const client = new ApolloClient({
+//     uri: "https://cms.verygoodlight.com/graphql",
+//     cache: new InMemoryCache(),
+//   });
 
-  const { data } = await client.query({
-    query: gql`
-      query {
-        posts(first: 100) {
-          nodes {
-            id
-            uri
-            slug
-          }
-        }
-      }
-    `,
-  });
+//   const { data } = await client.query({
+//     query: gql`
+//       query {
+//         posts(first: 100) {
+//           nodes {
+//             id
+//             uri
+//             slug
+//           }
+//         }
+//       }
+//     `,
+//   });
 
-  const paths = data.posts.nodes.map((path) => {
-    return {
-      params: { id: path.id.toString() },
-    };
-  });
+//   const paths = data.posts.nodes.map((path) => {
+//     return {
+//       params: { id: path.id.toString() },
+//     };
+//   });
 
-  return {
-    paths: paths,
-    fallback: false,
-  };
-}
+//   return {
+//     paths: paths,
+//     fallback: false,
+//   };
+// }

@@ -7,6 +7,7 @@ export const RELATED_POSTS = gql`
         node {
           title
           uri
+          id
           categories {
             edges {
               isPrimary

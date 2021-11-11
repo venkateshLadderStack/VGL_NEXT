@@ -35,6 +35,7 @@ export const GET_REVIEW_POSTS = gql`
 
           uri
           title
+          id
           slug
         }
       }
@@ -82,6 +83,7 @@ export const GET_MORE_REVIEW_POSTS = gql`
 
           uri
           title
+          id
           slug
         }
       }
@@ -129,6 +131,7 @@ export const GET_REVIEW_POSTS_BY_CATEGORY = gql`
 
           uri
           title
+          id
           slug
         }
       }

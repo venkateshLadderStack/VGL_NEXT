@@ -3,6 +3,7 @@ import Link from "next/link";
 import useWindowSize from "../../hooks/useWindowSize";
 import ImageComponent from "../ImageComponent";
 import NewNewsLetter from "../Newsletter/NewNewsLetter";
+import Image from "next/image";
 
 const NewSidebar = ({ posts }) => {
   const { width } = useWindowSize();
@@ -21,10 +22,10 @@ const NewSidebar = ({ posts }) => {
 
         {posts.edges.slice(0, 4).map(({ node }, index) => (
           <div key={index} className={`sidebar_container `}>
-            <Link href={`/blog/${node.id}`} passHref>
-              <>
-                <div className="sidebar_left">
-                  <ImageComponent
+            <>
+              <div className="sidebar_left">
+                <Link href={`/article/${node.id}`} passHref>
+                  <Image
                     alt=""
                     width={width > 767 ? "70" : "100"}
                     height={width > 767 ? "70" : "100"}
@@ -34,19 +35,21 @@ const NewSidebar = ({ posts }) => {
                     blurDataURL={node?.featuredImage?.node?.mediaItemUrl}
                     loading={"lazy"}
                   />
-                </div>
+                </Link>
+              </div>
 
-                <div className="sidebar_right">
+              <div className="sidebar_right">
+                <Link href={`/article/${node.id}`} passHref>
                   <h4> {node?.title}</h4>
-                </div>
-              </>
-            </Link>
+                </Link>
+              </div>
+            </>
           </div>
         ))}
         {width < 768 && (
           <div className="vgl_pageable-load-more-btn">
             <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">
-              <Link href="/blog/features" className="vgl_general vgl_btn3">
+              <Link href="/read/features" className="vgl_general vgl_btn3">
                 More articles
               </Link>
             </div>

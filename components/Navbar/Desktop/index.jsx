@@ -127,6 +127,10 @@ export default function Navbar() {
                 layout="fixed"
                 loading="lazy"
                 objectFit="contain"
+                placeholder="blur"
+                blurDataURL={
+                  size?.width < 768 ? "/assets/logo.png" : "/assets/test.png"
+                }
               />
             </Link>
 
@@ -364,6 +368,8 @@ export default function Navbar() {
                   loading="lazy"
                   objectFit="contain"
                   objectPosition="center"
+                  placeholder="blur"
+                  blurDataURL={"/assets/test.png"}
                 />
               </div>
             </Link>

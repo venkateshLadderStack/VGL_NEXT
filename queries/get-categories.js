@@ -6,6 +6,7 @@ export const getCategories = gql`
       nodes {
         name
         slug
+        id
       }
     }
   }

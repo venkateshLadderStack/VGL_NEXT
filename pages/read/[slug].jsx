@@ -260,6 +260,7 @@ export async function getStaticProps(content) {
               uri
               title
               slug
+              id
             }
           }
           pageInfo {
