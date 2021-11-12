@@ -11,7 +11,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
-import { NextSeo } from "next-seo";
+import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
 
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
