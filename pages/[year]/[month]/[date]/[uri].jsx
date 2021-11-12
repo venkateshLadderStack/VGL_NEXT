@@ -1,9 +1,6 @@
 import React from "react";
+import { useRouter } from "next/router";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import Seo from "../../components/SeoHead";
-import NextSeo from "../../components/SeoHead/seo";
-import { RELATED_POSTS } from "../../queries/relatedPosts";
-import useWindowSize from "../../hooks/useWindowSize";
 import { Container, Grid, Hidden } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -12,22 +9,26 @@ import Masonry from "react-masonry-css";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import axios from "axios";
+import { RELATED_POSTS } from "../../../../queries/relatedPosts";
+import { NextSeo } from "next-seo";
+import useWindowSize from "../../../../hooks/useWindowSize";
 
-const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
-const Footer = dynamic(() => import("../../components/Footer/Desktop"), {
+const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
+const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
   ssr: false,
 });
-const Author = dynamic(() => import("../../components/Avatar"), {
+const Author = dynamic(() => import("../../../../components/Avatar"), {
   ssr: false,
 });
-const Post = dynamic(() => import("../../components/Post/review"), {
+const Post = dynamic(() => import("../../../../components/Post/review"), {
   ssr: false,
 });
-const NewSidebar = dynamic(() => import("../../components/SideBar"), {
+const NewSidebar = dynamic(() => import("../../../../components/SideBar"), {
   ssr: false,
 });
 
-const Article = ({ post, realtedCat }, ...props) => {
+const BlogArticle = ({ post, realtedCat }, ...props) => {
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -270,7 +271,7 @@ const Article = ({ post, realtedCat }, ...props) => {
           {width >= 768 ? (
             <div className="vgl_pageable-load-more-btn">
               <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">
-                <Link href="/read/features" className="vgl_general vgl_btn3">
+                <Link href="/blog/features" className="vgl_general vgl_btn3">
                   More articles
                 </Link>
               </div>
@@ -289,7 +290,7 @@ const Article = ({ post, realtedCat }, ...props) => {
   );
 };
 
-export default Article;
+export default BlogArticle;
 
 export async function getServerSideProps(content) {
   const client = new ApolloClient({
@@ -300,7 +301,7 @@ export async function getServerSideProps(content) {
   const { data } = await client.query({
     query: gql`
       query ($postID: ID!) {
-        post(id: $postID) {
+        post(idType: URI, id: $postID) {
           subHeading {
             h2Heading
           }
@@ -385,7 +386,7 @@ export async function getServerSideProps(content) {
       }
     `,
     variables: {
-      postID: content.params.id,
+      postID: content.resolvedUrl,
     },
   });
 
@@ -436,35 +437,3 @@ export async function getServerSideProps(content) {
     },
   };
 }
-
-// export async function getStaticPaths() {
-//   const client = new ApolloClient({
-//     uri: "https://cms.verygoodlight.com/graphql",
-//     cache: new InMemoryCache(),
-//   });
-
-//   const { data } = await client.query({
-//     query: gql`
-//       query {
-//         posts(first: 100) {
-//           nodes {
-//             id
-//             uri
-//             slug
-//           }
-//         }
-//       }
-//     `,
-//   });
-
-//   const paths = data.posts.nodes.map((path) => {
-//     return {
-//       params: { id: path.id.toString() },
-//     };
-//   });
-
-//   return {
-//     paths: paths,
-//     fallback: false,
-//   };
-// }

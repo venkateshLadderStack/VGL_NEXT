@@ -24,7 +24,7 @@ const NewSidebar = ({ posts }) => {
           <div key={index} className={`sidebar_container `}>
             <>
               <div className="sidebar_left">
-                <Link href={`/article/${node.id}`} passHref>
+                <Link href={`/${node.uri}`} passHref>
                   <Image
                     alt=""
                     width={width > 767 ? "70" : "100"}
@@ -39,7 +39,7 @@ const NewSidebar = ({ posts }) => {
               </div>
 
               <div className="sidebar_right">
-                <Link href={`/article/${node.id}`} passHref>
+                <Link href={`/${node.uri}`} passHref>
                   <h4> {node?.title}</h4>
                 </Link>
               </div>
@@ -49,7 +49,7 @@ const NewSidebar = ({ posts }) => {
         {width < 768 && (
           <div className="vgl_pageable-load-more-btn">
             <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">
-              <Link href="/read/features" className="vgl_general vgl_btn3">
+              <Link href="/blog/features" className="vgl_general vgl_btn3">
                 More articles
               </Link>
             </div>

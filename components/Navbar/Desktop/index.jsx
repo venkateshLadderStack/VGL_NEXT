@@ -183,7 +183,7 @@ export default function Navbar() {
                     data-toggle="dropdown"
                     style={{ padding: 0 }}
                     aria-label="read-section"
-                    onClick={() => router.push("/read/features")}
+                    onClick={() => router.push("/blog/features")}
                   >
                     <div
                       className={`nav-link vgl__dropdown-option ${
@@ -234,7 +234,7 @@ export default function Navbar() {
                                       aria-label="menu-items"
                                       className={`nav-link pointer ${classes.secondaryMenuLink}`}
                                       onClick={() =>
-                                        router.push(`/read/${menuItem.slug}`)
+                                        router.push(`/blog/${menuItem.slug}`)
                                       }
                                     >
                                       {menuItem.name}

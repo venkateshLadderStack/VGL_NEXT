@@ -94,7 +94,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
               >
                 <div>
                   <Link
-                    href="/read/features"
+                    href="/blog/features"
                     className={classes.primaryMenuLink}
                     style={{
                       fontWeight: 700,
@@ -119,7 +119,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                       menuItems.map((menuItem, index) => (
                         <Grid item xs={6} sm={6} md={6} lg={6} key={index}>
                           <Link
-                            href={`/read/${menuItem.slug}`}
+                            href={`/blog/${menuItem.slug}`}
                             style={{
                               color: isDarkMode ? "#fff" : "#000",
                             }}

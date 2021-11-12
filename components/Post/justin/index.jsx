@@ -11,7 +11,7 @@ export default function Post({ post }) {
   const postExcerpt = post.excerpt.replace(regex, "");
 
   return (
-    <Link href={`/article/${post?.id}`} passHref>
+    <Link href={`/${post?.uri}`} passHref>
       <div className={`${classes.vglPost} pointer`}>
         <div
           className={`${classes.vglFeaturedImg} `}
@@ -53,7 +53,7 @@ export default function Post({ post }) {
               {post?.categories?.nodes[0]?.name}
             </span>
           </span>
-          <Link href={`/article/${post?.id}`} passHref>
+          <Link href={`/${post?.uri}`} passHref>
             <div className={classes.vglPostReadMore}>Read More</div>
           </Link>
         </div>

@@ -12,7 +12,7 @@ export default function PostFilter({ list, slCat, onCategoryChanged }) {
         .filter(({ node }) => node.name !== "Uncategorized")
         .filter(({ node }) => node.name !== "True Life")
         .map(({ node }, i) => (
-          <Link key={i} href={`/read/${node.slug}`} passHref>
+          <Link key={i} href={`/blog/${node.slug}`} passHref>
             <div
               className={`${classes.filterGridItem} ${
                 slCat === node.databaseId && classes.filterItemActive

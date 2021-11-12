@@ -8,7 +8,7 @@ const SliderItemOptionTwo = ({ data }) => {
   const { width } = useWindowSize();
 
   return (
-    <Link href={`/article/${data?.id}`} title={data?.title} passHref>
+    <Link href={`/${data?.uri}`} title={data?.title} passHref>
       <div className="hero-area">
         <div className="hero-img hero-mobile pointer">
           <Image
@@ -27,7 +27,7 @@ const SliderItemOptionTwo = ({ data }) => {
         </div>
         <div className="hero-containt">
           <h3>{data?.title}</h3>
-          <Link href={`/article/${data?.id}`} title={data?.title}>
+          <Link href={`/${data?.uri}`} title={data?.title}>
             READ MORE
           </Link>
         </div>
