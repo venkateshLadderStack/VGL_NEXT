@@ -24,7 +24,7 @@ const NewSidebar = ({ posts }) => {
           <div key={index} className={`sidebar_container `}>
             <>
               <div className="sidebar_left">
-                <Link href={`/${node.uri}`} passHref>
+                <Link href={node.uri} passHref>
                   <Image
                     alt=""
                     width={width > 767 ? "70" : "100"}
@@ -39,7 +39,7 @@ const NewSidebar = ({ posts }) => {
               </div>
 
               <div className="sidebar_right">
-                <Link href={`/${node.uri}`} passHref>
+                <Link href={node.uri} passHref>
                   <h4> {node?.title}</h4>
                 </Link>
               </div>

@@ -12,7 +12,7 @@ export default function Post({ data }) {
     // <Grid item xs={12} md={4} lg={4} xl={4}>
     <div className={classes.itemCard}>
       <div className={classes.itemThumbnail}>
-        <Link href={`/${data?.uri}`} title={data?.title} passHref>
+        <Link href={data?.uri} title={data?.title} passHref>
           <div className="imageContainer pointer">
             <Image
               className="image"
@@ -36,7 +36,7 @@ export default function Post({ data }) {
       </div>
       <div>
         <h2 className={`${classes.title} ${classes.fontSporting}`}>
-          <Link href={`/${data?.uri}`} title={data?.title} passHref>
+          <Link href={data?.uri} title={data?.title} passHref>
             <div className={`${classes.fontSporting}`}>{data?.title}</div>
           </Link>
         </h2>

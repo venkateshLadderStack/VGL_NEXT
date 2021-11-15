@@ -153,7 +153,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       layout="fill"
                       objectFit="cover"
                       loading="lazy"
-                      quality="60"
+                      quality="50"
                     />
                   )}
                 </div>

@@ -12,7 +12,7 @@ export default function CelebStory({ post }) {
     <Grid item xs={12} sm={6} md={6} lg={3} xl={3} style={{ marginBottom: 80 }}>
       <div className={`${classes.container} pointer`}>
         <Link
-          href={`/${post?.uri}`}
+          href={post?.uri}
           title={post?.title}
           passHref
           aria-label={post?.title}

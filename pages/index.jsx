@@ -129,6 +129,7 @@ export const getStaticProps = async (context) => {
   const { data } = await client.query({
     query: getPosts,
   });
+
   return {
     props: {
       data,
