@@ -13,7 +13,13 @@ import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
-import { fetchAllPosts, fetchMorePosts } from "../../../api/fetchPosts";
+import {
+  fetchAllPosts1,
+  fetchAllPosts2,
+  fetchAllPosts3,
+  fetchAllPosts4,
+  fetchAllPosts5,
+} from "../../../api/fetchPosts";
 
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
@@ -445,10 +451,13 @@ export async function getStaticProps(content) {
 }
 
 export async function getStaticPaths() {
-  const fetchFirst = await fetchAllPosts();
-  const fetchMore = await fetchMorePosts();
+  const fetch1 = await fetchAllPosts1();
+  const fetch2 = await fetchAllPosts2();
+  const fetch3 = await fetchAllPosts3();
+  const fetch4 = await fetchAllPosts4();
+  const fetch5 = await fetchAllPosts5();
 
-  const fetchAll = [...fetchFirst, ...fetchMore];
+  const fetchAll = [...fetch1, ...fetch2, ...fetch3, ...fetch4, ...fetch5];
 
   const paths = fetchAll.map((path) => {
     const link = path.link
