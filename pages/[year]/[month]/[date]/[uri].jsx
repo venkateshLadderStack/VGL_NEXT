@@ -13,20 +13,20 @@ import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
-import { fetchAllPosts } from "../../../api/fetchPosts";
+import { fetchAllPosts, fetchMorePosts } from "../../../api/fetchPosts";
 
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Author = dynamic(() => import("../../../../components/Avatar"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Post = dynamic(() => import("../../../../components/Post/review"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const NewSidebar = dynamic(() => import("../../../../components/SideBar"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 
 const BlogArticle = ({ post, realtedCat }, ...props) => {
@@ -445,7 +445,10 @@ export async function getStaticProps(content) {
 }
 
 export async function getStaticPaths() {
-  const fetchAll = await fetchAllPosts();
+  const fetchFirst = await fetchAllPosts();
+  const fetchMore = await fetchMorePosts();
+
+  const fetchAll = [...fetchFirst, ...fetchMore];
 
   const paths = fetchAll.map((path) => {
     const link = path.link

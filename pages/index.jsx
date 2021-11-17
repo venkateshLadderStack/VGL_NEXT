@@ -3,7 +3,6 @@ import client from "../apollo/client";
 import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
 import useWindowSize from "../hooks/useWindowSize";
-import Seo from "../components/SeoHead";
 import NextSeo from "../components/SeoHead/seo";
 import dynamic from "next/dynamic";
 import { Context } from "../context";
@@ -12,36 +11,36 @@ const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 const CelebStories = dynamic(() => import("../sections/celebrityStories"));
 const HeroSlider = dynamic(() => import("../components/HeroSlider"));
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const SecondaryNewsLetter = dynamic(
   () => import("../components/Newsletter/Main/Secondary"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 const ReviewsSection = dynamic(() => import("../sections/reviews"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const JustIn = dynamic(() => import("../sections/justin"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 

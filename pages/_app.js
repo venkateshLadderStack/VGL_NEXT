@@ -4,6 +4,7 @@ import "../styles/css/slideout.css";
 import "../styles/css/newnewsletter.css";
 import "../styles/article.scss";
 import "../styles/popup.scss";
+import "bootstrap/dist/css/bootstrap.css";
 
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo/client";

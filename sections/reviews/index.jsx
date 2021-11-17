@@ -5,7 +5,12 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import Post from "../../components/Post/reviewHome";
+
+import dynamic from "next/dynamic";
+
+const Post = dynamic(() => import("../../components/Post/reviewHome"), {
+  loading: () => <p>...</p>,
+});
 
 export default function ReviewsSection({ data, rev, title }) {
   const classes = useStyles();

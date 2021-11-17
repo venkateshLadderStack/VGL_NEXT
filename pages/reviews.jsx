@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import client from "../apollo/client";
 import { getReviews } from "../queries/get-reviews";
-import Seo from "../components/SeoHead";
 import NextSeo from "../components/SeoHead/seo";
 import { getPosts } from "../queries/get-posts";
 import Masonry from "react-masonry-css";
@@ -20,27 +19,27 @@ import { Context } from "../context";
 
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Post = dynamic(() => import("../components/Post/review"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const PostFilter = dynamic(() => import("../components/PostFilter/main"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 

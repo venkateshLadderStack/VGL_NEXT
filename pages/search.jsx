@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { SEARCH_POSTS } from "../queries/search";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import Seo from "../components/SeoHead";
 import { Grid, Container } from "@material-ui/core";
 import { PropagateLoader } from "react-spinners";
 import { css } from "@emotion/react";
@@ -12,24 +11,24 @@ import { Helmet } from "react-helmet";
 
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const CelebStory = dynamic(() => import("../components/CelebStory"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 
@@ -100,7 +99,6 @@ const Search = (props) => {
         <meta name="twitter:creator" content="@vgoodlight" />
         <meta name="twitter:site" content="@vgoodlight" />
       </Helmet>
-      <Seo />
       <Navbar />
       <main className="search-main-container">
         <Container>

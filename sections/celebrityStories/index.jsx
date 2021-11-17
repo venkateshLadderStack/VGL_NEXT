@@ -1,7 +1,11 @@
 import React from "react";
 import { useStyles } from "./style";
 import { Grid, Container } from "@material-ui/core";
-import CelebStory from "../../components/CelebStory";
+import dynamic from "next/dynamic";
+
+const CelebStory = dynamic(() => import("../../components/CelebStory"), {
+  loading: () => <p>...</p>,
+});
 
 export default function CelebStories({ data }) {
   const classes = useStyles();

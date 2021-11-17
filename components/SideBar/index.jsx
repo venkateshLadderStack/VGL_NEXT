@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
 import useWindowSize from "../../hooks/useWindowSize";
-import ImageComponent from "../ImageComponent";
 import NewNewsLetter from "../Newsletter/NewNewsLetter";
 import Image from "next/image";
 
@@ -33,7 +32,7 @@ const NewSidebar = ({ posts }) => {
                     placeholder="blur"
                     src={node?.featuredImage?.node?.mediaItemUrl}
                     blurDataURL={node?.featuredImage?.node?.mediaItemUrl}
-                    loading={"lazy"}
+                    loading="lazy"
                   />
                 </Link>
               </div>

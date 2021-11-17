@@ -4,10 +4,21 @@ import { useLazyQuery } from "@apollo/client";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";
 import { useStyles } from "./style";
-import Post from "../../components/Post/justin";
 import { GET_MORE_POSTS } from "../../queries/justinPosts";
-import NewNewsLetter from "../../components/Newsletter/NewNewsLetter";
 import Image from "next/image";
+
+import dynamic from "next/dynamic";
+
+const Post = dynamic(() => import("../../components/Post/justin"), {
+  loading: () => <p>...</p>,
+});
+
+const NewNewsLetter = dynamic(
+  () => import("../../components/Newsletter/NewNewsLetter"),
+  {
+    loading: () => <p>...</p>,
+  }
+);
 
 // Can be a string as well. Need to ensure each key-value pair ends with ;
 const override = css`

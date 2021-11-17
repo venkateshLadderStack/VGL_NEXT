@@ -12,27 +12,27 @@ import { Context } from "../../context";
 
 const Navbar = dynamic(() => import("../../components/Navbar/Desktop"));
 const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Post = dynamic(() => import("../../components/Post/review"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const PostFilter = dynamic(() => import("../../components/PostFilter"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const Slideout = dynamic(() => import("../../components/SlideOut"), {
-  ssr: false,
+  loading: () => <p>...</p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../../components/BottomPopup/BottomLeftPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../../components/BottomPopup/BottomRightPopup"),
   {
-    ssr: false,
+    loading: () => <p>...</p>,
   }
 );
 
