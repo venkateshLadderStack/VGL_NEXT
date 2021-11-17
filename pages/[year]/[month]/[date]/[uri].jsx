@@ -454,10 +454,10 @@ export async function getStaticPaths() {
   const fetch1 = await fetchAllPosts1();
   const fetch2 = await fetchAllPosts2();
   const fetch3 = await fetchAllPosts3();
-  const fetch4 = await fetchAllPosts4();
-  const fetch5 = await fetchAllPosts5();
+  // const fetch4 = await fetchAllPosts4();
+  // const fetch5 = await fetchAllPosts5();
 
-  const fetchAll = [...fetch1, ...fetch2, ...fetch3, ...fetch4, ...fetch5];
+  const fetchAll = [...fetch1, ...fetch2, ...fetch3];
 
   const paths = fetchAll.map((path) => {
     const link = path.link
