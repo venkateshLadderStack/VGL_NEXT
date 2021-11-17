@@ -6,8 +6,10 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import Link from "next/link";
 import Axios from "axios";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import ImageComponent from "../../ImageComponent";
-
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 const defaultState = {
   isOpen: false,
   isClose: false,
@@ -106,8 +108,10 @@ const Footer = ({ bg, showBannerModal }) => {
           <Grid container>
             <Grid item xs={12} md={8} lg={8} style={{ marginBottom: 50 }}>
               <div className={classes.topright}>
-                <ImageComponent
+                <Image
                   src={"/assets/footer-logo.png"}
+                  placeholder="blur"
+                  blurDataURL={"/assets/footer-logo.png"}
                   className={classes.logo}
                   alt=""
                   width={80}

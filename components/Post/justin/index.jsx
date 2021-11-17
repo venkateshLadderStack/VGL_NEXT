@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import { useStyles } from "./style";
-import ImageComponent from "../../ImageComponent";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 const regex = /(<([^>]+)>)/gi;
 

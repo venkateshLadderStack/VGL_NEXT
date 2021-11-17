@@ -2,9 +2,10 @@ import React from "react";
 import { useStyles } from "./style";
 import { Grid } from "@material-ui/core";
 import Link from "next/link";
-import styled from "styled-components";
-import ImageComponent from "../ImageComponent";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 export default function CelebStory({ post }) {
   const classes = useStyles();

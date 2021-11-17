@@ -1,9 +1,11 @@
 import React from "react";
 import dayjs from "dayjs";
-import ImageComponent from "./ImageComponent";
 import useWindowSize from "../hooks/useWindowSize";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 const Author = ({ post, className }) => {
   const { width } = useWindowSize();
 

@@ -5,10 +5,11 @@ import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";
 import { useStyles } from "./style";
 import { GET_MORE_POSTS } from "../../queries/justinPosts";
-import Image from "next/image";
 
 import dynamic from "next/dynamic";
-
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 const Post = dynamic(() => import("../../components/Post/justin"), {
   loading: () => <p>...</p>,
 });

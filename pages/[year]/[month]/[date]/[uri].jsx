@@ -7,20 +7,16 @@ import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
-import Image from "next/image";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
-import {
-  fetchAllPosts1,
-  fetchAllPosts2,
-  fetchAllPosts3,
-  fetchAllPosts4,
-  fetchAllPosts5,
-} from "../../../api/fetchPosts";
+import { fetchAllPosts, fetchMorePosts } from "../../../api/fetchPosts";
 
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
   loading: () => <p>...</p>,
@@ -451,13 +447,10 @@ export async function getStaticProps(content) {
 }
 
 export async function getStaticPaths() {
-  const fetch1 = await fetchAllPosts1();
-  const fetch2 = await fetchAllPosts2();
-  const fetch3 = await fetchAllPosts3();
-  // const fetch4 = await fetchAllPosts4();
-  // const fetch5 = await fetchAllPosts5();
+  const fetch1 = await fetchAllPosts();
+  const fetch2 = await fetchMorePosts();
 
-  const fetchAll = [...fetch1, ...fetch2, ...fetch3];
+  const fetchAll = [...fetch1, ...fetch2];
 
   const paths = fetchAll.map((path) => {
     const link = path.link

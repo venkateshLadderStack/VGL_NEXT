@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 const Slideout = ({ onCancel, open }) => {
   return (

@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import ImageComponent from "../ImageComponent";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 const NewNewsLetter = ({ right, top }) => {
   const [email, setEmail] = React.useState("");
@@ -63,8 +67,10 @@ const NewNewsLetter = ({ right, top }) => {
         </p>
 
         <div className={"envelope"}>
-          <ImageComponent
+          <Image
             src={"/assets/envelope.png"}
+            placeholder="blur"
+            blurDataURL={"/assets/envelope.png"}
             alt="envelope"
             width="45"
             height="35"
@@ -73,8 +79,10 @@ const NewNewsLetter = ({ right, top }) => {
           />
         </div>
         <div className="spark">
-          <ImageComponent
+          <Image
             src={"/assets/spark.png"}
+            placeholder="blur"
+            blurDataURL={"/assets/spark.png"}
             alt="spark"
             width="25"
             height="35"

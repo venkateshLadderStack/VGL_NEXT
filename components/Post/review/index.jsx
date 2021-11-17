@@ -2,8 +2,12 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import { useStyles } from "./style";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 export default function Post({ data }) {
   const router = useRouter();

@@ -4,8 +4,11 @@ import { useStyles } from "./style";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import Link from "next/link";
-import ImageComponent from "../../ImageComponent";
+import dynamic from "next/dynamic";
 
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 const Footer = ({ bg }) => {
   const classes = useStyles();
   const [scrollEnd, setScrollEnd] = React.useState(false);
@@ -32,8 +35,10 @@ const Footer = ({ bg }) => {
         <Grid container>
           <Grid item xs={12} md={8} lg={8} style={{ marginBottom: 50 }}>
             <div className={classes.topright}>
-              <ImageComponent
+              <Image
                 src={"/assets/footer-logo.png"}
+                placeholder="blur"
+                blurDataURL={"/assets/footer-logo.png"}
                 className={classes.logo}
                 alt=""
                 width={80}

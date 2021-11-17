@@ -1,7 +1,11 @@
 import React from "react";
 import { useStyles } from "./style";
 import Link from "next/link";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
 
 export default function Post({ post }) {
   const classes = useStyles();

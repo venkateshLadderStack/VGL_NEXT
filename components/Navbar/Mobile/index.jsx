@@ -2,16 +2,22 @@ import React from "react";
 import { useStyles } from "./style";
 import { Container, Grid } from "@material-ui/core";
 import Link from "next/link";
-import Image from "next/image";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import SearchInput from "../../SearchInput";
-import ImageComponent from "../../ImageComponent";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
+
+const SearchInput = dynamic(() => import("../../SearchInput"), {
+  loading: () => <p>...</p>,
+});
 
 export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
   const classes = useStyles();

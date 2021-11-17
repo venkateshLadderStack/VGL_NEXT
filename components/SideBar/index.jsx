@@ -1,8 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import useWindowSize from "../../hooks/useWindowSize";
-import NewNewsLetter from "../Newsletter/NewNewsLetter";
-import Image from "next/image";
+import dynamic from "next/dynamic";
+
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
+
+const NewNewsLetter = dynamic(() => import("../Newsletter/NewNewsLetter"), {
+  loading: () => <p>...</p>,
+});
 
 const NewSidebar = ({ posts }) => {
   const { width } = useWindowSize();

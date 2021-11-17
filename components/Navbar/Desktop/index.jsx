@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useStyles } from "./styles";
-import MobileMenu from "../Mobile";
 import { Container } from "@material-ui/core";
-import SearchInput from "../../SearchInput";
 import { Grid } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ReactPixel from "../../../utils/snapchatpixel";
 import useWindowSize from "../../../hooks/useWindowSize";
-import TopBar from "../Topbar";
 import { useQuery } from "@apollo/client";
 import { getCategories } from "../../../queries/get-categories";
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
 
+const Image = dynamic(() => import("next/image"), {
+  loading: () => <p>...</p>,
+});
+
+const TopBar = dynamic(() => import("../Topbar"), {
+  loading: () => <p>...</p>,
+});
+const MobileMenu = dynamic(() => import("../Mobile"), {
+  loading: () => <p>...</p>,
+});
+const SearchInput = dynamic(() => import("../../SearchInput"), {
+  loading: () => <p>...</p>,
+});
 export default function Navbar() {
   const { loading, error, data } = useQuery(getCategories);
 
