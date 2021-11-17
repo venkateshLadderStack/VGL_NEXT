@@ -13,6 +13,7 @@ import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
+import { fetchAllPosts } from "../../../api/fetchPosts";
 
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
@@ -292,7 +293,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
 
 export default BlogArticle;
 
-export async function getServerSideProps(content) {
+export async function getStaticProps(content) {
   const client = new ApolloClient({
     uri: "https://cms.verygoodlight.com/graphql",
     cache: new InMemoryCache(),
@@ -386,7 +387,7 @@ export async function getServerSideProps(content) {
       }
     `,
     variables: {
-      postID: content.resolvedUrl,
+      postID: `/${content?.params?.year}/${content?.params?.month}/${content?.params?.date}/${content?.params?.uri}`,
     },
   });
 
@@ -430,10 +431,39 @@ export async function getServerSideProps(content) {
     },
   });
 
+  console.log(
+    `/${content?.params?.year}/${content?.params?.month}/${content?.params?.date}/${content?.params?.uri}`,
+    "content"
+  );
+
   return {
     props: {
       post: data.post,
       realtedCat: catData.data.posts,
     },
+  };
+}
+
+export async function getStaticPaths() {
+  const fetchAll = await fetchAllPosts();
+
+  const paths = fetchAll.map((path) => {
+    const link = path.link
+      .replace("https://cms.verygoodlight.com/", "")
+      .split("/");
+
+    return {
+      params: {
+        year: link[0],
+        month: link[1],
+        date: link[2],
+        uri: link[3],
+      },
+    };
+  });
+
+  return {
+    paths,
+    fallback: false,
   };
 }
