@@ -4,6 +4,19 @@ const withSass = require("@zeit/next-sass")({
 });
 const withImages = require("next-images");
 const withPlugins = require("next-compose-plugins");
+const withCss = require("@zeit/next-css");
+const withPurgeCss = require("next-purgecss");
+
+const purgeCss = withCss(
+  withPurgeCss({
+    purgeCssPaths: [
+      "pages/**/*",
+      "components/**/*",
+      "sections/**/*",
+      "other-components/**/*", // also scan other-components folder
+    ],
+  })
+);
 
 // const mySass = withSass({
 //   cssModules: true,
@@ -41,4 +54,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([[withImages]], nextConfig);
+module.exports = withPlugins([[withImages], [purgeCss]], nextConfig);
