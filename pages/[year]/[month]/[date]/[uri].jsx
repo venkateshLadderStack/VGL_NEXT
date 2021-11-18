@@ -459,7 +459,7 @@ export async function getStaticPaths() {
     const pageposts = await pageres.json();
     bigArr = [...bigArr, ...pageposts];
     i++;
-  } while (i < 7);
+  } while (i < 6);
 
   // let j = 3;
   // do {
