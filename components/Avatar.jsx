@@ -38,7 +38,7 @@ const Author = ({ post, className }) => {
           </div>
           <div className="author_name">
             <div className="by">by </div>
-            <Link to={post?.bylines?.edges[0]?.node?.uri}>
+            <Link href={post?.bylines?.edges[0]?.node?.uri} passHref>
               <div className="name_auth">
                 {post?.bylines?.edges.length > 0
                   ? post?.bylines?.edges[0]?.node?.name

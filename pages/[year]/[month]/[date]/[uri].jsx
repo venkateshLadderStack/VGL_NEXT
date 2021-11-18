@@ -171,8 +171,8 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
               <div className="dangerously_set">
                 <div className="entry-main">
                   <Grid container>
-                    <LazyLoad height={200} once>
-                      <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
+                    <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
+                      <LazyLoad height={200} once>
                         <div
                           className="entry-content"
                           dangerouslySetInnerHTML={{ __html: post?.content }}
@@ -213,19 +213,19 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                             <PinterestIcon />
                           </a>
                         </div>
-                      </Grid>
-                    </LazyLoad>
+                      </LazyLoad>
+                    </Grid>
 
-                    <LazyLoad height={200} once>
-                      <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
+                    <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
+                      <LazyLoad height={200} once>
                         {relatedPosts?.posts?.edges?.length && (
                           <NewSidebar
                             posts={relatedPosts?.posts}
                             singlePost={post?.uri}
                           />
                         )}
-                      </Grid>
-                    </LazyLoad>
+                      </LazyLoad>
+                    </Grid>
                   </Grid>
                 </div>
               </div>
