@@ -454,7 +454,7 @@ export async function getStaticPaths() {
     ?.filter(
       ({ node }) =>
         node.uri !==
-        "/2019/01/31/5-successful-guys-and-their-secrets-to-a-good-nights-sleep-%f0%9f%92%a4"
+        "/2019/01/31/5-successful-guys-and-their-secrets-to-a-good-nights-sleep-%f0%9f%92%a4/"
     )
     ?.map(({ node }) => {
       const link = node.uri.replace("/", "").split("/");
