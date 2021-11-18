@@ -458,7 +458,7 @@ export async function getStaticPaths() {
     const pageposts = await pageres.json();
     bigArr = [...bigArr, ...pageposts];
     i++;
-  } while (i < 10);
+  } while (i < 8);
 
   const paths = bigArr?.map((path) => {
     const link = path.link
