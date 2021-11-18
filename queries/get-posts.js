@@ -184,3 +184,37 @@ export const getPosts = gql`
     }
   }
 `;
+
+export const getFirstPosts = gql`
+  query {
+    posts(first: 100) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+      edges {
+        cursor
+        node {
+          uri
+        }
+      }
+    }
+  }
+`;
+
+export const getAfterPosts = gql`
+  query ($cursor: String!) {
+    posts(first: 100, after: $cursor) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+      }
+      edges {
+        cursor
+        node {
+          uri
+        }
+      }
+    }
+  }
+`;

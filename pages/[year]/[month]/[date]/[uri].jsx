@@ -448,33 +448,10 @@ export async function getStaticProps(content) {
 }
 
 export async function getStaticPaths() {
-  // const fetchAll = await fetchAllPosts();
+  const { posts } = await fetchAllPosts();
 
-  let bigArr = [];
-  let i = 1;
-  do {
-    const pageres = await fetch(
-      `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${i}`
-    );
-    const pageposts = await pageres.json();
-    bigArr = [...bigArr, ...pageposts];
-    i++;
-  } while (i < 7);
-
-  // let j = 3;
-  // do {
-  //   const pageres = await fetch(
-  //     `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${j}`
-  //   );
-  //   const pageposts = await pageres.json();
-  //   bigArr = [...bigArr, ...pageposts];
-  //   i++;
-  // } while (j < 5);
-
-  const paths = bigArr?.map((path) => {
-    const link = path.link
-      .replace("https://cms.verygoodlight.com/", "")
-      .split("/");
+  const paths = posts?.map(({ node }) => {
+    const link = node.uri.replace("/", "").split("/");
 
     return {
       params: {
