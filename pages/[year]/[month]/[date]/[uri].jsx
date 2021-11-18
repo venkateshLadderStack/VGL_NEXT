@@ -456,15 +456,15 @@ export async function getStaticPaths() {
     i++;
   } while (i < 7);
 
-  // let j = 7;
-  // do {
-  //   const pageres = await fetch(
-  //     `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${j}`
-  //   );
-  //   const pageposts = await pageres.json();
-  //   bigArr = [...bigArr, ...pageposts];
-  //   i++;
-  // } while (i < 11);
+  let j = 7;
+  do {
+    const pageres = await fetch(
+      `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${j}`
+    );
+    const pageposts = await pageres.json();
+    bigArr = [...bigArr, ...pageposts];
+    i++;
+  } while (j < 11);
 
   const paths = bigArr?.map((path) => {
     const link = path.link
