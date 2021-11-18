@@ -8,8 +8,13 @@ import dynamic from "next/dynamic";
 import { Context } from "../context";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
-const CelebStories = dynamic(() => import("../sections/celebrityStories"));
-const HeroSlider = dynamic(() => import("../components/HeroSlider"));
+const HeroSlider = dynamic(() => import("../components/HeroSlider"), {
+  loading: () => <p>...</p>,
+});
+const CelebStories = dynamic(() => import("../sections/celebrityStories"), {
+  loading: () => <p>...</p>,
+});
+
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
   loading: () => <p>...</p>,
 });

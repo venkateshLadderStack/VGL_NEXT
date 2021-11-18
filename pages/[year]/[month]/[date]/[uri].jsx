@@ -12,7 +12,7 @@ import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
-import { fetchAllPosts, fetchMorePosts } from "../../../api/fetchPosts";
+import { fetchAllPosts } from "../../../api/fetchPosts";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p>...</p>,
@@ -447,12 +447,20 @@ export async function getStaticProps(content) {
 }
 
 export async function getStaticPaths() {
-  const fetch1 = await fetchAllPosts();
-  const fetch2 = await fetchMorePosts();
+  // const fetchAll = await fetchAllPosts();
 
-  const fetchAll = [...fetch1, ...fetch2];
+  let bigArr = [];
+  let i = 1;
+  do {
+    const pageres = await fetch(
+      `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${i}`
+    );
+    const pageposts = await pageres.json();
+    bigArr = [...bigArr, ...pageposts];
+    i++;
+  } while (i < 11);
 
-  const paths = fetchAll.map((path) => {
+  const paths = bigArr?.map((path) => {
     const link = path.link
       .replace("https://cms.verygoodlight.com/", "")
       .split("/");
