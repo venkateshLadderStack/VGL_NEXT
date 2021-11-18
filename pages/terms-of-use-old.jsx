@@ -7,21 +7,21 @@ import NextSeo from "../components/SeoHead/seo";
 import { Context } from "../context";
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 

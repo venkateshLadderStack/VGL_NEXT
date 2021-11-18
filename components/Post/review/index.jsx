@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 export default function Post({ data }) {

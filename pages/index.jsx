@@ -9,43 +9,43 @@ import { Context } from "../context";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 const HeroSlider = dynamic(() => import("../components/HeroSlider"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const CelebStories = dynamic(() => import("../sections/celebrityStories"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const SecondaryNewsLetter = dynamic(
   () => import("../components/Newsletter/Main/Secondary"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 const ReviewsSection = dynamic(() => import("../sections/reviews"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const JustIn = dynamic(() => import("../sections/justin"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 
@@ -109,7 +109,6 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
         <MainNewsLetter />
 
         <ReviewsSection data={reviewsPosts} rev={true} title="Reviews" />
-
         <ReviewsSection
           data={celebs?.edges}
           rev={false}
@@ -121,6 +120,7 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
         <SecondaryNewsLetter />
 
         <Footer bg={"#f8b195"} />
+
         {signup && <BottomLeftPopUp onCancel={closeSignup} />}
         <BottomRightPopUp />
         <Slideout open={open} onCancel={closePopup} />

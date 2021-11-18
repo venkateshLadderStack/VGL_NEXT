@@ -6,9 +6,10 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
-const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
-});
+// const Image = dynamic(() => import("next/image"), {
+//   loading: () => <p></p>,
+// });
+import Image from "next/image";
 const Footer = ({ bg }) => {
   const classes = useStyles();
   const [scrollEnd, setScrollEnd] = React.useState(false);

@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 export default function CelebStory({ post }) {

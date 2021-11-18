@@ -16,20 +16,20 @@ import { fetchAllPosts } from "../../../api/fetchPosts";
 import LazyLoad from "react-lazyload";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Navbar = dynamic(() => import("../../../../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../../../../components/Footer/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Author = dynamic(() => import("../../../../components/Avatar"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Post = dynamic(() => import("../../../../components/Post/review"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const NewSidebar = dynamic(() => import("../../../../components/SideBar"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const BlogArticle = ({ post, realtedCat }, ...props) => {
@@ -172,48 +172,46 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                 <div className="entry-main">
                   <Grid container>
                     <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
-                      <LazyLoad height={200} once>
-                        <div
-                          className="entry-content"
-                          dangerouslySetInnerHTML={{ __html: post?.content }}
-                        ></div>
-                        <div
-                          style={{
-                            display: "flex",
-                            width: "100%",
-                            maxWidth: "300px",
-                            height: "50px",
-                            justifyContent: "space-evenly",
-                            alignItems: "center",
-                            color: "black",
-                          }}
+                      <div
+                        className="entry-content"
+                        dangerouslySetInnerHTML={{ __html: post?.content }}
+                      ></div>
+                      <div
+                        style={{
+                          display: "flex",
+                          width: "100%",
+                          maxWidth: "300px",
+                          height: "50px",
+                          justifyContent: "space-evenly",
+                          alignItems: "center",
+                          color: "black",
+                        }}
+                      >
+                        <div className="share_text">SHARE</div>
+                        <a
+                          href={`https://www.facebook.com/sharer/sharer.php?u=https://verygoodlight.com/${post?.uri}`}
+                          className="social_share_icon first"
+                          target="_blank"
+                          rel="noreferrer"
+                          title={post?.title}
                         >
-                          <div className="share_text">SHARE</div>
-                          <a
-                            href={`https://www.facebook.com/sharer/sharer.php?u=https://verygoodlight.com/${post?.uri}`}
-                            className="social_share_icon first"
-                            target="_blank"
-                            rel="noreferrer"
-                            title={post?.title}
-                          >
-                            <FacebookIcon />
-                          </a>
-                          <a
-                            href={`https://twitter.com/share?url=https://verygoodlight.com/${post?.uri}&amp;text=${post?.title}&amp;hashtags=verygoodlight`}
-                            className="social_share_icon"
-                            title={post?.title}
-                          >
-                            <TwitterIcon />
-                          </a>
-                          <a
-                            href={`http://pinterest.com/pin/create/button/?url=https://verygoodlight.com/${post?.uri}&media=${post?.featuredImage?.node?.mediaItemUrl}&description=${post?.title}`}
-                            className="social_share_icon last"
-                            title={post?.title}
-                          >
-                            <PinterestIcon />
-                          </a>
-                        </div>
-                      </LazyLoad>
+                          <FacebookIcon />
+                        </a>
+                        <a
+                          href={`https://twitter.com/share?url=https://verygoodlight.com/${post?.uri}&amp;text=${post?.title}&amp;hashtags=verygoodlight`}
+                          className="social_share_icon"
+                          title={post?.title}
+                        >
+                          <TwitterIcon />
+                        </a>
+                        <a
+                          href={`http://pinterest.com/pin/create/button/?url=https://verygoodlight.com/${post?.uri}&media=${post?.featuredImage?.node?.mediaItemUrl}&description=${post?.title}`}
+                          className="social_share_icon last"
+                          title={post?.title}
+                        >
+                          <PinterestIcon />
+                        </a>
+                      </div>
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
@@ -254,12 +252,12 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       maxWidth: "1320px",
                     }}
                   >
-                    <LazyLoad height={200} once>
-                      <Masonry
-                        breakpointCols={breakpointColumnsObj}
-                        className="vgl__secondary-masonry-grid"
-                        columnClassName="vgl__secondary-masonry-grid_column"
-                      >
+                    <Masonry
+                      breakpointCols={breakpointColumnsObj}
+                      className="vgl__secondary-masonry-grid"
+                      columnClassName="vgl__secondary-masonry-grid_column"
+                    >
+                      <LazyLoad height={200} once>
                         {realtedCat?.nodes.length > 0 &&
                           realtedCat.nodes
                             .filter((item) => item.title !== post?.title)
@@ -267,8 +265,8 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                             .map((item, index) => (
                               <Post data={item} key={index} />
                             ))}
-                      </Masonry>
-                    </LazyLoad>
+                      </LazyLoad>
+                    </Masonry>
                   </div>
                 </div>
               </>
@@ -461,7 +459,7 @@ export async function getStaticPaths() {
     const pageposts = await pageres.json();
     bigArr = [...bigArr, ...pageposts];
     i++;
-  } while (i < 7);
+  } while (i < 2);
 
   // let j = 3;
   // do {

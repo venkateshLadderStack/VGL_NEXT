@@ -10,17 +10,17 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const CelebStory = dynamic(() => import("../../components/CelebStory"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Navbar = dynamic(() => import("../../components/Navbar/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const Author = ({ data }) => {

@@ -11,12 +11,14 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
-});
+// const Image = dynamic(() => import("next/image"), {
+//   loading: () => <p></p>,
+// });
+
+import Image from "next/image";
 
 const SearchInput = dynamic(() => import("../../SearchInput"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {

@@ -4,7 +4,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const SliderItemOptionTwo = ({ data }) => {

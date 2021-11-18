@@ -7,9 +7,10 @@ import Link from "next/link";
 import Axios from "axios";
 import useLocalStorage from "../../../hooks/useLocalStorage";
 import dynamic from "next/dynamic";
-const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
-});
+// const Image = dynamic(() => import("next/image"), {
+//   loading: () => <p></p>,
+// });
+import Image from "next/image";
 const defaultState = {
   isOpen: false,
   isClose: false,

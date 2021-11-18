@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Author = ({ post, className }) => {
   const { width } = useWindowSize();

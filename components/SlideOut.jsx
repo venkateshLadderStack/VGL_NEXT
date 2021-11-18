@@ -4,7 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const Slideout = ({ onCancel, open }) => {

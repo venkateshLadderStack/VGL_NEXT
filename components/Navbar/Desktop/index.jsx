@@ -11,18 +11,20 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
-const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
-});
+// const Image = dynamic(() => import("next/image"), {
+//   loading: () => <p></p>,
+// });
+
+import Image from "next/image";
 
 const TopBar = dynamic(() => import("../Topbar"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const MobileMenu = dynamic(() => import("../Mobile"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const SearchInput = dynamic(() => import("../../SearchInput"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 export default function Navbar() {
   const { loading, error, data } = useQuery(getCategories);
@@ -107,7 +109,7 @@ export default function Navbar() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: "15px 10px",
+              padding: "0px 10px",
             }}
           >
             <div className={classes.mobileAction}>

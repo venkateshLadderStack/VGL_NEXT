@@ -7,21 +7,21 @@ import { Context } from "../context";
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 import { GET_ABOUT } from "../queries/about";
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    loading: () => <p>...</p>,
+    loading: () => <p></p>,
   }
 );
 
@@ -112,7 +112,7 @@ const About = ({ data }) => {
           </Grid>
         </Container>
       </main>
-      <Footer bg={"#ffe4b2"} />
+      <Footer />
       {signup && <BottomLeftPopUp onCancel={closeSignup} />}
       <BottomRightPopUp />
       <Slideout open={open} onCancel={closePopup} />

@@ -4,7 +4,7 @@ import { useStyles } from "./style";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {
-  loading: () => <p>...</p>,
+  loading: () => <p></p>,
 });
 
 const regex = /(<([^>]+)>)/gi;
