@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import { Container, Grid, Hidden } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
@@ -13,6 +13,7 @@ import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
 import { fetchAllPosts } from "../../../api/fetchPosts";
+import LazyLoad from "react-lazyload";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p>...</p>,
@@ -170,57 +171,61 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
               <div className="dangerously_set">
                 <div className="entry-main">
                   <Grid container>
-                    <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
-                      <div
-                        className="entry-content"
-                        dangerouslySetInnerHTML={{ __html: post?.content }}
-                      ></div>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "100%",
-                          maxWidth: "300px",
-                          height: "50px",
-                          justifyContent: "space-evenly",
-                          alignItems: "center",
-                          color: "black",
-                        }}
-                      >
-                        <div className="share_text">SHARE</div>
-                        <a
-                          href={`https://www.facebook.com/sharer/sharer.php?u=https://verygoodlight.com/${post?.uri}`}
-                          className="social_share_icon first"
-                          target="_blank"
-                          rel="noreferrer"
-                          title={post?.title}
+                    <LazyLoad height={200} once>
+                      <Grid item xs={12} sm={12} md={12} lg={8} xl={8}>
+                        <div
+                          className="entry-content"
+                          dangerouslySetInnerHTML={{ __html: post?.content }}
+                        ></div>
+                        <div
+                          style={{
+                            display: "flex",
+                            width: "100%",
+                            maxWidth: "300px",
+                            height: "50px",
+                            justifyContent: "space-evenly",
+                            alignItems: "center",
+                            color: "black",
+                          }}
                         >
-                          <FacebookIcon />
-                        </a>
-                        <a
-                          href={`https://twitter.com/share?url=https://verygoodlight.com/${post?.uri}&amp;text=${post?.title}&amp;hashtags=verygoodlight`}
-                          className="social_share_icon"
-                          title={post?.title}
-                        >
-                          <TwitterIcon />
-                        </a>
-                        <a
-                          href={`http://pinterest.com/pin/create/button/?url=https://verygoodlight.com/${post?.uri}&media=${post?.featuredImage?.node?.mediaItemUrl}&description=${post?.title}`}
-                          className="social_share_icon last"
-                          title={post?.title}
-                        >
-                          <PinterestIcon />
-                        </a>
-                      </div>
-                    </Grid>
+                          <div className="share_text">SHARE</div>
+                          <a
+                            href={`https://www.facebook.com/sharer/sharer.php?u=https://verygoodlight.com/${post?.uri}`}
+                            className="social_share_icon first"
+                            target="_blank"
+                            rel="noreferrer"
+                            title={post?.title}
+                          >
+                            <FacebookIcon />
+                          </a>
+                          <a
+                            href={`https://twitter.com/share?url=https://verygoodlight.com/${post?.uri}&amp;text=${post?.title}&amp;hashtags=verygoodlight`}
+                            className="social_share_icon"
+                            title={post?.title}
+                          >
+                            <TwitterIcon />
+                          </a>
+                          <a
+                            href={`http://pinterest.com/pin/create/button/?url=https://verygoodlight.com/${post?.uri}&media=${post?.featuredImage?.node?.mediaItemUrl}&description=${post?.title}`}
+                            className="social_share_icon last"
+                            title={post?.title}
+                          >
+                            <PinterestIcon />
+                          </a>
+                        </div>
+                      </Grid>
+                    </LazyLoad>
 
-                    <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-                      {relatedPosts?.posts?.edges?.length && (
-                        <NewSidebar
-                          posts={relatedPosts?.posts}
-                          singlePost={post?.uri}
-                        />
-                      )}
-                    </Grid>
+                    <LazyLoad height={200} once>
+                      <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
+                        {relatedPosts?.posts?.edges?.length && (
+                          <NewSidebar
+                            posts={relatedPosts?.posts}
+                            singlePost={post?.uri}
+                          />
+                        )}
+                      </Grid>
+                    </LazyLoad>
                   </Grid>
                 </div>
               </div>
@@ -249,19 +254,21 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       maxWidth: "1320px",
                     }}
                   >
-                    <Masonry
-                      breakpointCols={breakpointColumnsObj}
-                      className="vgl__secondary-masonry-grid"
-                      columnClassName="vgl__secondary-masonry-grid_column"
-                    >
-                      {realtedCat?.nodes.length > 0 &&
-                        realtedCat.nodes
-                          .filter((item) => item.title !== post?.title)
-                          .slice(0, 3)
-                          .map((item, index) => (
-                            <Post data={item} key={index} />
-                          ))}
-                    </Masonry>
+                    <LazyLoad height={200} once>
+                      <Masonry
+                        breakpointCols={breakpointColumnsObj}
+                        className="vgl__secondary-masonry-grid"
+                        columnClassName="vgl__secondary-masonry-grid_column"
+                      >
+                        {realtedCat?.nodes.length > 0 &&
+                          realtedCat.nodes
+                            .filter((item) => item.title !== post?.title)
+                            .slice(0, 3)
+                            .map((item, index) => (
+                              <Post data={item} key={index} />
+                            ))}
+                      </Masonry>
+                    </LazyLoad>
                   </div>
                 </div>
               </>
@@ -456,15 +463,15 @@ export async function getStaticPaths() {
     i++;
   } while (i < 7);
 
-  let j = 7;
-  do {
-    const pageres = await fetch(
-      `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${j}`
-    );
-    const pageposts = await pageres.json();
-    bigArr = [...bigArr, ...pageposts];
-    i++;
-  } while (j < 11);
+  // let j = 3;
+  // do {
+  //   const pageres = await fetch(
+  //     `https://cms.verygoodlight.com/wp-json/wp/v2/posts?per_page=100&page=${j}`
+  //   );
+  //   const pageposts = await pageres.json();
+  //   bigArr = [...bigArr, ...pageposts];
+  //   i++;
+  // } while (j < 5);
 
   const paths = bigArr?.map((path) => {
     const link = path.link

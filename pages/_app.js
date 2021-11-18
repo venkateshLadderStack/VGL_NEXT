@@ -1,6 +1,7 @@
 import "../styles/globals.scss";
 import "../styles/css/newsletter.css";
 import "../styles/css/slideout.css";
+import "../styles/css/author.css";
 import "../styles/css/newnewsletter.css";
 import "../styles/article.scss";
 import "../styles/popup.scss";

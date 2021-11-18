@@ -2,6 +2,7 @@ import React from "react";
 import dayjs from "dayjs";
 import useWindowSize from "../hooks/useWindowSize";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p>...</p>,
@@ -37,11 +38,13 @@ const Author = ({ post, className }) => {
           </div>
           <div className="author_name">
             <div className="by">by </div>
-            <div className="name_auth">
-              {post?.bylines?.edges.length > 0
-                ? post?.bylines?.edges[0]?.node?.name
-                : post?.author?.node?.name}
-            </div>
+            <Link to={post?.bylines?.edges[0]?.node?.uri}>
+              <div className="name_auth">
+                {post?.bylines?.edges.length > 0
+                  ? post?.bylines?.edges[0]?.node?.name
+                  : post?.author?.node?.name}
+              </div>
+            </Link>
           </div>
           {width >= 768 && (
             <div style={{ width: "20px", textAlign: "center" }}>{" | "}</div>
