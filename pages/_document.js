@@ -2,6 +2,7 @@ import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
 import Script from "next/script";
+import DeferNextScript from "../DeferNextScript.tsx";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -62,7 +63,7 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <NextScript />
+          <DeferNextScript />
         </body>
       </Html>
     );
