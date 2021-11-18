@@ -61,7 +61,7 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     width={54}
                     height={63}
                     layout="fixed"
-                    loading="lazy"
+                    priority={true}
                     placeholder="blur"
                     blurDataURL={"/assets/logo.png"}
                   />

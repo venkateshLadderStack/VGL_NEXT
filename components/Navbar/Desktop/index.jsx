@@ -16,10 +16,11 @@ import dynamic from "next/dynamic";
 // });
 
 import Image from "next/image";
+import TopBar from "../Topbar";
 
-const TopBar = dynamic(() => import("../Topbar"), {
-  loading: () => <p></p>,
-});
+// const TopBar = dynamic(() => import("../Topbar"), {
+//   loading: () => <p></p>,
+// });
 const MobileMenu = dynamic(() => import("../Mobile"), {
   loading: () => <p></p>,
 });
@@ -137,7 +138,7 @@ export default function Navbar() {
                 width={size?.width < 768 ? 54 : 250}
                 height={navActive ? 43 : 63}
                 layout="fixed"
-                loading="lazy"
+                priority={true}
                 objectFit="contain"
                 placeholder="blur"
                 blurDataURL={
@@ -377,7 +378,7 @@ export default function Navbar() {
                   width={250}
                   height={navActive ? 43 : 63}
                   layout="fixed"
-                  loading="lazy"
+                  priority={true}
                   objectFit="contain"
                   objectPosition="center"
                   placeholder="blur"
