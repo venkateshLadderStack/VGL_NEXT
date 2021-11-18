@@ -450,18 +450,24 @@ export async function getStaticProps(content) {
 export async function getStaticPaths() {
   const { posts } = await fetchAllPosts();
 
-  const paths = posts?.map(({ node }) => {
-    const link = node.uri.replace("/", "").split("/");
+  const paths = posts
+    ?.filter(
+      ({ node }) =>
+        node.uri !==
+        "/2019/01/31/5-successful-guys-and-their-secrets-to-a-good-nights-sleep-%f0%9f%92%a4"
+    )
+    ?.map(({ node }) => {
+      const link = node.uri.replace("/", "").split("/");
 
-    return {
-      params: {
-        year: link[0],
-        month: link[1],
-        date: link[2],
-        uri: link[3],
-      },
-    };
-  });
+      return {
+        params: {
+          year: link[0],
+          month: link[1],
+          date: link[2],
+          uri: link[3],
+        },
+      };
+    });
 
   return {
     paths,
