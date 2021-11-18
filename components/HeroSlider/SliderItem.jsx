@@ -25,7 +25,6 @@ const SliderItemOptionTwo = ({ data }) => {
             objectFit="contain"
             objectPosition="center"
             priority={true}
-            quality={40}
           />
         </div>
         <div className="hero-containt">
@@ -48,7 +47,6 @@ const SliderItemOptionTwo = ({ data }) => {
               objectFit="cover"
               objectPosition="center"
               priority={true}
-              quality={40}
             />
           </div>
         )}

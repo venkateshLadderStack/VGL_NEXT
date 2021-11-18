@@ -138,8 +138,6 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       layout="fill"
                       objectFit="contain"
                       objectPosition="right"
-                      loading="lazy"
-                      quality="75"
                     />
                   ) : (
                     <Image
@@ -155,8 +153,6 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       alt=""
                       layout="fill"
                       objectFit="cover"
-                      quality="50"
-                      priority={true}
                     />
                   )}
                 </div>
