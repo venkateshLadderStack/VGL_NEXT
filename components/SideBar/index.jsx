@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import useWindowSize from "../../hooks/useWindowSize";
 import dynamic from "next/dynamic";
+import LazyLoad from "react-lazyload";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p></p>,
@@ -25,33 +26,35 @@ const NewSidebar = ({ posts }) => {
         >
           <h3 className="sidebar_title">Must-Read Stories</h3>
         </div>
+        <LazyLoad height={200} once>
+          {posts.edges.slice(0, 4).map(({ node }, index) => (
+            <div key={index} className={`sidebar_container `}>
+              <>
+                <div className="sidebar_left">
+                  <Link href={node.uri} passHref>
+                    <Image
+                      alt=""
+                      width={width > 767 ? "70" : "100"}
+                      height={width > 767 ? "70" : "100"}
+                      layout="fixed"
+                      placeholder="blur"
+                      src={node?.featuredImage?.node?.mediaItemUrl}
+                      blurDataURL={node?.featuredImage?.node?.mediaItemUrl}
+                      loading="lazy"
+                    />
+                  </Link>
+                </div>
 
-        {posts.edges.slice(0, 4).map(({ node }, index) => (
-          <div key={index} className={`sidebar_container `}>
-            <>
-              <div className="sidebar_left">
-                <Link href={node.uri} passHref>
-                  <Image
-                    alt=""
-                    width={width > 767 ? "70" : "100"}
-                    height={width > 767 ? "70" : "100"}
-                    layout="fixed"
-                    placeholder="blur"
-                    src={node?.featuredImage?.node?.mediaItemUrl}
-                    blurDataURL={node?.featuredImage?.node?.mediaItemUrl}
-                    loading="lazy"
-                  />
-                </Link>
-              </div>
+                <div className="sidebar_right">
+                  <Link href={node.uri} passHref>
+                    <h4> {node?.title}</h4>
+                  </Link>
+                </div>
+              </>
+            </div>
+          ))}
+        </LazyLoad>
 
-              <div className="sidebar_right">
-                <Link href={node.uri} passHref>
-                  <h4> {node?.title}</h4>
-                </Link>
-              </div>
-            </>
-          </div>
-        ))}
         {width < 768 && (
           <div className="vgl_pageable-load-more-btn">
             <div className="vgl_btn-container vgl-btn-load_more vgl_btn-inline">

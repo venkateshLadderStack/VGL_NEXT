@@ -13,7 +13,6 @@ import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
 import { fetchAllPosts } from "../../../api/fetchPosts";
-import LazyLoad from "react-lazyload";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p></p>,
@@ -215,14 +214,12 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                     </Grid>
 
                     <Grid item xs={12} sm={12} md={12} lg={4} xl={4}>
-                      <LazyLoad height={200} once>
-                        {relatedPosts?.posts?.edges?.length && (
-                          <NewSidebar
-                            posts={relatedPosts?.posts}
-                            singlePost={post?.uri}
-                          />
-                        )}
-                      </LazyLoad>
+                      {relatedPosts?.posts?.edges?.length && (
+                        <NewSidebar
+                          posts={relatedPosts?.posts}
+                          singlePost={post?.uri}
+                        />
+                      )}
                     </Grid>
                   </Grid>
                 </div>
@@ -257,15 +254,13 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       className="vgl__secondary-masonry-grid"
                       columnClassName="vgl__secondary-masonry-grid_column"
                     >
-                      <LazyLoad height={200} once>
-                        {realtedCat?.nodes.length > 0 &&
-                          realtedCat.nodes
-                            .filter((item) => item.title !== post?.title)
-                            .slice(0, 3)
-                            .map((item, index) => (
-                              <Post data={item} key={index} />
-                            ))}
-                      </LazyLoad>
+                      {realtedCat?.nodes.length > 0 &&
+                        realtedCat.nodes
+                          .filter((item) => item.title !== post?.title)
+                          .slice(0, 3)
+                          .map((item, index) => (
+                            <Post data={item} key={index} />
+                          ))}
                     </Masonry>
                   </div>
                 </div>

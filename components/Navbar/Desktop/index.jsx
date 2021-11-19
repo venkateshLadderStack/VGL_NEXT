@@ -196,12 +196,12 @@ export default function Navbar() {
                     data-toggle="dropdown"
                     style={{ padding: 0 }}
                     aria-label="read-section"
-                    onClick={() => router.push("/blog/features")}
                   >
                     <div
                       className={`nav-link vgl__dropdown-option ${
                         linkActive.read && classes.activeUnderline
                       }`}
+                      onClick={() => router.push("/blog/features")}
                     >
                       read
                     </div>
