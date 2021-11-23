@@ -423,6 +423,7 @@ export async function getStaticProps(content) {
         }
       }
     `,
+
     variables: {
       categoryName:
         category === "Homepage" ? "main slider" : category || "Features",
