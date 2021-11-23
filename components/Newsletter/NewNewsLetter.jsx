@@ -69,8 +69,6 @@ const NewNewsLetter = ({ right, top }) => {
         <div className={"envelope"}>
           <Image
             src={"/assets/envelope.png"}
-            placeholder="blur"
-            blurDataURL={"/assets/envelope.png"}
             alt="envelope"
             width="45"
             height="35"
@@ -81,8 +79,6 @@ const NewNewsLetter = ({ right, top }) => {
         <div className="spark">
           <Image
             src={"/assets/spark.png"}
-            placeholder="blur"
-            blurDataURL={"/assets/spark.png"}
             alt="spark"
             width="25"
             height="35"

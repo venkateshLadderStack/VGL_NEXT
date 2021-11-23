@@ -12,9 +12,19 @@
   font-display: swap;
 }
 
-// @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap");
+@font-face {
+  font-family: "Muli";
+  src: url("/fonts/Muli.ttf");
+  font-style: normal;
+  font-display: swap;
+}
 
-// @import url("https://use.typekit.net/xnm1qem.css");
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato.ttf");
+  font-style: normal;
+  font-display: swap;
+}
 
 .MuiSvgIcon-root {
   fill: currentColor;
@@ -1127,7 +1137,7 @@ div.post-info {
 }
 
 .single-blog-container .entry-content * {
-  font-family: Muli;
+  font-family: "Muli";
   max-width: 100% !important;
 }
 
