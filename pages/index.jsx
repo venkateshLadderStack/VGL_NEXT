@@ -9,43 +9,43 @@ import { Context } from "../context";
 
 const NavbarLarge = dynamic(() => import("../components/Navbar/Desktop"));
 const HeroSlider = dynamic(() => import("../components/HeroSlider"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const CelebStories = dynamic(() => import("../sections/celebrityStories"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 
 const MainNewsLetter = dynamic(() => import("../components/Newsletter/Main"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const SecondaryNewsLetter = dynamic(
   () => import("../components/Newsletter/Main/Secondary"),
   {
-    ssr: false,
+    loading: () => <p></p>,
   }
 );
 const ReviewsSection = dynamic(() => import("../sections/reviews"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const JustIn = dynamic(() => import("../sections/justin"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const Slideout = dynamic(() => import("../components/SlideOut"), {
-  ssr: false,
+  loading: () => <p></p>,
 });
 const BottomLeftPopUp = dynamic(
   () => import("../components/BottomPopup/BottomLeftPopup"),
   {
-    ssr: false,
+    loading: () => <p></p>,
   }
 );
 const BottomRightPopUp = dynamic(
   () => import("../components/BottomPopup/BottomRightPopup"),
   {
-    ssr: false,
+    loading: () => <p></p>,
   }
 );
 
