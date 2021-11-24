@@ -1,4 +1,3 @@
-import React from "react";
 import dayjs from "dayjs";
 import useWindowSize from "../hooks/useWindowSize";
 import dynamic from "next/dynamic";

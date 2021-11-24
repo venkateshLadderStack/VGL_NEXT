@@ -1,5 +1,3 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
 import { useStyles } from "./style";
 import Link from "next/link";
 import { useRouter } from "next/router";

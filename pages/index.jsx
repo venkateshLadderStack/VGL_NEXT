@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import React from "react";
 import client from "../apollo/client";
 import { getPosts } from "../queries/get-posts";
 import _ from "lodash";
@@ -51,11 +51,11 @@ const BottomRightPopUp = dynamic(
 
 export default function Home({ data, postsData, seoData, reviews, celebs }) {
   const size = useWindowSize();
-  const [scrollActive, setScrollActive] = useState(false);
+  const [scrollActive, setScrollActive] = React.useState(false);
 
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       // Remove the event listener when the component is unmount.
@@ -86,21 +86,13 @@ export default function Home({ data, postsData, seoData, reviews, celebs }) {
     <>
       <NextSeo seo={seoData?.seo} link={seoData?.link} />
       <NavbarLarge />
-      <main
-        style={{
-          backgroundColor: "rgb(255,228,183)",
-          paddingTop: size?.width > 991 ? 68 : 110,
-        }}
-      >
+      <main className="main_page_bg">
         <div
           className={`vgl-hero-slider vgl-slider-container ${
             scrollActive && "scrolled"
           }`}
         >
-          <div
-            className="vgl-slider-item-border-bottom"
-            style={{ background: "rgb(95, 100, 97)" }}
-          ></div>
+          <div className="vgl-slider-item-border-bottom slider_bg_bg"></div>
           <HeroSlider data={sliderData} />
         </div>
 

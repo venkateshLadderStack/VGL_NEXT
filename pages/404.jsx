@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import React from "react";
+
 import { Helmet } from "react-helmet";
 const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
 const Footer = dynamic(() => import("../components/Footer/Desktop"), {
@@ -33,7 +33,7 @@ const Pagenotfound = () => {
         <meta name="twitter:creator" content="@vgoodlight" />
         <meta name="twitter:site" content="@vgoodlight" />
       </Helmet>
-      <div style={{ background: "#FFE4B2" }}>
+      <div className="bg_main_color">
         <Navbar />
         <div className="container">
           <div id="main">

@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import CloseIcon from "@material-ui/icons/Close";
-import IconButton from "@material-ui/core/IconButton";
 import dynamic from "next/dynamic";
 
 const Image = dynamic(() => import("next/image"), {

@@ -1,14 +1,13 @@
 import React from "react";
-import { useRouter } from "next/router";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import { Container, Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import Masonry from "react-masonry-css";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import axios from "axios";
 import { RELATED_POSTS } from "../../../../queries/relatedPosts";
 import NextSeo from "../../../../components/SeoHead/seo";
 import useWindowSize from "../../../../hooks/useWindowSize";
@@ -153,19 +152,12 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       alt=""
                       layout="fill"
                       objectFit="cover"
+                      quality={30}
                     />
                   )}
                 </div>
               </div>
-              {width > 768 && (
-                <div
-                  style={{
-                    height: "5px",
-                    width: "100%",
-                    boxShadow: " 0px 5px 1px rgb(253, 211, 194,0.7)",
-                  }}
-                />
-              )}
+              {width > 768 && <div className="blog_shad" />}
               {width < 768 && <Author post={post} />}
               <div className="dangerously_set">
                 <div className="entry-main">
@@ -175,17 +167,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                         className="entry-content"
                         dangerouslySetInnerHTML={{ __html: post?.content }}
                       ></div>
-                      <div
-                        style={{
-                          display: "flex",
-                          width: "100%",
-                          maxWidth: "300px",
-                          height: "50px",
-                          justifyContent: "space-evenly",
-                          alignItems: "center",
-                          color: "black",
-                        }}
-                      >
+                      <div className="shar_wrap">
                         <div className="share_text">SHARE</div>
                         <a
                           href={`https://www.facebook.com/sharer/sharer.php?u=https://verygoodlight.com/${post?.uri}`}
@@ -227,28 +209,9 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
             </Container>
             {width >= 786 && (
               <>
-                <h2
-                  style={{
-                    textAlign: "center",
-                    fontSize: "28px",
-                    marginTop: "60px",
-                    fontWeight: "700",
-                    fontFamily: "SportingGrotesque-Bold",
-                  }}
-                >
-                  Related Articles
-                </h2>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
-                  <div
-                    style={{
-                      maxWidth: "1320px",
-                    }}
-                  >
+                <h2 className="rel_art_title">Related Articles</h2>
+                <div className="rel_art_div1">
+                  <div className="rel_art_div2">
                     <Masonry
                       breakpointCols={breakpointColumnsObj}
                       className="vgl__secondary-masonry-grid"
@@ -276,11 +239,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
               </div>
             </div>
           ) : (
-            <div
-              style={{
-                height: "20px",
-              }}
-            />
+            <div className="ht_20" />
           )}
         </main>
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useStyles } from "./style";
-import { Container, Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import Link from "next/link";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";

@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import NextSeo from "../../components/SeoHead/seo";
 import Masonry from "react-masonry-css";
-import useWindowSize from "../../hooks/useWindowSize";
-import { Container, Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import { GET_MORE_POSTS } from "../../queries/categories";
 import { css } from "@emotion/react";
@@ -51,7 +51,7 @@ const override = css`
 `;
 
 const Read = ({ categoryDBId, data, getCatId }) => {
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
   const [posts, setPosts] = React.useState([]);
   const [endCursor, setEndCursor] = React.useState("");

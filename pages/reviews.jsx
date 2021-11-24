@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
-import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
+import React from "react";
+import { useLazyQuery } from "@apollo/client";
 import client from "../apollo/client";
 import { getReviews } from "../queries/get-reviews";
 import NextSeo from "../components/SeoHead/seo";
-import { getPosts } from "../queries/get-posts";
 import Masonry from "react-masonry-css";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { Grid, Container } from "@material-ui/core";
@@ -60,7 +59,7 @@ const override = css`
 `;
 
 const Reviews = ({ data }) => {
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
   const [posts, setPosts] = React.useState([]);
   const [endCursor, setEndCursor] = React.useState("");
@@ -210,7 +209,7 @@ const Reviews = ({ data }) => {
               </div>
             </div>
           )}
-          <div style={{ textAlign: "center" }}>
+          <div className="text_center">
             <PropagateLoader
               color={"#59D8B7"}
               loading={loading}

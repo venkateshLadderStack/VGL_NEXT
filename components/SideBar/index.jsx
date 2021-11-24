@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import useWindowSize from "../../hooks/useWindowSize";
 import dynamic from "next/dynamic";

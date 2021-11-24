@@ -1,6 +1,5 @@
-import React from "react";
 import { useStyles } from "./style";
-import { Grid } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 const Image = dynamic(() => import("next/image"), {

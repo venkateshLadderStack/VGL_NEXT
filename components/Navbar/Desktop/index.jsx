@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useStyles } from "./styles";
 import { Container } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
@@ -35,8 +35,8 @@ export default function Navbar() {
   const classes = useStyles();
   const size = useWindowSize();
 
-  const [navActive, setNavActive] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [navActive, setNavActive] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
   const [isSearch, setIsSearch] = React.useState(false);
   const [linkActive, setLinkActive] = React.useState({
     read: false,
@@ -48,7 +48,7 @@ export default function Navbar() {
     .filter((node) => node.name !== "Uncategorized")
     .filter((node) => node.name !== "True Life");
 
-  useEffect(() => {
+  React.useEffect(() => {
     ReactPixel.init(
       "368548c6-79c2-4489-8c7a-7b399d1ca41e",
       {},

@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid, Container } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import { useLazyQuery } from "@apollo/client";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";

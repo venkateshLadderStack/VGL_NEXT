@@ -1,6 +1,6 @@
-import { Container } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import dynamic from "next/dynamic";
-import React, { useContext } from "react";
+import React from "react";
 import client from "../apollo/client";
 import { TERMS_OLD } from "../queries/terms";
 import NextSeo from "../components/SeoHead/seo";
@@ -27,7 +27,7 @@ const BottomRightPopUp = dynamic(
 
 const Terms = ({ data }) => {
   const { page } = data;
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
   return (
     <>

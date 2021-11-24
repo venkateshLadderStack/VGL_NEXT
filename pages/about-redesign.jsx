@@ -1,6 +1,8 @@
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 import dynamic from "next/dynamic";
-import React, { useContext } from "react";
+import React from "react";
 import client from "../apollo/client";
 import NextSeo from "../components/SeoHead/seo";
 import { Context } from "../context";
@@ -50,13 +52,13 @@ const About = ({ data }) => {
   const { page } = data;
 
   const classes = useStyles();
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
   return (
     <>
       <NextSeo seo={page?.seo} link={page?.link} />
       <Navbar />
-      <main style={{ paddingTop: 200, paddingBottom: 200 }}>
+      <main className="pt_100 pb_100">
         <Container>
           <Grid container>
             <Grid item sm={12} md={6} lg={6} xl={6}></Grid>
@@ -86,7 +88,7 @@ const About = ({ data }) => {
                       publication for millions of Generation Z and young
                       Millennials who visit the website each month
                     </p>
-                    <h2 className={classes.heading} style={{ marginTop: 100 }}>
+                    <h2 className={`${classes.heading} mt_100`}>
                       Our
                       <br />
                       Founder

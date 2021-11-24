@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { useStyles } from "./style";
 import FacebookIcon from "@material-ui/icons/Facebook";
@@ -6,10 +6,6 @@ import InstagramIcon from "@material-ui/icons/Instagram";
 import Link from "next/link";
 import Axios from "axios";
 import useLocalStorage from "../../../hooks/useLocalStorage";
-import dynamic from "next/dynamic";
-// const Image = dynamic(() => import("next/image"), {
-//   loading: () => <p></p>,
-// });
 import Image from "next/image";
 const defaultState = {
   isOpen: false,
@@ -85,7 +81,7 @@ const Footer = ({ bg, showBannerModal }) => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (window !== undefined) {
       window.onbeforeunload = function () {
         setIsClose(false);

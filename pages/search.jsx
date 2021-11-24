@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useRouter } from "next/router";
 import { SEARCH_POSTS } from "../queries/search";
-import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
-import { Grid, Container } from "@material-ui/core";
-import { PropagateLoader } from "react-spinners";
+import { useLazyQuery } from "@apollo/client";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";
 import dynamic from "next/dynamic";
 import { Context } from "../context";
@@ -35,7 +36,7 @@ const BottomRightPopUp = dynamic(
 const Search = (props) => {
   const { query } = useRouter();
 
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
 
   const [searchQuery, setSearchQuery] = React.useState("");
   const [posts, setPosts] = React.useState([]);
@@ -125,7 +126,7 @@ const Search = (props) => {
               }}
             >
               {!loading && posts.length === 0 && (
-                <div className="fof" style={{ margin: "0 auto" }}>
+                <div className="fof margin_zero_auto">
                   <h1>
                     OOPS! POSTS NOT FOUND
                     <span role="img" aria-label="">
@@ -134,7 +135,7 @@ const Search = (props) => {
                   </h1>
                 </div>
               )}
-              <div style={{ margin: "0 auto" }}>
+              <div className="margin_zero_auto">
                 <PropagateLoader
                   color={"#59D8B7"}
                   loading={loading}

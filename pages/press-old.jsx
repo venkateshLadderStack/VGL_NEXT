@@ -1,6 +1,6 @@
-import { Container } from "@material-ui/core";
+import Container from "@material-ui/core/Container";
 import dynamic from "next/dynamic";
-import React, { useContext } from "react";
+import React from "react";
 import client from "../apollo/client";
 import { PRESS_OLD } from "../queries/press";
 import NextSeo from "../components/SeoHead/seo";
@@ -27,12 +27,12 @@ const BottomRightPopUp = dynamic(
 
 const Press = ({ data }) => {
   const { page } = data;
-  const { open, closePopup, signup, closeSignup } = useContext(Context);
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
   return (
     <>
       <NextSeo seo={page?.seo} link={page?.link} />
       <Navbar />
-      <main style={{ paddingTop: 150, paddingBottom: 50 }}>
+      <main className="pt_150 pb_50">
         <Container>
           <div
             dangerouslySetInnerHTML={{

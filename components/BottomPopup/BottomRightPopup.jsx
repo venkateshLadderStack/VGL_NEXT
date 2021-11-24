@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import useWindowSize from "../../hooks/useWindowSize";
 import Image from "next/image";
 

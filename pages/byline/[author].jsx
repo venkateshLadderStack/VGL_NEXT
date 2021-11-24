@@ -1,13 +1,12 @@
 import { ApolloClient, gql, InMemoryCache, useLazyQuery } from "@apollo/client";
 import { Container, Grid } from "@material-ui/core";
 import React from "react";
-import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import Instagram from "@material-ui/icons/Instagram";
-import Link from "next/link";
 
 import dynamic from "next/dynamic";
+import { Context } from "../../context";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p></p>,
@@ -19,6 +18,24 @@ const Navbar = dynamic(() => import("../../components/Navbar/Desktop"), {
   loading: () => <p></p>,
 });
 
+const BottomLeftPopUp = dynamic(
+  () => import("../../components/BottomPopup/BottomLeftPopup"),
+  {
+    loading: () => <p></p>,
+  }
+);
+
+const BottomRightPopUp = dynamic(
+  () => import("../../components/BottomPopup/BottomRightPopUp"),
+  {
+    loading: () => <p></p>,
+  }
+);
+
+const Slideout = dynamic(() => import("../../components/SlideOut"), {
+  loading: () => <p></p>,
+});
+
 const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
   loading: () => <p></p>,
 });
@@ -26,6 +43,8 @@ const DesktopFooter = dynamic(() => import("../../components/Footer/Desktop"), {
 const Author = ({ data }) => {
   const { byline } = data;
   const byLineImage = byline?.bylineImage;
+
+  const { open, closePopup, signup, closeSignup } = React.useContext(Context);
   return (
     <>
       <Navbar />
@@ -109,7 +128,7 @@ const Author = ({ data }) => {
                 </div>
               </div>
               <div className="bio">
-                <h2>Author Bio</h2>
+                {byline?.description && <h2>Author Bio</h2>}
 
                 <p
                   dangerouslySetInnerHTML={{
@@ -130,6 +149,9 @@ const Author = ({ data }) => {
         </main>
       </div>
       <DesktopFooter bg={"#ffe3af"} />
+      {signup && <BottomLeftPopUp onCancel={closeSignup} />}
+      <BottomRightPopUp />
+      <Slideout open={open} onCancel={closePopup} />
     </>
   );
 };

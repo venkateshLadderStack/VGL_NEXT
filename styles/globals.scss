@@ -2420,3 +2420,88 @@ input.apple-switch:checked:after {
 .black {
   color: #000;
 }
+
+.blog_shad {
+  height: 5px;
+  width: 100%;
+  box-shadow: 0px 5px 1px rgb(253, 211, 194, 0.7);
+}
+
+.shar_wrap {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  justify-content: space-evenly;
+  align-items: center;
+  color: black;
+}
+
+.rel_art_title {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 60px;
+  font-weight: 700;
+  font-family: "SportingGrotesque-Bold";
+}
+
+.rel_art_title .rel_art_div1 {
+  display: flex;
+  justify-content: center;
+}
+
+.rel_art_title .rel_art_div1 .rel_art_div1 {
+  max-width: 1320px;
+}
+
+.ht_20 {
+  height: 20px;
+}
+
+.bg_main_color {
+  background: #ffe4b2;
+}
+
+.pt_200 {
+  padding-top: 200px;
+}
+
+.pb_200 {
+  padding-bottom: 200px;
+}
+
+.pt_150 {
+  padding-top: 150;
+}
+
+.pb_50 {
+  padding-bottom: 50;
+}
+
+.mt_100 {
+  margin-top: 100px;
+}
+
+.main_page_bg {
+  background-color: rgb(255, 228, 183);
+  padding-top: 68px;
+}
+
+@media screen and (max-width: 991px) {
+  .main_page_bg {
+    background-color: rgb(255, 228, 183);
+    padding-top: 110px;
+  }
+}
+
+.slider_bg_bg {
+  background: rgb(95, 100, 97);
+}
+
+.text_center {
+  text-align: center;
+}
+
+.margin_zero_auto {
+  margin: 0 auto;
+}
