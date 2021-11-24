@@ -26,7 +26,7 @@ const Slideout = ({ onCancel, open }) => {
             layout="responsive"
             width={265}
             height={88}
-            loading="lazy"
+            priority={true}
           />
 
           <div>

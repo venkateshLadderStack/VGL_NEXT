@@ -1,9 +1,12 @@
+import dynamic from "next/dynamic";
 import React from "react";
 import { Helmet } from "react-helmet";
-import Navbar from "../../../components/Navbar/Desktop";
-import Footer from "../../../components/Footer/Desktop";
+const Navbar = dynamic(() => import("../components/Navbar/Desktop"));
+const Footer = dynamic(() => import("../components/Footer/Desktop"), {
+  loading: () => <p></p>,
+});
 
-const BlogArticleMonth = () => {
+const Pagenotfound = () => {
   return (
     <>
       <Helmet>
@@ -50,4 +53,4 @@ const BlogArticleMonth = () => {
   );
 };
 
-export default BlogArticleMonth;
+export default Pagenotfound;

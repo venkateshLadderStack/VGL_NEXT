@@ -110,7 +110,6 @@ export default function Navbar() {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: "0px 10px",
             }}
           >
             <div className={classes.mobileAction}>
@@ -140,10 +139,6 @@ export default function Navbar() {
                 layout="fixed"
                 priority={true}
                 objectFit="contain"
-                placeholder="blur"
-                blurDataURL={
-                  size?.width < 768 ? "/assets/logo.png" : "/assets/test.png"
-                }
               />
             </Link>
 
@@ -381,8 +376,6 @@ export default function Navbar() {
                   priority={true}
                   objectFit="contain"
                   objectPosition="center"
-                  placeholder="blur"
-                  blurDataURL={"/assets/test.png"}
                 />
               </div>
             </Link>

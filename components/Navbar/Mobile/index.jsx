@@ -62,8 +62,6 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                     height={63}
                     layout="fixed"
                     priority={true}
-                    placeholder="blur"
-                    blurDataURL={"/assets/logo.png"}
                   />
                 </Link>
               </div>
@@ -211,9 +209,10 @@ export default function MobileNavbar({ handelMenu, isMenuOpen, menuItems }) {
                         : "https://cms.verygoodlight.com/wp-content/uploads/2020/06/night-mode-activated.svg"
                     }
                     alt="Dark Mode"
-                    width={24}
-                    height={27}
+                    width={40}
+                    height={24}
                     layout="fixed"
+                    objectPosition="bottom"
                   />
                   <span
                     style={{
