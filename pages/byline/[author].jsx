@@ -7,6 +7,9 @@ import Instagram from "@material-ui/icons/Instagram";
 
 import dynamic from "next/dynamic";
 import { Context } from "../../context";
+import BottomLeftPopUp from "../../components/BottomPopup/BottomLeftPopup";
+import BottomRightPopUp from "../../components/BottomPopup/BottomRightPopup";
+import Slideout from "../../components/SlideOut";
 
 const Image = dynamic(() => import("next/image"), {
   loading: () => <p></p>,
@@ -15,24 +18,6 @@ const CelebStory = dynamic(() => import("../../components/CelebStory"), {
   loading: () => <p></p>,
 });
 const Navbar = dynamic(() => import("../../components/Navbar/Desktop"), {
-  loading: () => <p></p>,
-});
-
-const BottomLeftPopUp = dynamic(
-  () => import("../../components/BottomPopup/BottomLeftPopup"),
-  {
-    loading: () => <p></p>,
-  }
-);
-
-const BottomRightPopUp = dynamic(
-  () => import("../../components/BottomPopup/BottomRightPopUp"),
-  {
-    loading: () => <p></p>,
-  }
-);
-
-const Slideout = dynamic(() => import("../../components/SlideOut"), {
   loading: () => <p></p>,
 });
 
