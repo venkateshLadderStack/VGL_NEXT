@@ -8,7 +8,7 @@ const Seo = ({ seo, link, featuredImage }) => {
   const APP_TITLE =
     "Beauty for all spectrums with how-to's, grooming tips, product reviews, celebrity interviews and more!- Very Good Light";
 
-  const site = "https://verygoodlight.com";
+  const site = "https://vgl.vercel.app";
   const canonicalURL = site + useRouter().asPath;
 
   return (

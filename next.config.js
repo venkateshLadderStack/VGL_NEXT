@@ -1,13 +1,4 @@
 const path = require("path");
-const withSass = require("@zeit/next-sass")({
-  cssModules: true,
-});
-const withImages = require("next-images");
-const withPlugins = require("next-compose-plugins");
-
-// const mySass = withSass({
-//   cssModules: true,
-// });
 
 const nextConfig = {
   images: {
@@ -21,6 +12,7 @@ const nextConfig = {
     ],
     minimumCacheTTL: 604800,
   },
+  compress: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
@@ -41,4 +33,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPlugins([[withImages]], nextConfig);
+module.exports = nextConfig;

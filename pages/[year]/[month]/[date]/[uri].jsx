@@ -137,6 +137,8 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       layout="fill"
                       objectFit="contain"
                       objectPosition="right"
+                      priority={true}
+                      quality={80}
                     />
                   ) : (
                     <Image
@@ -152,6 +154,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
                       alt=""
                       layout="fill"
                       objectFit="cover"
+                      priority={true}
                       quality={30}
                     />
                   )}

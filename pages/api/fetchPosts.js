@@ -43,7 +43,7 @@ export const fetchAllPosts = async () => {
     bigArr = [...bigArr, ...newOne.data.posts.edges];
     hasNext = newOne?.data.posts.pageInfo?.hasNextPage;
     i++;
-  } while (hasNext);
+  } while (i < 3);
 
   return {
     posts: bigArr,

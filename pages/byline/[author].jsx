@@ -48,6 +48,7 @@ const Author = ({ data }) => {
                     height={360}
                     objectFit="cover"
                     objectPosition="center"
+                    priority={true}
                   />
                 </div>
                 <div className="author_right_wrapper">
