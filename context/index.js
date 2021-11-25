@@ -9,7 +9,7 @@ const ContextProvider = (props) => {
   React.useEffect(() => {
     setTimeout(() => {
       setOpen(true);
-    }, 500);
+    }, 12000);
   }, []);
 
   return (
