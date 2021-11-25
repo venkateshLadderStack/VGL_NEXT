@@ -25,7 +25,7 @@ const NewSidebar = ({ posts }) => {
         >
           <h3 className="sidebar_title">Must-Read Stories</h3>
         </div>
-        <LazyLoad height={200} once>
+        <LazyLoad height={400} once>
           {posts.edges.slice(0, 4).map(({ node }, index) => (
             <div key={index} className={`sidebar_container `}>
               <>

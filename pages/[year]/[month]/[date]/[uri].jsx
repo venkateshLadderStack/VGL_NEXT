@@ -60,7 +60,7 @@ const BlogArticle = ({ post, realtedCat }, ...props) => {
 
   React.useEffect(() => {
     getRelatedPosts();
-  }, [catId]);
+  }, [catId, getRelatedPosts]);
 
   const feat1 = post?.featured_image_2?.featuredImage2?.mediaItemUrl;
   const feat2 = post?.featuredImage?.node?.mediaItemUrl;

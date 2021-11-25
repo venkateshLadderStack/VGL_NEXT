@@ -32,7 +32,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="profile" href="https://gmpg.org/xfn/11" />
           <meta name="ir-site-verification-token" value="-1088507391" />
-          {/* <meta name="robots" content="index, follow" /> */}
+          <meta name="robots" content="index, follow" />
           <meta
             name="googlebot"
             content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"

@@ -8,12 +8,15 @@ const Image = dynamic(() => import("next/image"), {
 const Slideout = ({ onCancel, open }) => {
   return (
     <>
-      <div
-        className={`Modal ${open ? "Show" : ""}`}
-        style={{
-          boxShadow: "5px 5px 0 black",
-        }}
-      >
+      <div className={`Modal ${open ? "Show" : ""} box_shad`}>
+        <Image
+          src="/assets/gradient_crop_bg.png"
+          alt=""
+          layout="fill"
+          quality={40}
+          priority={true}
+        />
+
         <div className="Close" onClick={onCancel}>
           <CloseIcon />
         </div>
@@ -27,18 +30,8 @@ const Slideout = ({ onCancel, open }) => {
             priority={true}
           />
 
-          <div>
-            <p
-              style={{
-                fontWeight: "600",
-                textAlign: "center",
-                whiteSpace: "nowrap",
-                fontSize: "24px",
-                fontFamily: "adobe-garamond-pro, serif",
-              }}
-            >
-              beauty beyond the binary
-            </p>
+          <div className="pop_wrap">
+            <p className="pop_text">beauty beyond the binary</p>
           </div>
           <div
             className="popup-action"
@@ -51,11 +44,7 @@ const Slideout = ({ onCancel, open }) => {
               style={{ maxWidth: "unset", padding: "0px" }}
               rel="noreferrer"
             >
-              <p
-                style={{
-                  boxShadow: "5px 5px 0 black",
-                }}
-              >
+              <p className="box_shad">
                 <span className="bg"></span>
                 <span className="base"></span>
                 <span className="text">SHOP</span>

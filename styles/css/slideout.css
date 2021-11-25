@@ -29,7 +29,7 @@
   transition: all 0.5s ease-in-out;
   z-index: 10;
   padding: 20px;
-  background-image: url("/assets/gradient_crop_bg.png");
+  /* background-image: url("/assets/gradient_crop_bg.png"); */
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 99999;
@@ -143,4 +143,22 @@
   align-items: center;
   font-family: "SportingGrotesque-Bold";
   font-weight: 800;
+}
+
+.box_shad {
+  box-shadow: 5px 5px 0 black;
+}
+
+.pop_text {
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 24px;
+  font-family: "adobe-garamond-pro, serif";
+  z-index: 9999;
+}
+
+.pop_wrap {
+  position: relative;
+  z-index: 999;
 }

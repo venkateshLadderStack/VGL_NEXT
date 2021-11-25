@@ -66,7 +66,12 @@ const Read = ({ categoryDBId, data, getCatId }) => {
       setHasNextPage(data?.posts?.pageInfo?.hasNextPage);
       setEndCursor(data?.posts?.pageInfo?.endCursor);
     }
-  }, [categoryDBId]);
+  }, [
+    categoryDBId,
+    data?.posts?.edges,
+    data?.posts?.pageInfo?.endCursor,
+    data?.posts?.pageInfo?.hasNextPage,
+  ]);
 
   const queryParams = {
     cursorId: endCursor,
@@ -85,7 +90,7 @@ const Read = ({ categoryDBId, data, getCatId }) => {
       setEndCursor(newData?.posts?.pageInfo?.endCursor);
       setLoading(false);
     }
-  }, [newData]);
+  }, [newData, posts]);
 
   const OnPageChanged = () => {
     setLoading(true);
