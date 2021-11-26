@@ -22,6 +22,8 @@ export default function Post({ post }) {
               }}
             >
               <Image
+                loading="lazy"
+                quality={40}
                 src={post?.featuredImage?.node?.mediaItemUrl}
                 placeholder="blur"
                 blurDataURL={post?.featuredImage?.node?.mediaItemUrl}
@@ -31,8 +33,6 @@ export default function Post({ post }) {
                 layout="responsive"
                 objectFit="cover"
                 objectPosition="center"
-                loading="lazy"
-                quality={80}
               />
             </div>
           </Link>
