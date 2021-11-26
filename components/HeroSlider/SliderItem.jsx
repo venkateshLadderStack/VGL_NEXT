@@ -15,6 +15,7 @@ const SliderItemOptionTwo = ({ data }) => {
       <div className="hero-area">
         <div className="hero-img hero-mobile pointer">
           <Image
+            quality={40}
             src={data?.featuredImage?.node?.mediaItemUrl}
             placeholder="blur"
             blurDataURL={data?.featuredImage?.node?.mediaItemUrl}
