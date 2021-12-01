@@ -9,7 +9,7 @@ export const GET_MORE_POSTS = gql`
         categoryId: $categoryId
       }
       after: $cursorId
-      first: 9
+      first: 100
     ) {
       edges {
         node {

@@ -84,7 +84,7 @@ const Read = ({ categoryDBId, data, getCatId }) => {
   );
 
   React.useEffect(() => {
-    if (newData && newData?.posts?.edges.length > 0) {
+    if (loading && newData && newData?.posts?.edges.length > 0) {
       setPosts([...posts, ...newData?.posts?.edges]);
       setHasNextPage(newData?.posts?.pageInfo?.hasNextPage);
       setEndCursor(newData?.posts?.pageInfo?.endCursor);
@@ -101,7 +101,7 @@ const Read = ({ categoryDBId, data, getCatId }) => {
     <>
       <NextSeo
         seo={data?.category?.seo}
-        link={`https://verygoodlight.com/read/${data?.category?.slug}`}
+        link={`https://verygoodlight.com/blog/${data?.category?.slug}`}
       />
       <Navbar />
       <main className="review-main-container">
@@ -115,7 +115,6 @@ const Read = ({ categoryDBId, data, getCatId }) => {
                   </h1>
                 </div>
               </Grid>
-              {/* <Grid item xs={12} sm={6} md={6} lg={6} xl={6}></Grid> */}
             </Grid>
             <div>
               <PostFilter list={data?.categories?.edges} slCat={categoryDBId} />

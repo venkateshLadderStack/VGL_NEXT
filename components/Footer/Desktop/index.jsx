@@ -106,15 +106,13 @@ const Footer = ({ bg, showBannerModal }) => {
             <Grid item xs={12} md={8} lg={8} style={{ marginBottom: 50 }}>
               <div className={classes.topright}>
                 <Image
+                  preload={true}
                   src={"/assets/footer-logo.png"}
-                  placeholder="blur"
-                  blurDataURL={"/assets/footer-logo.png"}
                   className={classes.logo}
                   alt=""
                   width={80}
                   height={88}
                   layout="fixed"
-                  loading="lazy"
                 />
                 <p className={classes.text}>
                   Add a handsome wink{" "}

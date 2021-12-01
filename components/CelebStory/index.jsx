@@ -28,6 +28,8 @@ export default function CelebStory({ post }) {
                 height={250}
                 loading="lazy"
                 quality={80}
+                objectFit="cover"
+                objectPosition="center"
               />
             </div>
           </div>
